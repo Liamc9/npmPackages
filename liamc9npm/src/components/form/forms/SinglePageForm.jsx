@@ -10,6 +10,7 @@ import ToggleSwitch2 from "../inputs/toggleSwitches/ToggleSwitch2";
 import RadioButtons2 from "../inputs/radioInputs/RadioButtons2";
 import RangeInput2 from "../inputs/rangeInputs/RangeInput2";
 import ResetButton from "../inputs/formButtons/ResetButton";
+import TextInput4 from "../inputs/textInputs/TextInput4";
 
 // Styled Components
 const FormContainer = styled.div`
@@ -113,6 +114,7 @@ export default function SinglePageForm({
             max={5}
             required
           />
+          <TextInput4 gridSpan='span 2'/>
           <ButtonContainer>
             <ResetButton>Reset</ResetButton>
             <SubmitButton>Submit</SubmitButton>

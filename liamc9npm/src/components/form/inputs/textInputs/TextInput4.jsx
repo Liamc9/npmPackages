@@ -5,6 +5,7 @@ import { ArrowRightIcon } from '../../../Branding/icons/Icons'
 
 // Styled Components
 const InputWrapper = styled.div`
+    grid-column: ${(props) => props.gridSpan || 'auto'};
   display: flex;
   align-items: center;
   background-color: #f7f7f8;
@@ -65,7 +66,7 @@ const TextInput4 = ({ onSubmit, ...props }) => {
   };
 
   return (
-    <InputWrapper>
+    <InputWrapper gridSpan={props.gridSpan}>
       <StyledInput {...props} onKeyDown={handleKeyDown} />
       <SubmitButton onClick={onSubmit}>
         <ArrowIcon />
