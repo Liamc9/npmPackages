@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ChevronRightIcon } from "../Branding/icons/Icons";
+import { FiChevronRight } from "react-icons/fi";
 // Atoms
 const Button = styled.button`
   background-color: #007bff;
@@ -62,7 +62,7 @@ const ManagePaymentMethods = ({ paymentMethods, onAddPaymentMethod }) => {
         {paymentMethods.map((method, index) => (
           <ListItem key={index}>
             <span>{method.name}</span>
-            <ChevronRightIcon className='w-6 h-6' />
+            <FiChevronRight className='w-6 h-6' />
           </ListItem>
         ))}
       </PaymentMethodsList>

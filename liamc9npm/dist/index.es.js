@@ -13616,6 +13616,76 @@ const StyledLink = styled(Link$1)`
 `;
 
 // Styled Components
+const InputWrapper$1 = styled.div`
+    grid-column: ${props => props.gridSpan || 'auto'};
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f8;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+`;
+const StyledInput = styled.input`
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 16px;
+  font-size: 1rem;
+  outline: none;
+  color: #333;
+
+  &::placeholder {
+    color: #aaa;
+  }
+`;
+const SubmitButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #333;
+  }
+
+  &:active {
+    background-color: #222;
+  }
+`;
+const ArrowIcon = styled(ArrowRightIcon)`
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+`;
+
+// TextInput Component
+const TextInput4 = ({
+  onSubmit,
+  ...props
+}) => {
+  const handleKeyDown = event => {
+    if (event.key === 'Enter' && onSubmit) {
+      onSubmit(event);
+    }
+  };
+  return /*#__PURE__*/React.createElement(InputWrapper$1, {
+    gridSpan: props.gridSpan
+  }, /*#__PURE__*/React.createElement(StyledInput, _extends({}, props, {
+    onKeyDown: handleKeyDown
+  })), /*#__PURE__*/React.createElement(SubmitButton, {
+    onClick: onSubmit
+  }, /*#__PURE__*/React.createElement(ArrowIcon, null)));
+};
+
+// Styled Components
 const FormContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Always two columns */
@@ -13729,6 +13799,8 @@ function SinglePageForm({
     min: 1,
     max: 5,
     required: true
+  }), /*#__PURE__*/React.createElement(TextInput4, {
+    gridSpan: "span 2"
   }), /*#__PURE__*/React.createElement(ButtonContainer, null, /*#__PURE__*/React.createElement(ResetButton, null, "Reset"), /*#__PURE__*/React.createElement(SubmitButton$1, null, "Submit")))));
 }
 
@@ -14266,73 +14338,6 @@ const StyledWrapper = styled.div`
    padding: 0 .2em;
    color: #2196f3;
   }`;
-
-// Styled Components
-const InputWrapper$1 = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: #f7f7f8;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 8px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-`;
-const StyledInput = styled.input`
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 12px 16px;
-  font-size: 1rem;
-  outline: none;
-  color: #333;
-
-  &::placeholder {
-    color: #aaa;
-  }
-`;
-const SubmitButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    background-color: #333;
-  }
-
-  &:active {
-    background-color: #222;
-  }
-`;
-const ArrowIcon = styled(ArrowRightIcon)`
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-`;
-
-// TextInput Component
-const TextInput4 = ({
-  onSubmit,
-  ...props
-}) => {
-  const handleKeyDown = event => {
-    if (event.key === 'Enter' && onSubmit) {
-      onSubmit(event);
-    }
-  };
-  return /*#__PURE__*/React.createElement(InputWrapper$1, null, /*#__PURE__*/React.createElement(StyledInput, _extends({}, props, {
-    onKeyDown: handleKeyDown
-  })), /*#__PURE__*/React.createElement(SubmitButton, {
-    onClick: onSubmit
-  }, /*#__PURE__*/React.createElement(ArrowIcon, null)));
-};
 
 // TimeInput.jsx
 const InputWrapper = styled.div`
