@@ -1893,8 +1893,8 @@ const NavItem = styled(NavLink)`
 
   &.active {
     color: ${({
-  activeColor
-}) => activeColor || "#000"};
+  activecolor
+}) => activecolor || "#000"};
   }
 
   svg {
@@ -1916,7 +1916,7 @@ const NotificationDot = styled.span`
 // Component
 const BottomNav = ({
   items,
-  activeColor
+  activecolor
 }) => {
   return /*#__PURE__*/React.createElement(BottomNavContainer, null, items.map(({
     text,
@@ -1926,7 +1926,7 @@ const BottomNav = ({
   }, index) => /*#__PURE__*/React.createElement(NavItem, {
     key: index,
     to: path,
-    activeColor: activeColor
+    activecolor: activecolor
   }, /*#__PURE__*/React.createElement(Icon, null), hasNotification && /*#__PURE__*/React.createElement(NotificationDot, null), text)));
 };
 

@@ -28,7 +28,7 @@ const NavItem = styled(NavLink)`
   font-size: 0.875rem;
 
   &.active {
-    color: ${({ activecolor }) => activecolor || "#000"};
+    color: ${({ activeColor }) => activeColor || "#000"};
   }
 
   svg {
@@ -49,11 +49,11 @@ const NotificationDot = styled.span`
 `;
 
 // Component
-const BottomNav = ({ items, activecolor }) => {
+const BottomNav = ({ items, activeColor }) => {
   return (
     <BottomNavContainer>
       {items.map(({ text, icon: Icon, path, hasNotification }, index) => (
-        <NavItem key={index} to={path} activecolor={activecolor}>
+        <NavItem key={index} to={path} activeColor={activeColor}>
           <Icon />
           {hasNotification && <NotificationDot />}
           {text}

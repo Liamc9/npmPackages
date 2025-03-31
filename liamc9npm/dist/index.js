@@ -1906,8 +1906,8 @@ const NavItem = styled__default["default"](reactRouterDom.NavLink)`
 
   &.active {
     color: ${({
-  activeColor
-}) => activeColor || "#000"};
+  activecolor
+}) => activecolor || "#000"};
   }
 
   svg {
@@ -1929,7 +1929,7 @@ const NotificationDot = styled__default["default"].span`
 // Component
 const BottomNav = ({
   items,
-  activeColor
+  activecolor
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(BottomNavContainer, null, items.map(({
     text,
@@ -1939,7 +1939,7 @@ const BottomNav = ({
   }, index) => /*#__PURE__*/React__default["default"].createElement(NavItem, {
     key: index,
     to: path,
-    activeColor: activeColor
+    activecolor: activecolor
   }, /*#__PURE__*/React__default["default"].createElement(Icon, null), hasNotification && /*#__PURE__*/React__default["default"].createElement(NotificationDot, null), text)));
 };
 
