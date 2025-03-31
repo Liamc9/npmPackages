@@ -4,9 +4,11 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
 var styled = require('styled-components');
+var liamc9npm = require('liamc9npm');
 var reactRouterDom = require('react-router-dom');
 var ReactDOM = require('react-dom');
 var PropTypes = require('prop-types');
+var fi = require('react-icons/fi');
 var classNames = require('classnames');
 var react = require('swiper/react');
 require('swiper/css');
@@ -14,7 +16,7 @@ require('swiper/css/navigation');
 require('swiper/css/pagination');
 require('swiper/css/autoplay');
 var modules = require('swiper/modules');
-var liamc9npm = require('liamc9npm');
+var fa = require('react-icons/fa');
 var reactTransitionGroup = require('react-transition-group');
 var ReactPlayer = require('react-player');
 
@@ -1465,12 +1467,12 @@ const ContentContainer$1 = styled__default["default"].div`
   padding: 16px;
   
 `;
-const Title$6 = styled__default["default"].p`
+const Title$d = styled__default["default"].p`
   font-size: 24px;
   font-weight: bold;
   color: #1a202c;
 `;
-const Subtitle = styled__default["default"].p`
+const Subtitle$2 = styled__default["default"].p`
   font-size: 18px;
   font-weight: medium;
   color: #4a5568;
@@ -1490,7 +1492,7 @@ const AccordionContent = styled__default["default"].div`
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 `;
-const Description$1 = styled__default["default"].p`
+const Description$2 = styled__default["default"].p`
   padding: 24px;
   background-color: #f7fafc;
   border-top: 1px solid #e2e8f0;
@@ -1516,7 +1518,7 @@ function AccordionCard({
   }, /*#__PURE__*/React__default["default"].createElement(IconContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     size: 80,
     color: "#38a169"
-  })), /*#__PURE__*/React__default["default"].createElement(ContentContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Title$6, null, title), /*#__PURE__*/React__default["default"].createElement(Subtitle, null, subtitle), /*#__PURE__*/React__default["default"].createElement(Institution, null, institution)), /*#__PURE__*/React__default["default"].createElement(GradeContainer, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Grade: ", grade), /*#__PURE__*/React__default["default"].createElement("p", null, "GPA: ", gpa), isOpen ? /*#__PURE__*/React__default["default"].createElement(ChevronUpIcon, {
+  })), /*#__PURE__*/React__default["default"].createElement(ContentContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Title$d, null, title), /*#__PURE__*/React__default["default"].createElement(Subtitle$2, null, subtitle), /*#__PURE__*/React__default["default"].createElement(Institution, null, institution)), /*#__PURE__*/React__default["default"].createElement(GradeContainer, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Grade: ", grade), /*#__PURE__*/React__default["default"].createElement("p", null, "GPA: ", gpa), isOpen ? /*#__PURE__*/React__default["default"].createElement(ChevronUpIcon, {
     size: 24,
     color: "#718096"
   }) : /*#__PURE__*/React__default["default"].createElement(ChevronDownIcon, {
@@ -1524,8 +1526,162 @@ function AccordionCard({
     color: "#718096"
   }))), /*#__PURE__*/React__default["default"].createElement(AccordionContent, {
     isOpen: isOpen
-  }, /*#__PURE__*/React__default["default"].createElement(Description$1, null, description)));
+  }, /*#__PURE__*/React__default["default"].createElement(Description$2, null, description)));
 }
+
+// IMPORTS
+
+// Styled Components
+const AccountContainer = styled__default["default"].div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full height to position footer at the bottom */
+  padding: 2rem; /* Increased padding for larger layout */
+`;
+const ProfileSection = styled__default["default"](reactRouterDom.Link)`
+  display: flex;
+  align-items: center;
+  padding: 24px; /* Increased padding */
+  background-color: #ffffff; /* White background */
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 2rem; /* Space below the profile section */
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+`;
+const ProfileImage$2 = styled__default["default"].div`
+  width: 80px; /* Increased size */
+  height: 80px; /* Increased size */
+  border-radius: 50%;
+  background-image: url(${props => props.image || "https://via.placeholder.com/80"});
+  background-size: cover;
+  background-position: center;
+  margin-right: 24px; /* Increased margin */
+`;
+const ProfileInfo$1 = styled__default["default"].div`
+  flex-grow: 1;
+`;
+const ProfileName = styled__default["default"].div`
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: bold;
+  color: #333;
+`;
+const ViewProfile$1 = styled__default["default"].div`
+  font-size: 1rem; /* Increased font size */
+  color: #666;
+`;
+const IconWrapper$7 = styled__default["default"].div`
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 24px; /* Increased icon size */
+    height: 24px;
+    color: #666;
+  }
+`;
+const LogoutButton$1 = styled__default["default"].button`
+  background-color: #f3f4f6; /* Light gray */
+  color: #dc2626; /* Red text */
+  border: none;
+  border-radius: 0.375rem; /* Rounded corners */
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 2rem;
+  width: 100%; /* Full width */
+  text-align: center;
+
+  &:hover {
+    background-color: #e5e7eb; /* Slightly darker gray */
+  }
+`;
+const Footer$3 = styled__default["default"].footer`
+  margin-top: auto; /* Push footer to the bottom */
+  text-align: center;
+  padding: 1.5rem 0; /* Increased padding */
+  font-size: 1rem; /* Increased font size */
+  color: #6b7280; /* Equivalent to text-gray-500 */
+`;
+const FooterLinks$2 = styled__default["default"].div`
+  margin-top: 0.75rem; /* Increased margin */
+
+  a {
+    color: #2563eb; /* Equivalent to text-blue-600 */
+    text-decoration: none;
+    margin: 0 0.5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+const LoadingMessage = styled__default["default"].div`
+  padding: 16px;
+  font-size: 1.25rem; /* Increased font size */
+  color: #666;
+  text-align: center;
+`;
+const Account = ({
+  settings,
+  logout,
+  currentUser,
+  userData
+}) => {
+  // Group settings by category
+  const navigate = reactRouterDom.useNavigate();
+  const categories = settings.reduce((acc, setting) => {
+    if (!acc[setting.category]) {
+      acc[setting.category] = [];
+    }
+    acc[setting.category].push(setting);
+    return acc;
+  }, {});
+
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/login"); // Redirect to login page after logout
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
+  // Handle loading and authentication state
+  if (currentUser === null) {
+    // User is not authenticated
+    navigate("/login");
+    return null;
+  }
+  if (!userData) {
+    return /*#__PURE__*/React__default["default"].createElement(LoadingMessage, null, "Loading user data...");
+  }
+  return /*#__PURE__*/React__default["default"].createElement(AccountContainer, null, userData && /*#__PURE__*/React__default["default"].createElement(ProfileSection, {
+    to: `/profile/${userData.id}`
+  }, /*#__PURE__*/React__default["default"].createElement(ProfileImage$2, {
+    image: userData.photoURL
+  }), /*#__PURE__*/React__default["default"].createElement(ProfileInfo$1, null, /*#__PURE__*/React__default["default"].createElement(ProfileName, null, userData.displayName || "User Name"), /*#__PURE__*/React__default["default"].createElement(ViewProfile$1, null, "View Profile")), /*#__PURE__*/React__default["default"].createElement(IconWrapper$7, null, /*#__PURE__*/React__default["default"].createElement(liamc9npm.ChevronRightIcon, null))), Object.keys(categories).map((category, index) => /*#__PURE__*/React__default["default"].createElement(liamc9npm.StackedList, {
+    key: index,
+    category: category,
+    items: categories[category]
+  })), /*#__PURE__*/React__default["default"].createElement(LogoutButton$1, {
+    onClick: handleLogout
+  }, "Log Out"), /*#__PURE__*/React__default["default"].createElement(Footer$3, null, /*#__PURE__*/React__default["default"].createElement("div", null, "Company Name"), /*#__PURE__*/React__default["default"].createElement("div", null, "Version 1.0.0"), /*#__PURE__*/React__default["default"].createElement(FooterLinks$2, null, /*#__PURE__*/React__default["default"].createElement("a", {
+    href: "/terms"
+  }, "Terms"), /*#__PURE__*/React__default["default"].createElement("a", {
+    href: "/policy"
+  }, "Policy"))));
+};
 
 function AppCard({
   image,
@@ -2206,7 +2362,7 @@ const StyledWrapper$6 = styled__default["default"].div`
 
 // Styled Components
 
-const Container$6 = styled__default["default"].div`
+const Container$9 = styled__default["default"].div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2326,7 +2482,7 @@ const CheckedItem = ({
   color = "#3b82f6",
   required
 }) => {
-  return /*#__PURE__*/React__default["default"].createElement(Container$6, null, /*#__PURE__*/React__default["default"].createElement(Label$4, null, /*#__PURE__*/React__default["default"].createElement(HiddenCheckbox, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$9, null, /*#__PURE__*/React__default["default"].createElement(Label$4, null, /*#__PURE__*/React__default["default"].createElement(HiddenCheckbox, {
     onChange: onChange,
     checked: checked,
     required: required
@@ -2366,6 +2522,38 @@ const ColorPicker = ({
   type: "color"
 }, props)));
 
+const ContactContainer = styled__default["default"].div`
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: auto;
+`;
+const ContactOption = styled__default["default"].div`
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+`;
+const IconWrapper$6 = styled__default["default"].div`
+  font-size: 24px;
+  margin-top: 4px;
+`;
+const Info = styled__default["default"].div`
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+`;
+const Title$c = styled__default["default"].span`
+  font-weight: bold;
+  margin-bottom: 4px;
+`;
+const Description$1 = styled__default["default"].span`
+  color: #555;
+`;
+const ContactUs = () => {
+  return /*#__PURE__*/React__default["default"].createElement(ContactContainer, null, /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMessageSquare, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$c, null, "Chat with us"), /*#__PURE__*/React__default["default"].createElement(Description$1, null, "6:00 - 23:59", /*#__PURE__*/React__default["default"].createElement("br", null), "7 days a week"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiPhone, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$c, null, "Call us"), /*#__PURE__*/React__default["default"].createElement(Description$1, null, "1800 811 6453", /*#__PURE__*/React__default["default"].createElement("br", null), "Products & Orders: 06:00 - 23:59, 7 days a week", /*#__PURE__*/React__default["default"].createElement("br", null), "Company Info & Enquiries: 10:00 - 19:00, Monday - Friday"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMapPin, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$c, null, "Find a Store"))));
+};
+
 // src/components/ConversationItem.jsx
 
 // Styled Components
@@ -2393,7 +2581,7 @@ const Details = styled__default["default"].div`
   width: 100%;
   position: relative; /* To position the timestamp */
 `;
-const Header$5 = styled__default["default"].div`
+const Header$9 = styled__default["default"].div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2457,7 +2645,7 @@ const ConversationItem = ({
   }, /*#__PURE__*/React__default["default"].createElement(Avatar, {
     src: otherParticipant.avatarUrl,
     alt: `${otherParticipant.name}'s avatar`
-  }), /*#__PURE__*/React__default["default"].createElement(Details, null, /*#__PURE__*/React__default["default"].createElement(Header$5, null, /*#__PURE__*/React__default["default"].createElement(Name, null, otherParticipant.name), /*#__PURE__*/React__default["default"].createElement(Timestamp, null, formattedTimestamp)), /*#__PURE__*/React__default["default"].createElement(LastMessage, null, conversation.lastMessage.text)));
+  }), /*#__PURE__*/React__default["default"].createElement(Details, null, /*#__PURE__*/React__default["default"].createElement(Header$9, null, /*#__PURE__*/React__default["default"].createElement(Name, null, otherParticipant.name), /*#__PURE__*/React__default["default"].createElement(Timestamp, null, formattedTimestamp)), /*#__PURE__*/React__default["default"].createElement(LastMessage, null, conversation.lastMessage.text)));
 };
 
 // src/components/ConversationList.js
@@ -2893,7 +3081,7 @@ const Icon = styled__default["default"].svg`
   fill: #ef4444; /* Red color for the icon */
   margin-bottom: 1rem;
 `;
-const Title$5 = styled__default["default"].h2`
+const Title$b = styled__default["default"].h2`
   font-size: 1.25rem;
   font-weight: bold;
   color: #1f2937;
@@ -2967,7 +3155,7 @@ const DeleteModal = ({
     clipRule: "evenodd",
     d: "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
     fillRule: "evenodd"
-  })), /*#__PURE__*/React__default["default"].createElement(Title$5, null, title || "Are you sure?"), /*#__PURE__*/React__default["default"].createElement(Message$1, null, message || "Do you really want to continue? This process cannot be undone.")), /*#__PURE__*/React__default["default"].createElement(ButtonContainer$2, null, /*#__PURE__*/React__default["default"].createElement(CancelButton, {
+  })), /*#__PURE__*/React__default["default"].createElement(Title$b, null, title || "Are you sure?"), /*#__PURE__*/React__default["default"].createElement(Message$1, null, message || "Do you really want to continue? This process cannot be undone.")), /*#__PURE__*/React__default["default"].createElement(ButtonContainer$2, null, /*#__PURE__*/React__default["default"].createElement(CancelButton, {
     onClick: onCancel
   }, "Cancel"), /*#__PURE__*/React__default["default"].createElement(ConfirmButton, {
     onClick: onConfirm
@@ -4220,6 +4408,95 @@ li {
   }, "Delete"))))));
 }
 
+// Styled Components
+const Container$8 = styled__default["default"].div`
+  padding: 20px;
+`;
+const Header$8 = styled__default["default"].header`
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+`;
+const Title$a = styled__default["default"].h1`
+  margin-left: 40px;
+  font-size: 1.5rem;
+`;
+const Footer$2 = styled__default["default"].footer`
+  margin-top: 24px;
+`;
+const SaveButton$2 = styled__default["default"].button`
+  padding: 10px 16px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+`;
+
+// Component
+const EditSettingsTemplate = ({
+  headerTitle = 'Settings',
+  sections = [],
+  initialValues = {},
+  onSave
+}) => {
+  const navigate = reactRouterDom.useNavigate();
+  const [formData, setFormData] = React.useState(initialValues);
+  const updateState = (fieldName, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [fieldName]: value
+    }));
+  };
+  const handleSave = () => {
+    if (onSave) {
+      onSave(formData);
+    } else {
+      console.log('Form Data:', formData);
+      alert('Changes saved!');
+    }
+  };
+  return /*#__PURE__*/React__default["default"].createElement(Container$8, null, /*#__PURE__*/React__default["default"].createElement(Header$8, null, /*#__PURE__*/React__default["default"].createElement("button", {
+    onClick: () => navigate(-1),
+    style: {
+      background: 'none',
+      border: 'none',
+      cursor: 'pointer'
+    }
+  }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
+    size: 24
+  })), /*#__PURE__*/React__default["default"].createElement(Title$a, null, headerTitle)), /*#__PURE__*/React__default["default"].createElement("main", null, sections.map(({
+    title,
+    fields
+  }, idx) => /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
+    key: idx,
+    title: title,
+    items: fields.map(({
+      name,
+      type,
+      fieldName,
+      options
+    }) => ({
+      type,
+      props: {
+        name,
+        fieldName,
+        currentState: formData[fieldName],
+        value: formData[fieldName],
+        options
+      }
+    })),
+    updateState: updateState
+  }))), /*#__PURE__*/React__default["default"].createElement(Footer$2, null, /*#__PURE__*/React__default["default"].createElement(SaveButton$2, {
+    onClick: handleSave
+  }, "Save Changes")));
+};
+
 const FieldContainer$3 = styled__default["default"].div`
   display: flex;
   flex-direction: column;
@@ -4480,13 +4757,84 @@ const EditStackedList = ({
   }, renderComponent(item, index)))));
 };
 
+const FAQContainer = styled__default["default"].div`
+  max-width: 600px;
+  margin: auto;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+`;
+const Header$7 = styled__default["default"].div`
+  margin-bottom: 24px;
+`;
+const Title$9 = styled__default["default"].h2`
+  font-size: 24px;
+  margin-bottom: 8px;
+`;
+const Subtitle$1 = styled__default["default"].p`
+  color: #555;
+`;
+const FAQItem = styled__default["default"].div`
+  border-bottom: 1px solid #eaeaea;
+  padding: 16px 0;
+`;
+const FAQTitle = styled__default["default"].div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+`;
+const FAQContent = styled__default["default"].div`
+  margin-top: 12px;
+  padding-left: 8px;
+  color: #555;
+`;
+const FAQs = [{
+  category: 'Returns',
+  questions: ["What is Nike's return policy?", 'How do I return my Nike order?', 'Where is my refund?']
+}, {
+  category: 'Dispatch & Delivery',
+  questions: []
+}, {
+  category: 'Orders & Payment',
+  questions: []
+}, {
+  category: 'Shopping',
+  questions: []
+}, {
+  category: 'Nike Membership & Apps',
+  questions: []
+}, {
+  category: 'Company Info',
+  questions: []
+}];
+const FAQ = () => {
+  const [openIndex, setOpenIndex] = React.useState(null);
+  const handleToggle = index => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+  return /*#__PURE__*/React__default["default"].createElement(FAQContainer, null, /*#__PURE__*/React__default["default"].createElement(Header$7, null, /*#__PURE__*/React__default["default"].createElement(Title$9, null, "Frequently Asked Questions"), /*#__PURE__*/React__default["default"].createElement(Subtitle$1, null, "Answers to our most frequently asked questions are just one click away.")), FAQs.map((faq, index) => /*#__PURE__*/React__default["default"].createElement(FAQItem, {
+    key: index
+  }, /*#__PURE__*/React__default["default"].createElement(FAQTitle, {
+    onClick: () => handleToggle(index)
+  }, faq.category, openIndex === index ? /*#__PURE__*/React__default["default"].createElement(fi.FiChevronUp, null) : /*#__PURE__*/React__default["default"].createElement(fi.FiChevronDown, null)), openIndex === index && faq.questions.length > 0 && /*#__PURE__*/React__default["default"].createElement(FAQContent, null, faq.questions.map((question, qIndex) => /*#__PURE__*/React__default["default"].createElement("div", {
+    key: qIndex
+  }, question)), /*#__PURE__*/React__default["default"].createElement("div", {
+    style: {
+      marginTop: '8px',
+      fontWeight: 'bold',
+      cursor: 'pointer'
+    }
+  }, "View all")))));
+};
+
 const FeedItemContainer = styled__default["default"].div`
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 4px;
   background: #fff;
 `;
-const Title$4 = styled__default["default"].h3`
+const Title$8 = styled__default["default"].h3`
   margin: 0 0 0.5rem 0;
 `;
 const Description = styled__default["default"].p`
@@ -4495,7 +4843,7 @@ const Description = styled__default["default"].p`
 const FeedItem = ({
   data
 }) => {
-  return /*#__PURE__*/React__default["default"].createElement(FeedItemContainer, null, /*#__PURE__*/React__default["default"].createElement(Title$4, null, data.title), /*#__PURE__*/React__default["default"].createElement(Description, null, data.description));
+  return /*#__PURE__*/React__default["default"].createElement(FeedItemContainer, null, /*#__PURE__*/React__default["default"].createElement(Title$8, null, data.title), /*#__PURE__*/React__default["default"].createElement(Description, null, data.description));
 };
 
 // ../../components/search/FeedLogic.jsx
@@ -6005,6 +6353,73 @@ const GhostLoader = () => {
   }));
 };
 
+const SupportContainer = styled__default["default"].div`
+  position: relative;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: auto;
+  color: #333;
+`;
+const BackButton$4 = styled__default["default"].div`
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  cursor: pointer;
+`;
+const Title$7 = styled__default["default"].h2`
+  text-align: center;
+  margin-bottom: 8px;
+`;
+const Subtitle = styled__default["default"].p`
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 32px;
+`;
+const Option = styled__default["default"](reactRouterDom.Link)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid #eaeaea;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: 1px solid #eaeaea;
+  }
+`;
+const OptionContent = styled__default["default"].div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+const HelpAndFAQs = () => {
+  const navigate = reactRouterDom.useNavigate();
+  return /*#__PURE__*/React__default["default"].createElement(SupportContainer, null, /*#__PURE__*/React__default["default"].createElement(BackButton$4, {
+    onClick: () => navigate(-1)
+  }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
+    size: 20,
+    color: "#333"
+  })), /*#__PURE__*/React__default["default"].createElement(Title$7, null, "Get Support"), /*#__PURE__*/React__default["default"].createElement(Subtitle, null, "Get help finding the right products and services for your needs."), /*#__PURE__*/React__default["default"].createElement(Option, {
+    to: "./contactus"
+  }, /*#__PURE__*/React__default["default"].createElement(OptionContent, null, /*#__PURE__*/React__default["default"].createElement(fi.FiPhone, {
+    size: 20
+  }), "Call Us"), /*#__PURE__*/React__default["default"].createElement(fi.FiChevronRight, {
+    size: 20,
+    color: "#aaa"
+  })), /*#__PURE__*/React__default["default"].createElement(Option, {
+    to: "./faqs"
+  }, /*#__PURE__*/React__default["default"].createElement(OptionContent, null, /*#__PURE__*/React__default["default"].createElement(fi.FiHelpCircle, {
+    size: 20
+  }), "Browse FAQs"), /*#__PURE__*/React__default["default"].createElement(fi.FiChevronRight, {
+    size: 20,
+    color: "#aaa"
+  })));
+};
+
 // The Hero component definition
 const Hero = ({
   title,
@@ -6621,7 +7036,7 @@ const Card$1 = styled__default["default"].div`
 `;
 
 // Header for LettzIcon and "Lettz" text
-const Header$4 = styled__default["default"].div`
+const Header$6 = styled__default["default"].div`
   position: absolute;
   top: 20px;
   left: 20px;
@@ -6711,7 +7126,7 @@ const ListYourPlaceCard = ({
       onButtonClick();
     }
   };
-  return /*#__PURE__*/React__default["default"].createElement(Card$1, null, /*#__PURE__*/React__default["default"].createElement(Header$4, null, /*#__PURE__*/React__default["default"].createElement(StyledLettzIcon$1, null), " ", /*#__PURE__*/React__default["default"].createElement(LogoText$1, null, "Lettz")), /*#__PURE__*/React__default["default"].createElement(IconWrapper$5, null, /*#__PURE__*/React__default["default"].createElement("span", {
+  return /*#__PURE__*/React__default["default"].createElement(Card$1, null, /*#__PURE__*/React__default["default"].createElement(Header$6, null, /*#__PURE__*/React__default["default"].createElement(StyledLettzIcon$1, null), " ", /*#__PURE__*/React__default["default"].createElement(LogoText$1, null, "Lettz")), /*#__PURE__*/React__default["default"].createElement(IconWrapper$5, null, /*#__PURE__*/React__default["default"].createElement("span", {
     role: "img",
     "aria-label": "icon"
   }, "\uD83C\uDFE1")), /*#__PURE__*/React__default["default"].createElement(Text$2, null, "Get started by listing your place today!"), /*#__PURE__*/React__default["default"].createElement(Button$7, {
@@ -7055,7 +7470,7 @@ const LoginPage = ({
   themeColor = "#A855F7"
 }) => {
   if (isSignupComplete) {
-    return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(Title$3, null, "Signup Successful!"), /*#__PURE__*/React__default["default"].createElement("p", null, "Please check your email ", /*#__PURE__*/React__default["default"].createElement("strong", null, email), " for a verification link to activate your account."), /*#__PURE__*/React__default["default"].createElement(ButtonWrapper, null, /*#__PURE__*/React__default["default"].createElement(Button$6, {
+    return /*#__PURE__*/React__default["default"].createElement(Container$7, null, /*#__PURE__*/React__default["default"].createElement(Title$6, null, "Signup Successful!"), /*#__PURE__*/React__default["default"].createElement("p", null, "Please check your email ", /*#__PURE__*/React__default["default"].createElement("strong", null, email), " for a verification link to activate your account."), /*#__PURE__*/React__default["default"].createElement(ButtonWrapper, null, /*#__PURE__*/React__default["default"].createElement(Button$6, {
       themeColor: themeColor,
       onClick: () => {
         setIsSignupComplete(false); // Reset the signup complete state
@@ -7063,9 +7478,9 @@ const LoginPage = ({
       }
     }, "Return to Login")));
   }
-  return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper1, null, /*#__PURE__*/React__default["default"].createElement(LettzIconStyled, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$7, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper1, null, /*#__PURE__*/React__default["default"].createElement(LettzIconStyled, {
     themeColor: themeColor
-  })), /*#__PURE__*/React__default["default"].createElement(Title$3, null, isSignUp ? "Sign up to Lettz to get started!" : "Sign in to Lettz"), resetEmailSent && /*#__PURE__*/React__default["default"].createElement(Message, null, "A password reset email has been sent to ", email, "."), error && /*#__PURE__*/React__default["default"].createElement(Message, {
+  })), /*#__PURE__*/React__default["default"].createElement(Title$6, null, isSignUp ? "Sign up to Lettz to get started!" : "Sign in to Lettz"), resetEmailSent && /*#__PURE__*/React__default["default"].createElement(Message, null, "A password reset email has been sent to ", email, "."), error && /*#__PURE__*/React__default["default"].createElement(Message, {
     error: true
   }, error), /*#__PURE__*/React__default["default"].createElement(Form, {
     onSubmit: isSignUp ? handleSignup : handleLogin
@@ -7122,7 +7537,7 @@ const LoginPage = ({
     onClick: () => setShowSignUp(!isSignUp)
   }, isSignUp ? "Login" : "Sign up"))));
 };
-const Container$5 = styled__default["default"].div`
+const Container$7 = styled__default["default"].div`
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -7142,7 +7557,7 @@ const LettzIconStyled = styled__default["default"](LettzIcon)`
   height: 50px;
   color: ${props => props.themeColor}; /* Apply themeColor to currentColor */
 `;
-const Title$3 = styled__default["default"].h2`
+const Title$6 = styled__default["default"].h2`
   font-size: 1.5rem;
   font-weight: bold;
   color: #1f2937;
@@ -7278,217 +7693,208 @@ const IconWrapper$4 = styled__default["default"].span`
   }
 `;
 
-// Styled Components
-const Container$4 = styled__default["default"].div`
-  max-width: 28rem; /* Equivalent to max-w-md */
-  padding: 1rem;
+const initialAccountState = {
+  email: 'user@example.com',
+  language: 'English',
+  notifications: true
+};
+const accountFields = [{
+  name: 'Email Address',
+  type: 'EditableTextField',
+  fieldName: 'email',
+  icon: fi.FiUser
+}, {
+  name: 'Language',
+  type: 'SelectField',
+  fieldName: 'language',
+  options: ['English', 'Spanish', 'French'],
+  icon: fi.FiUser
+}, {
+  name: 'Enable Notifications',
+  type: 'ToggleField',
+  fieldName: 'notifications',
+  icon: fi.FiUser
+}];
+const Container$6 = styled__default["default"].div`
+  padding: 20px;
+  max-width: 28rem;
 `;
-const Header$3 = styled__default["default"].div`
+const Header$5 = styled__default["default"].header`
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
 `;
-const BackButton$3 = styled__default["default"].button`
-  display: flex;
-  align-items: center;
-  background: none;
-  border: none;
-  color: #000;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-right: 0.5rem;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-const Title$2 = styled__default["default"].h1`
-  font-size: 1.25rem; /* Equivalent to text-xl */
-  font-weight: 600; /* Equivalent to font-semibold */
-  color: #333; /* Equivalent to text-gray-800 */
-  margin: 0;
+const Title$5 = styled__default["default"].h1`
+  margin-left: 40px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
 `;
 const DeleteButton = styled__default["default"].button`
   width: 100%;
-  background-color: #ef4444; /* Equivalent to bg-red-500 */
+  background-color: #ef4444;
   color: white;
-  padding: 0.75rem; /* Equivalent to py-3 */
-  border-radius: 0.375rem; /* Equivalent to rounded-md */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
+  padding: 12px;
+  border-radius: 6px;
   border: none;
   cursor: not-allowed;
-  margin-top: 1.5rem; /* Equivalent to mt-6 */
+  margin-top: 24px;
+  opacity: 0.6;
 
   &:hover {
-    background-color: #dc2626; /* Equivalent to hover:bg-red-600 */
+    background-color: #dc2626;
   }
 `;
 const ManageAccount = () => {
-  const [email, setEmail] = React.useState('user@example.com');
-  const [language, setLanguage] = React.useState('English');
-  const [notifications, setNotifications] = React.useState(true);
-  const accountItems = [{
-    type: 'EditableTextField',
-    props: {
-      icon: UserIcon2,
-      name: 'Email Address',
-      value: email,
-      onUpdate: setEmail
-    }
-  }, {
-    type: 'SelectField',
-    props: {
-      icon: UserIcon2,
-      name: 'Language',
-      value: language,
-      options: ['English', 'Spanish', 'French'],
-      onChange: setLanguage
-    }
-  }, {
-    type: 'ToggleField',
-    props: {
-      icon: UserIcon2,
-      name: 'Enable Notifications',
-      value: notifications,
-      onChange: setNotifications
-    }
-  }];
+  const [accountData, setAccountData] = React.useState(initialAccountState);
+  const updateState = (fieldName, value) => {
+    setAccountData(prev => ({
+      ...prev,
+      [fieldName]: value
+    }));
+  };
   const handleDeleteAccount = () => {
     console.log('Delete account clicked');
   };
-  const handleBack = () => {
-    console.log('Back button clicked');
-    // Add navigation logic here (e.g., React Router's useNavigate or history.goBack())
-  };
-  return /*#__PURE__*/React__default["default"].createElement(Container$4, null, /*#__PURE__*/React__default["default"].createElement(Header$3, null, /*#__PURE__*/React__default["default"].createElement(BackButton$3, {
-    onClick: handleBack
-  }, /*#__PURE__*/React__default["default"].createElement(ChevronLeftIcon, {
-    className: "w-6 h-6"
-  })), /*#__PURE__*/React__default["default"].createElement(Title$2, null, "Manage Account")), /*#__PURE__*/React__default["default"].createElement(EditStackedList, {
-    items: accountItems
-  }), /*#__PURE__*/React__default["default"].createElement(DeleteButton, {
-    onClick: handleDeleteAccount,
-    disabled: true
+  return /*#__PURE__*/React__default["default"].createElement(Container$6, null, /*#__PURE__*/React__default["default"].createElement(Header$5, null, /*#__PURE__*/React__default["default"].createElement(reactRouterDom.Link, {
+    to: "/previous-page"
+  }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
+    size: 24
+  })), /*#__PURE__*/React__default["default"].createElement(Title$5, null, "Manage Account")), /*#__PURE__*/React__default["default"].createElement("main", null, /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
+    items: accountFields.map(({
+      name,
+      type,
+      fieldName,
+      options,
+      icon
+    }) => ({
+      type,
+      props: {
+        name,
+        icon,
+        fieldName,
+        currentState: accountData[fieldName],
+        options,
+        value: accountData[fieldName],
+        onUpdate: value => updateState(fieldName, value),
+        onChange: value => updateState(fieldName, value)
+      }
+    }))
+  })), /*#__PURE__*/React__default["default"].createElement(DeleteButton, {
+    disabled: true,
+    onClick: handleDeleteAccount
   }, "Delete Account"));
 };
 
-const ManageNotifications = () => {
-  const [field1, setField1] = React.useState("Initial Value 1");
-  const [field2, setField2] = React.useState("Initial Value 2");
-  const [name, setName] = React.useState("John Doe");
-  const [gender, setGender] = React.useState("male");
-  const [notifications, setNotifications] = React.useState(true);
-  const [toggleField, setToggleField] = React.useState(false);
-  console.log(field1, field2, name, gender, toggleField);
-  const updateState = (fieldName, value) => {
-    if (fieldName === "field1") setField1(value);
-    if (fieldName === "field2") setField2(value);
-    if (fieldName === "name") setName(value);
-    if (fieldName === "gender") setGender(value);
-    if (fieldName === "notifications") setNotifications(value);
-    if (fieldName === "toggleField") setToggleField(value);
-  };
-  const saveChanges = async () => {
-    // Replace this with actual Firestore logic in your application
-    // Uncomment the following code for Firebase functionality:
-    /*
-    try {
-      const docRef = doc(db, "collectionName", "docId");
-      await updateDoc(docRef, {
-        field1,
-        field2,
-        toggleField,
-      });
-      alert("Changes saved successfully!");
-    } catch (error) {
-      console.error("Error saving changes: ", error);
-      alert("Failed to save changes.");
-    }
-    */
+const initialFormState = {
+  field1: 'Initial Value 1',
+  field2: 'Initial Value 2',
+  name: 'John Doe',
+  gender: 'Male',
+  notifications: true,
+  toggleField: false
+};
+const sections = [{
+  title: 'Manage Notifications',
+  fields: [{
+    name: 'Name',
+    type: 'EditableTextField',
+    fieldName: 'field1'
+  }, {
+    name: 'Category',
+    type: 'SelectField',
+    fieldName: 'field2',
+    options: ['Option 1', 'Option 2', 'Option 3']
+  }, {
+    name: 'Enable Feature',
+    type: 'ToggleField',
+    fieldName: 'toggleField'
+  }]
+}, {
+  title: 'Settings',
+  fields: [{
+    name: 'Full Name',
+    type: 'EditableTextField',
+    fieldName: 'name'
+  }, {
+    name: 'Gender',
+    type: 'SelectField',
+    fieldName: 'gender',
+    options: ['Male', 'Female']
+  }, {
+    name: 'Notifications',
+    type: 'ToggleField',
+    fieldName: 'notifications'
+  }]
+}];
+const Container$5 = styled__default["default"].div`
+  padding: 20px;
+`;
+const Header$4 = styled__default["default"].header`
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+`;
+const Title$4 = styled__default["default"].h1`
+  margin-left: 40px;
+  font-size: 1.5rem;
+`;
+const Footer = styled__default["default"].footer`
+  margin-top: 24px;
+`;
+const SaveButton$1 = styled__default["default"].button`
+  padding: 10px 16px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
 
-    // For Storybook, we log to the console instead
-    console.log("Saving changes:", {
-      field1,
-      field2,
-      toggleField
-    });
-    alert("Changes saved! (Simulated for Storybook)");
+  &:hover {
+    background-color: #2563eb;
+  }
+`;
+const ManageNotifications = () => {
+  const [formData, setFormData] = React.useState(initialFormState);
+  const updateState = (fieldName, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [fieldName]: value
+    }));
   };
-  return /*#__PURE__*/React__default["default"].createElement("div", {
-    style: {
-      padding: "20px"
-    }
-  }, /*#__PURE__*/React__default["default"].createElement("header", {
-    style: {
-      display: "flex",
-      alignItems: "center",
-      marginBottom: "20px"
-    }
-  }, /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement(ChevronLeftIcon, {
-    className: "w-6 h-6"
-  })), /*#__PURE__*/React__default["default"].createElement("h1", {
-    className: "ml-10 text-2xl"
-  }, "Manage Notifications")), /*#__PURE__*/React__default["default"].createElement("main", null, /*#__PURE__*/React__default["default"].createElement(EditStackedList, {
-    updateState: updateState,
-    items: [{
-      type: "EditableTextField",
+  const saveChanges = () => {
+    console.log('Saving changes:', formData);
+    alert('Changes saved! (Simulated for Storybook)');
+  };
+  return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(Header$4, null, /*#__PURE__*/React__default["default"].createElement(reactRouterDom.Link, {
+    to: "/previous-page"
+  }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
+    size: 24
+  })), /*#__PURE__*/React__default["default"].createElement(Title$4, null, "Manage Notifications")), /*#__PURE__*/React__default["default"].createElement("main", null, sections.map(({
+    title,
+    fields
+  }, idx) => /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
+    key: idx,
+    title: title,
+    items: fields.map(({
+      name,
+      type,
+      fieldName,
+      options
+    }) => ({
+      type,
       props: {
-        name: "Name",
-        fieldName: "field1",
-        currentState: field1
+        name,
+        fieldName,
+        currentState: formData[fieldName],
+        options,
+        value: formData[fieldName]
       }
-    }, {
-      type: "SelectField",
-      props: {
-        name: "Category",
-        fieldName: "field2",
-        currentState: field2,
-        options: ["Option 1", "Option 2", "Option 3"]
-      }
-    }, {
-      type: "ToggleField",
-      props: {
-        name: "Enable Feature",
-        fieldName: "toggleField",
-        value: toggleField
-      }
-    }]
-  }), /*#__PURE__*/React__default["default"].createElement(EditStackedList, {
-    title: "Settings",
-    items: [{
-      type: "EditableTextField",
-      props: {
-        fieldName: "name",
-        value: "John Doe"
-      }
-    }, {
-      type: "SelectField",
-      props: {
-        fieldName: "gender",
-        options: ["Male", "Female"],
-        value: "Male"
-      }
-    }, {
-      type: "ToggleField",
-      props: {
-        name: "Notifications",
-        fieldName: "notifications",
-        value: notifications
-      }
-    }],
+    })),
     updateState: updateState
-  })), /*#__PURE__*/React__default["default"].createElement("footer", {
-    style: {
-      marginTop: "20px"
-    }
-  }, /*#__PURE__*/React__default["default"].createElement("button", {
-    onClick: saveChanges,
-    style: {
-      padding: "10px 20px",
-      fontSize: "16px",
-      backgroundColor: "blue",
-      color: "white"
-    }
+  }))), /*#__PURE__*/React__default["default"].createElement(Footer, null, /*#__PURE__*/React__default["default"].createElement(SaveButton$1, {
+    onClick: saveChanges
   }, "Save Changes")));
 };
 
@@ -7549,7 +7955,7 @@ const ManagePaymentMethods = ({
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(PaymentMethodsWrapper, null, /*#__PURE__*/React__default["default"].createElement(ListHeader, null, "Manage Payment Methods"), /*#__PURE__*/React__default["default"].createElement(PaymentMethodsList, null, paymentMethods.map((method, index) => /*#__PURE__*/React__default["default"].createElement(ListItem, {
     key: index
-  }, /*#__PURE__*/React__default["default"].createElement("span", null, method.name), /*#__PURE__*/React__default["default"].createElement(ChevronRightIcon, {
+  }, /*#__PURE__*/React__default["default"].createElement("span", null, method.name), /*#__PURE__*/React__default["default"].createElement(fi.FiChevronRight, {
     className: "w-6 h-6"
   })))), /*#__PURE__*/React__default["default"].createElement(Button$5, {
     onClick: onAddPaymentMethod
@@ -8619,7 +9025,7 @@ const Card = styled__default["default"].div`
 `;
 
 // Header for LettzIcon and "Lettz" text
-const Header$2 = styled__default["default"].div`
+const Header$3 = styled__default["default"].div`
   position: absolute;
   top: 20px;
   left: 20px;
@@ -8703,7 +9109,7 @@ const MessagesPrompt = currentUser => {
       });
     }
   };
-  return /*#__PURE__*/React__default["default"].createElement(Card, null, /*#__PURE__*/React__default["default"].createElement(Header$2, null, /*#__PURE__*/React__default["default"].createElement(StyledLettzIcon, null), " ", /*#__PURE__*/React__default["default"].createElement(LogoText, null, "Lettz")), /*#__PURE__*/React__default["default"].createElement(IconWrapper$2, null, /*#__PURE__*/React__default["default"].createElement("span", {
+  return /*#__PURE__*/React__default["default"].createElement(Card, null, /*#__PURE__*/React__default["default"].createElement(Header$3, null, /*#__PURE__*/React__default["default"].createElement(StyledLettzIcon, null), " ", /*#__PURE__*/React__default["default"].createElement(LogoText, null, "Lettz")), /*#__PURE__*/React__default["default"].createElement(IconWrapper$2, null, /*#__PURE__*/React__default["default"].createElement("span", {
     role: "img",
     "aria-label": "messages"
   }, "\uD83D\uDCAC")), /*#__PURE__*/React__default["default"].createElement(Text$1, null, "Please log in to see your messages."), /*#__PURE__*/React__default["default"].createElement(Button$4, {
@@ -9408,10 +9814,87 @@ function MultiPageForm({
   })));
 }
 
+// Styled components
+const Page = styled__default["default"].div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+`;
+const Header$2 = styled__default["default"].div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+`;
+const BackButton$3 = styled__default["default"].button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-right: 1rem;
+`;
+const Title$3 = styled__default["default"].h1`
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
+
+// Component
+const SettingsTemplate = ({
+  headerTitle = 'Page Title',
+  settings = [],
+  onBack
+}) => {
+  const groupedSettings = settings.reduce((acc, setting) => {
+    if (!acc[setting.category]) {
+      acc[setting.category] = [];
+    }
+    acc[setting.category].push(setting);
+    return acc;
+  }, {});
+  return /*#__PURE__*/React__default["default"].createElement(Page, null, /*#__PURE__*/React__default["default"].createElement(Header$2, null, /*#__PURE__*/React__default["default"].createElement(BackButton$3, {
+    onClick: onBack
+  }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
+    size: 24
+  })), /*#__PURE__*/React__default["default"].createElement(Title$3, null, headerTitle)), Object.keys(groupedSettings).map((category, idx) => /*#__PURE__*/React__default["default"].createElement(liamc9npm.StackedList, {
+    key: idx,
+    category: category,
+    items: groupedSettings[category]
+  })));
+};
+
+const PlansAndBilling = () => {
+  const billingSettings = [{
+    category: 'Subscriptions',
+    icon: fa.FaReceipt,
+    text: 'Current Plan: Pro',
+    link: '/billing/subscription'
+  }, {
+    category: 'Subscriptions',
+    icon: fa.FaMoneyBillAlt,
+    text: 'Upgrade Plan',
+    link: '/billing/upgrade'
+  }, {
+    category: 'Payment Methods',
+    icon: fa.FaRegCreditCard,
+    text: 'Manage Payment Methods',
+    link: '/billing/payment-methods'
+  }];
+  const handleLogout = () => {
+    console.log('Log out clicked — not used on billing page');
+  };
+  return /*#__PURE__*/React__default["default"].createElement(SettingsTemplate, {
+    headerTitle: "Plans and Billing",
+    settings: billingSettings,
+    onLogout: handleLogout
+  });
+};
+
 // src/components/PollItem.jsx
 
 // Container for the entire component
-const Container$3 = styled__default["default"].div`
+const Container$4 = styled__default["default"].div`
 position: relative;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -9546,7 +10029,7 @@ const PollItem = ({
     setChosenOpt(option);
     setShowBar(true);
   };
-  return /*#__PURE__*/React__default["default"].createElement(Container$3, null, /*#__PURE__*/React__default["default"].createElement(Header$1, null, /*#__PURE__*/React__default["default"].createElement("h2", {
+  return /*#__PURE__*/React__default["default"].createElement(Container$4, null, /*#__PURE__*/React__default["default"].createElement(Header$1, null, /*#__PURE__*/React__default["default"].createElement("h2", {
     style: {
       margin: 0
     }
@@ -9649,7 +10132,7 @@ function SideBar({
     onClick: closeSideNav
   }, Icon && /*#__PURE__*/React__default["default"].createElement(IconWrapper$1, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     className: "icon"
-  })), /*#__PURE__*/React__default["default"].createElement("span", null, name)))), /*#__PURE__*/React__default["default"].createElement(FooterLinks$2, null, footerLinks.map(({
+  })), /*#__PURE__*/React__default["default"].createElement("span", null, name)))), /*#__PURE__*/React__default["default"].createElement(FooterLinks$1, null, footerLinks.map(({
     name,
     path,
     Icon
@@ -9659,7 +10142,7 @@ function SideBar({
     onClick: closeSideNav
   }, Icon && /*#__PURE__*/React__default["default"].createElement(IconWrapper$1, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     className: "icon"
-  })), /*#__PURE__*/React__default["default"].createElement("span", null, name))), onLogout && /*#__PURE__*/React__default["default"].createElement(LogoutButton$1, {
+  })), /*#__PURE__*/React__default["default"].createElement("span", null, name))), onLogout && /*#__PURE__*/React__default["default"].createElement(LogoutButton, {
     onClick: () => {
       onLogout();
       closeSideNav();
@@ -9795,7 +10278,7 @@ const StyledLink$1 = styled__default["default"](reactRouterDom.Link)`
     color: #1a202c;
   }
 `;
-const FooterLinks$2 = styled__default["default"].div`
+const FooterLinks$1 = styled__default["default"].div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -9811,7 +10294,7 @@ const IconWrapper$1 = styled__default["default"].div`
     height: 1.5rem;
   }
 `;
-const LogoutButton$1 = styled__default["default"].button`
+const LogoutButton = styled__default["default"].button`
   display: flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
@@ -10199,6 +10682,124 @@ const PortfolioMainSlider = ({
       minHeight: "400px"
     }
   }, /*#__PURE__*/React__default["default"].createElement(AdditionalContentComponent, null)))));
+};
+
+// Styled Components
+const Container$3 = styled__default["default"].div`
+  max-width: 28rem;
+  padding: 1rem;
+`;
+const Header = styled__default["default"].div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+`;
+const BackButton$2 = styled__default["default"].button`
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  margin-right: 0.5rem;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+const Title$2 = styled__default["default"].h1`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+`;
+const SaveButton = styled__default["default"].button`
+  width: 100%;
+  background-color: #2563eb;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1.5rem;
+
+  &:hover {
+    background-color: #1e40af;
+  }
+`;
+const PrivacyAndSecurity = () => {
+  const [twoFactorAuth, setTwoFactorAuth] = React.useState(true);
+  const [locationTracking, setLocationTracking] = React.useState(false);
+  const [dataSharing, setDataSharing] = React.useState(false);
+  const [adPersonalization, setAdPersonalization] = React.useState(true);
+  const [password, setPassword] = React.useState('');
+  const privacySecurityItems = [{
+    type: 'ToggleField',
+    props: {
+      icon: fi.FiLock,
+      name: 'Two-Factor Authentication',
+      value: twoFactorAuth,
+      onChange: setTwoFactorAuth
+    }
+  }, {
+    type: 'ToggleField',
+    props: {
+      icon: fi.FiLock,
+      name: 'Allow Location Tracking',
+      value: locationTracking,
+      onChange: setLocationTracking
+    }
+  }, {
+    type: 'ToggleField',
+    props: {
+      icon: fi.FiLock,
+      name: 'Share Usage Data',
+      value: dataSharing,
+      onChange: setDataSharing
+    }
+  }, {
+    type: 'ToggleField',
+    props: {
+      icon: fi.FiLock,
+      name: 'Personalized Ads',
+      value: adPersonalization,
+      onChange: setAdPersonalization
+    }
+  }, {
+    type: 'EditableTextField',
+    props: {
+      icon: fi.FiLock,
+      name: 'Change Password',
+      type: 'password',
+      value: password,
+      onUpdate: setPassword,
+      placeholder: 'Enter new password'
+    }
+  }];
+  const handleSaveChanges = () => {
+    const privacySettings = {
+      twoFactorAuth,
+      locationTracking,
+      dataSharing,
+      adPersonalization,
+      password: password ? '(Updated)' : '(Unchanged)'
+    };
+    console.log('Saving Privacy & Security Settings:', privacySettings);
+    alert('Privacy & Security settings updated.');
+  };
+  const handleBack = () => {
+    console.log('Back button clicked');
+    // Add navigation logic here (e.g., useNavigate or history.goBack())
+  };
+  return /*#__PURE__*/React__default["default"].createElement(Container$3, null, /*#__PURE__*/React__default["default"].createElement(Header, null, /*#__PURE__*/React__default["default"].createElement(BackButton$2, {
+    onClick: handleBack
+  }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
+    className: "w-6 h-6"
+  })), /*#__PURE__*/React__default["default"].createElement(Title$2, null, "Privacy & Security")), /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
+    items: privacySecurityItems
+  }), /*#__PURE__*/React__default["default"].createElement(SaveButton, {
+    onClick: handleSaveChanges
+  }, "Save Changes"));
 };
 
 // ProgressBar.js
@@ -10733,7 +11334,7 @@ const DrawerHandle = styled__default["default"].div`
 const DrawerContent = styled__default["default"].div`
   padding: 20px;
 `;
-const BackButton$2 = styled__default["default"].button`
+const BackButton$1 = styled__default["default"].button`
   position: absolute;
   top: 10px;
   left: 10px;
@@ -10845,7 +11446,7 @@ const RecipeSwipeComponent = ({
     key: index
   }, /*#__PURE__*/React__default["default"].createElement(SlideContainer, {
     className: "recipe-step"
-  }, /*#__PURE__*/React__default["default"].createElement(BackButton$2, {
+  }, /*#__PURE__*/React__default["default"].createElement(BackButton$1, {
     onClick: goToOverview
   }, "Back"), /*#__PURE__*/React__default["default"].createElement(StepIndicator, null, "Step ", index + 1), /*#__PURE__*/React__default["default"].createElement(MuteButton, {
     onClick: toggleMute
@@ -10878,7 +11479,7 @@ const RoomContainer = styled__default["default"].div`
   padding-bottom: 100px; /* Space for the fixed bottom bar */
   position: relative; /* Make it a positioned parent for the absolute BackButton */
 `;
-const BackButton$1 = styled__default["default"].button`
+const BackButton = styled__default["default"].button`
   position: absolute;
   top: 20px; /* Adjust as needed */
   left: 20px; /* Adjust as needed */
@@ -11075,7 +11676,7 @@ const RoomsView = ({
     // navigate(-1);
   };
   const images = roomData.images && Array.isArray(roomData.images) ? roomData.images : [];
-  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(RoomContainer, null, /*#__PURE__*/React__default["default"].createElement(BackButton$1, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(RoomContainer, null, /*#__PURE__*/React__default["default"].createElement(BackButton, {
     onClick: handleBackClick,
     "aria-label": "Go Back"
   }, /*#__PURE__*/React__default["default"].createElement(ChevronLeftIcon, null)), /*#__PURE__*/React__default["default"].createElement(ImageContainer, null, images.length > 0 ? /*#__PURE__*/React__default["default"].createElement(ImageCarousel2, {
@@ -13376,124 +13977,6 @@ const SelectToTextInput = ({
   }));
 };
 
-const CategoryWrapper = styled__default["default"].div`
-  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
-`;
-const CategoryTitle = styled__default["default"].h3`
-  font-size: 1.25rem; /* Equivalent to text-xl */
-  font-weight: 600; /* Equivalent to font-semibold */
-  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
-`;
-const ItemsContainer = styled__default["default"].div`
-  border: 1px solid #e5e7eb; /* Equivalent to border */
-  border-radius: 0.375rem; /* Equivalent to rounded-md */
-  overflow: hidden;
-  & > *:not(:last-child) {
-    border-bottom: 1px solid #e5e7eb; /* Equivalent to divide-y */
-  }
-`;
-const StackedList = ({
-  category,
-  items
-}) => {
-  return /*#__PURE__*/React__default["default"].createElement(CategoryWrapper, null, /*#__PURE__*/React__default["default"].createElement(CategoryTitle, null, category), /*#__PURE__*/React__default["default"].createElement(ItemsContainer, null, items.map((item, index) => /*#__PURE__*/React__default["default"].createElement(MenuItem, {
-    key: index,
-    icon: item.icon /* Pass icon as a React component */,
-    text: item.text,
-    link: item.link
-  }))));
-};
-
-const SettingsPage = styled__default["default"].div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Full height to position footer at the bottom */
-  padding: 1rem;
-`;
-const Header = styled__default["default"].div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 2rem; /* Space below the header */
-`;
-const BackButton = styled__default["default"].button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin-right: 1rem; /* Space between icon and header text */
-`;
-const HeaderTitle = styled__default["default"].h1`
-  font-size: 1.5rem; /* Equivalent to text-2xl */
-  font-weight: 600; /* Equivalent to font-semibold */
-`;
-const LogoutButton = styled__default["default"].button`
-  background-color: #f3f4f6; /* Light gray */
-  color: #dc2626; /* Red text */
-  border: none;
-  border-radius: 0.375rem; /* Rounded corners */
-  padding: 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 2rem;
-  width: 100%; /* Full width */
-  text-align: center;
-
-  &:hover {
-    background-color: #e5e7eb; /* Slightly darker gray */
-  }
-`;
-const Footer = styled__default["default"].footer`
-  margin-top: auto; /* Push footer to the bottom */
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.875rem; /* Equivalent to text-sm */
-  color: #6b7280; /* Equivalent to text-gray-500 */
-`;
-const FooterLinks$1 = styled__default["default"].div`
-  margin-top: 0.5rem;
-
-  a {
-    color: #2563eb; /* Equivalent to text-blue-600 */
-    text-decoration: none;
-    margin: 0 0.5rem;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
-const Settings = ({
-  settings,
-  onLogout
-}) => {
-  // Group settings by category
-  const categories = settings.reduce((acc, setting) => {
-    if (!acc[setting.category]) {
-      acc[setting.category] = [];
-    }
-    acc[setting.category].push(setting);
-    return acc;
-  }, {});
-  return /*#__PURE__*/React__default["default"].createElement(SettingsPage, null, /*#__PURE__*/React__default["default"].createElement(Header, null, /*#__PURE__*/React__default["default"].createElement(BackButton, {
-    onClick: () => console.log('Go back')
-  }, /*#__PURE__*/React__default["default"].createElement(ChevronLeftIcon, {
-    className: "w-6 h-6"
-  })), /*#__PURE__*/React__default["default"].createElement(HeaderTitle, null, "Settings")), Object.keys(categories).map((category, index) => /*#__PURE__*/React__default["default"].createElement(StackedList, {
-    key: index,
-    category: category,
-    items: categories[category]
-  })), /*#__PURE__*/React__default["default"].createElement(LogoutButton, {
-    onClick: onLogout
-  }, "Log Out"), /*#__PURE__*/React__default["default"].createElement(Footer, null, /*#__PURE__*/React__default["default"].createElement("div", null, "Company Name"), /*#__PURE__*/React__default["default"].createElement("div", null, "Version 1.0.0"), /*#__PURE__*/React__default["default"].createElement(FooterLinks$1, null, /*#__PURE__*/React__default["default"].createElement("a", {
-    href: "/terms"
-  }, "Terms"), /*#__PURE__*/React__default["default"].createElement("a", {
-    href: "/policy"
-  }, "Policy"))));
-};
-
 const SideNav = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleSideNav = () => {
@@ -14144,6 +14627,34 @@ const SortRadio = ({
   }), /*#__PURE__*/React__default["default"].createElement(RadioLabel, {
     htmlFor: option.label
   }, option.label))))));
+};
+
+const CategoryWrapper = styled__default["default"].div`
+  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+`;
+const CategoryTitle = styled__default["default"].h3`
+  font-size: 1.25rem; /* Equivalent to text-xl */
+  font-weight: 600; /* Equivalent to font-semibold */
+  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+`;
+const ItemsContainer = styled__default["default"].div`
+  border: 1px solid #e5e7eb; /* Equivalent to border */
+  border-radius: 0.375rem; /* Equivalent to rounded-md */
+  overflow: hidden;
+  & > *:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb; /* Equivalent to divide-y */
+  }
+`;
+const StackedList = ({
+  category,
+  items
+}) => {
+  return /*#__PURE__*/React__default["default"].createElement(CategoryWrapper, null, /*#__PURE__*/React__default["default"].createElement(CategoryTitle, null, category), /*#__PURE__*/React__default["default"].createElement(ItemsContainer, null, items.map((item, index) => /*#__PURE__*/React__default["default"].createElement(MenuItem, {
+    key: index,
+    icon: item.icon /* Pass icon as a React component */,
+    text: item.text,
+    link: item.link
+  }))));
 };
 
 const Container$1 = styled__default["default"].div`
@@ -14839,6 +15350,7 @@ const UneditableTextField = ({
 };
 
 exports.AccordionCard = AccordionCard;
+exports.Account = Account;
 exports.AppCard = AppCard;
 exports.AppleIcon = AppleIcon;
 exports.ArrowRightIcon = ArrowRightIcon;
@@ -14871,6 +15383,7 @@ exports.CodeIcon = CodeIcon;
 exports.CogIcon = CogIcon;
 exports.CollegeIcon = CollegeIcon;
 exports.ColorPicker = ColorPicker;
+exports.ContactUs = ContactUs;
 exports.ConversationItem = ConversationItem;
 exports.ConversationList = ConversationList;
 exports.CookbookCard = CookbookCard;
@@ -14884,8 +15397,10 @@ exports.DateTimeLocalInput = DateTimeLocalInput;
 exports.DeleteModal = DeleteModal;
 exports.DragAndDrop = DragAndDrop;
 exports.EditIcon = EditIcon;
+exports.EditSettingsTemplate = EditSettingsTemplate;
 exports.EditStackedList = EditStackedList;
 exports.EditableTextField = EditableTextField;
+exports.FAQ = FAQ;
 exports.Feed = Feed;
 exports.FeedItem = FeedItem;
 exports.FeedItem2 = FeedItem2;
@@ -14910,6 +15425,7 @@ exports.GhostLoader = GhostLoader;
 exports.GithubIcon = GithubIcon;
 exports.GoogleIcon = GoogleIcon;
 exports.HeartIcon = HeartIcon;
+exports.HelpAndFAQs = HelpAndFAQs;
 exports.Hero = Hero;
 exports.HeroContent = HeroContent;
 exports.HiddenInput = HiddenInput;
@@ -14952,10 +15468,12 @@ exports.MuteIcon = MuteIcon;
 exports.NotificationsIcon = NotificationsIcon;
 exports.PasswordIcon = PasswordIcon;
 exports.PeriodIcon = PeriodIcon;
+exports.PlansAndBilling = PlansAndBilling;
 exports.PlusIcon = PlusIcon;
 exports.PollItem = PollItem;
 exports.Popover = Popover;
 exports.PortfolioMainSlider = PortfolioMainSlider;
+exports.PrivacyAndSecurity = PrivacyAndSecurity;
 exports.ProgressBar = ProgressBar;
 exports.ProjectCard = ProjectCard;
 exports.RadioButtons = RadioButtons;
@@ -14979,8 +15497,8 @@ exports.SelectInput = SelectInput;
 exports.SelectInput2 = SelectInput2;
 exports.SelectInput3 = SelectInput3;
 exports.SelectToTextInput = SelectToTextInput;
-exports.Settings = Settings;
 exports.SettingsIcon = SettingsIcon;
+exports.SettingsTemplate = SettingsTemplate;
 exports.ShareIcon = ShareIcon;
 exports.SideBar = SideBar;
 exports.SideNav = SideNav;
