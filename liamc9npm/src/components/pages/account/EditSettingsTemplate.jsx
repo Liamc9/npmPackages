@@ -5,19 +5,38 @@ import { FiChevronLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
 // Styled Components
-const Container = styled.div`
-  padding: 20px;
+const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
 `;
 
-const Header = styled.header`
+const Header = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb; /* light tailwind-gray */
+`;
+
+const BackButton = styled.button`
+  position: absolute;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 
 const Title = styled.h1`
-  margin-left: 40px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
 `;
 
 const Footer = styled.footer`
@@ -57,13 +76,13 @@ const EditSettingsTemplate = ({ headerTitle = 'Settings', sections = [], initial
   };
 
   return (
-    <Container>
-      <Header>
-        <button onClick={() => navigate(-1)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-          <FiChevronLeft size={24} />
-        </button>
-        <Title>{headerTitle}</Title>
-      </Header>
+    <Page>
+       <Header>
+              <BackButton onClick={() => navigate(-1)}>
+                <FiChevronLeft size={24} />
+              </BackButton>
+              <Title>{headerTitle}</Title>
+            </Header>
 
       <main>
         {sections.map(({ title, fields }, idx) => (
@@ -88,7 +107,7 @@ const EditSettingsTemplate = ({ headerTitle = 'Settings', sections = [], initial
       <Footer>
         <SaveButton onClick={handleSave}>Save Changes</SaveButton>
       </Footer>
-    </Container>
+    </Page>
   );
 };
 

@@ -15,23 +15,32 @@ const Page = styled.div`
 const Header = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  position: relative;
   margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb; /* light tailwind-gray */
 `;
 
+
 const BackButton = styled.button`
+  position: absolute;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin-right: 1rem;
 `;
 
+
 const Title = styled.h1`
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
 `;
+
 
 // Component
 const SettingsTemplate = ({ headerTitle = 'Page Title', settings = [] }) => {
