@@ -2362,7 +2362,7 @@ const StyledWrapper$6 = styled__default["default"].div`
 
 // Styled Components
 
-const Container$6 = styled__default["default"].div`
+const Container$5 = styled__default["default"].div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2482,7 +2482,7 @@ const CheckedItem = ({
   color = "#3b82f6",
   required
 }) => {
-  return /*#__PURE__*/React__default["default"].createElement(Container$6, null, /*#__PURE__*/React__default["default"].createElement(Label$4, null, /*#__PURE__*/React__default["default"].createElement(HiddenCheckbox, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(Label$4, null, /*#__PURE__*/React__default["default"].createElement(HiddenCheckbox, {
     onChange: onChange,
     checked: checked,
     required: required
@@ -4409,17 +4409,35 @@ li {
 }
 
 // Styled Components
-const Container$5 = styled__default["default"].div`
-  padding: 20px;
+const Page$1 = styled__default["default"].div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
 `;
-const Header$5 = styled__default["default"].header`
+const Header$5 = styled__default["default"].div`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb; /* light tailwind-gray */
+`;
+const BackButton$3 = styled__default["default"].button`
+  position: absolute;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 const Title$6 = styled__default["default"].h1`
-  margin-left: 40px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
 `;
 const Footer$1 = styled__default["default"].footer`
   margin-top: 24px;
@@ -4461,13 +4479,8 @@ const EditSettingsTemplate = ({
       alert('Changes saved!');
     }
   };
-  return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(Header$5, null, /*#__PURE__*/React__default["default"].createElement("button", {
-    onClick: () => navigate(-1),
-    style: {
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer'
-    }
+  return /*#__PURE__*/React__default["default"].createElement(Page$1, null, /*#__PURE__*/React__default["default"].createElement(Header$5, null, /*#__PURE__*/React__default["default"].createElement(BackButton$3, {
+    onClick: () => navigate(-1)
   }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
     size: 24
   })), /*#__PURE__*/React__default["default"].createElement(Title$6, null, headerTitle)), /*#__PURE__*/React__default["default"].createElement("main", null, sections.map(({
@@ -13688,20 +13701,26 @@ const Page = styled__default["default"].div`
 const Header = styled__default["default"].div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  position: relative;
   margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb; /* light tailwind-gray */
 `;
 const BackButton = styled__default["default"].button`
+  position: absolute;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin-right: 1rem;
 `;
 const Title$1 = styled__default["default"].h1`
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
 `;
 
 // Component

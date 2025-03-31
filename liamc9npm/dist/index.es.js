@@ -2349,7 +2349,7 @@ const StyledWrapper$6 = styled.div`
 
 // Styled Components
 
-const Container$6 = styled.div`
+const Container$5 = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2469,7 +2469,7 @@ const CheckedItem = ({
   color = "#3b82f6",
   required
 }) => {
-  return /*#__PURE__*/React.createElement(Container$6, null, /*#__PURE__*/React.createElement(Label$4, null, /*#__PURE__*/React.createElement(HiddenCheckbox, {
+  return /*#__PURE__*/React.createElement(Container$5, null, /*#__PURE__*/React.createElement(Label$4, null, /*#__PURE__*/React.createElement(HiddenCheckbox, {
     onChange: onChange,
     checked: checked,
     required: required
@@ -4396,17 +4396,35 @@ li {
 }
 
 // Styled Components
-const Container$5 = styled.div`
-  padding: 20px;
+const Page$1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
 `;
-const Header$5 = styled.header`
+const Header$5 = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb; /* light tailwind-gray */
+`;
+const BackButton$3 = styled.button`
+  position: absolute;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 const Title$6 = styled.h1`
-  margin-left: 40px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
 `;
 const Footer$1 = styled.footer`
   margin-top: 24px;
@@ -4448,13 +4466,8 @@ const EditSettingsTemplate = ({
       alert('Changes saved!');
     }
   };
-  return /*#__PURE__*/React.createElement(Container$5, null, /*#__PURE__*/React.createElement(Header$5, null, /*#__PURE__*/React.createElement("button", {
-    onClick: () => navigate(-1),
-    style: {
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer'
-    }
+  return /*#__PURE__*/React.createElement(Page$1, null, /*#__PURE__*/React.createElement(Header$5, null, /*#__PURE__*/React.createElement(BackButton$3, {
+    onClick: () => navigate(-1)
   }, /*#__PURE__*/React.createElement(FiChevronLeft, {
     size: 24
   })), /*#__PURE__*/React.createElement(Title$6, null, headerTitle)), /*#__PURE__*/React.createElement("main", null, sections.map(({
@@ -13675,20 +13688,26 @@ const Page = styled.div`
 const Header = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  position: relative;
   margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb; /* light tailwind-gray */
 `;
 const BackButton = styled.button`
+  position: absolute;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin-right: 1rem;
 `;
 const Title$1 = styled.h1`
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
 `;
 
 // Component
