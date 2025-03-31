@@ -1,5 +1,5 @@
 import React from 'react';
-import SettingsTemplate from './SettingsTemplate'; // Adjust the path based on your folder structure
+import {SettingsTemplate} from 'liamc9npm'; // Adjust the path based on your folder structure
 import { FaMoneyBillAlt, FaRegCreditCard, FaReceipt } from 'react-icons/fa';
 
 const PlansAndBilling = () => {
@@ -24,15 +24,11 @@ const PlansAndBilling = () => {
     },
   ];
 
-  const handleLogout = () => {
-    console.log('Log out clicked — not used on billing page');
-  };
 
   return (
     <SettingsTemplate
       headerTitle="Plans and Billing"
       settings={billingSettings}
-      onLogout={handleLogout}
     />
   );
 };

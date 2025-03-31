@@ -1,53 +1,34 @@
 import React from 'react';
-import {EditSettingsTemplate} from 'liamc9npm'; // Adjust the import path as needed
+import { EditSettingsTemplate } from 'liamc9npm'; // Adjust the import path as needed
 
 const initialFormState = {
-  field1: 'Initial Value 1',
-  field2: 'Initial Value 2',
-  name: 'John Doe',
-  gender: 'Male',
-  notifications: true,
-  toggleField: false,
+  emailNotifications: true,
+  pushNotifications: false,
+  smsAlerts: false,
+  newsletterSubscription: true,
 };
 
 const sections = [
   {
-    title: 'Manage Notifications',
+    title: 'Notification Preferences',
     fields: [
-      { name: 'Name', type: 'EditableTextField', fieldName: 'field1' },
-      {
-        name: 'Category',
-        type: 'SelectField',
-        fieldName: 'field2',
-        options: ['Option 1', 'Option 2', 'Option 3'],
-      },
-      { name: 'Enable Feature', type: 'ToggleField', fieldName: 'toggleField' },
-    ],
-  },
-  {
-    title: 'Settings',
-    fields: [
-      { name: 'Full Name', type: 'EditableTextField', fieldName: 'name' },
-      {
-        name: 'Gender',
-        type: 'SelectField',
-        fieldName: 'gender',
-        options: ['Male', 'Female'],
-      },
-      { name: 'Notifications', type: 'ToggleField', fieldName: 'notifications' },
+      { name: 'Email Notifications', type: 'ToggleField', fieldName: 'emailNotifications' },
+      { name: 'Push Notifications', type: 'ToggleField', fieldName: 'pushNotifications' },
+      { name: 'SMS Alerts', type: 'ToggleField', fieldName: 'smsAlerts' },
+      { name: 'Newsletter Subscription', type: 'ToggleField', fieldName: 'newsletterSubscription' },
     ],
   },
 ];
 
 const ManageNotifications = () => {
   const handleSave = (formData) => {
-    console.log('Saving form data:', formData);
-    alert('Changes saved! (Simulated for Storybook)');
+    console.log('Saving notification settings:', formData);
+    alert('Notification settings updated!');
   };
 
   return (
     <EditSettingsTemplate
-      headerTitle="Manage Notifications"
+      headerTitle="Notification Settings"
       sections={sections}
       initialValues={initialFormState}
       onSave={handleSave}

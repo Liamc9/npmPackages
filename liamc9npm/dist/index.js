@@ -1467,7 +1467,7 @@ const ContentContainer$1 = styled__default["default"].div`
   padding: 16px;
   
 `;
-const Title$d = styled__default["default"].p`
+const Title$c = styled__default["default"].p`
   font-size: 24px;
   font-weight: bold;
   color: #1a202c;
@@ -1518,7 +1518,7 @@ function AccordionCard({
   }, /*#__PURE__*/React__default["default"].createElement(IconContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     size: 80,
     color: "#38a169"
-  })), /*#__PURE__*/React__default["default"].createElement(ContentContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Title$d, null, title), /*#__PURE__*/React__default["default"].createElement(Subtitle$2, null, subtitle), /*#__PURE__*/React__default["default"].createElement(Institution, null, institution)), /*#__PURE__*/React__default["default"].createElement(GradeContainer, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Grade: ", grade), /*#__PURE__*/React__default["default"].createElement("p", null, "GPA: ", gpa), isOpen ? /*#__PURE__*/React__default["default"].createElement(ChevronUpIcon, {
+  })), /*#__PURE__*/React__default["default"].createElement(ContentContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Title$c, null, title), /*#__PURE__*/React__default["default"].createElement(Subtitle$2, null, subtitle), /*#__PURE__*/React__default["default"].createElement(Institution, null, institution)), /*#__PURE__*/React__default["default"].createElement(GradeContainer, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Grade: ", grade), /*#__PURE__*/React__default["default"].createElement("p", null, "GPA: ", gpa), isOpen ? /*#__PURE__*/React__default["default"].createElement(ChevronUpIcon, {
     size: 24,
     color: "#718096"
   }) : /*#__PURE__*/React__default["default"].createElement(ChevronDownIcon, {
@@ -1605,7 +1605,7 @@ const LogoutButton$1 = styled__default["default"].button`
     background-color: #e5e7eb; /* Slightly darker gray */
   }
 `;
-const Footer$3 = styled__default["default"].footer`
+const Footer$2 = styled__default["default"].footer`
   margin-top: auto; /* Push footer to the bottom */
   text-align: center;
   padding: 1.5rem 0; /* Increased padding */
@@ -1676,7 +1676,7 @@ const Account = ({
     items: categories[category]
   })), /*#__PURE__*/React__default["default"].createElement(LogoutButton$1, {
     onClick: handleLogout
-  }, "Log Out"), /*#__PURE__*/React__default["default"].createElement(Footer$3, null, /*#__PURE__*/React__default["default"].createElement("div", null, "Company Name"), /*#__PURE__*/React__default["default"].createElement("div", null, "Version 1.0.0"), /*#__PURE__*/React__default["default"].createElement(FooterLinks$2, null, /*#__PURE__*/React__default["default"].createElement("a", {
+  }, "Log Out"), /*#__PURE__*/React__default["default"].createElement(Footer$2, null, /*#__PURE__*/React__default["default"].createElement("div", null, "Company Name"), /*#__PURE__*/React__default["default"].createElement("div", null, "Version 1.0.0"), /*#__PURE__*/React__default["default"].createElement(FooterLinks$2, null, /*#__PURE__*/React__default["default"].createElement("a", {
     href: "/terms"
   }, "Terms"), /*#__PURE__*/React__default["default"].createElement("a", {
     href: "/policy"
@@ -2362,7 +2362,7 @@ const StyledWrapper$6 = styled__default["default"].div`
 
 // Styled Components
 
-const Container$9 = styled__default["default"].div`
+const Container$8 = styled__default["default"].div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2482,7 +2482,7 @@ const CheckedItem = ({
   color = "#3b82f6",
   required
 }) => {
-  return /*#__PURE__*/React__default["default"].createElement(Container$9, null, /*#__PURE__*/React__default["default"].createElement(Label$4, null, /*#__PURE__*/React__default["default"].createElement(HiddenCheckbox, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$8, null, /*#__PURE__*/React__default["default"].createElement(Label$4, null, /*#__PURE__*/React__default["default"].createElement(HiddenCheckbox, {
     onChange: onChange,
     checked: checked,
     required: required
@@ -2543,7 +2543,7 @@ const Info = styled__default["default"].div`
   flex-direction: column;
   font-size: 16px;
 `;
-const Title$c = styled__default["default"].span`
+const Title$b = styled__default["default"].span`
   font-weight: bold;
   margin-bottom: 4px;
 `;
@@ -2551,7 +2551,7 @@ const Description$1 = styled__default["default"].span`
   color: #555;
 `;
 const ContactUs = () => {
-  return /*#__PURE__*/React__default["default"].createElement(ContactContainer, null, /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMessageSquare, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$c, null, "Chat with us"), /*#__PURE__*/React__default["default"].createElement(Description$1, null, "6:00 - 23:59", /*#__PURE__*/React__default["default"].createElement("br", null), "7 days a week"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiPhone, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$c, null, "Call us"), /*#__PURE__*/React__default["default"].createElement(Description$1, null, "1800 811 6453", /*#__PURE__*/React__default["default"].createElement("br", null), "Products & Orders: 06:00 - 23:59, 7 days a week", /*#__PURE__*/React__default["default"].createElement("br", null), "Company Info & Enquiries: 10:00 - 19:00, Monday - Friday"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMapPin, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$c, null, "Find a Store"))));
+  return /*#__PURE__*/React__default["default"].createElement(ContactContainer, null, /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMessageSquare, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$b, null, "Chat with us"), /*#__PURE__*/React__default["default"].createElement(Description$1, null, "6:00 - 23:59", /*#__PURE__*/React__default["default"].createElement("br", null), "7 days a week"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiPhone, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$b, null, "Call us"), /*#__PURE__*/React__default["default"].createElement(Description$1, null, "1800 811 6453", /*#__PURE__*/React__default["default"].createElement("br", null), "Products & Orders: 06:00 - 23:59, 7 days a week", /*#__PURE__*/React__default["default"].createElement("br", null), "Company Info & Enquiries: 10:00 - 19:00, Monday - Friday"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMapPin, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$b, null, "Find a Store"))));
 };
 
 // src/components/ConversationItem.jsx
@@ -2581,7 +2581,7 @@ const Details = styled__default["default"].div`
   width: 100%;
   position: relative; /* To position the timestamp */
 `;
-const Header$9 = styled__default["default"].div`
+const Header$8 = styled__default["default"].div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2645,7 +2645,7 @@ const ConversationItem = ({
   }, /*#__PURE__*/React__default["default"].createElement(Avatar, {
     src: otherParticipant.avatarUrl,
     alt: `${otherParticipant.name}'s avatar`
-  }), /*#__PURE__*/React__default["default"].createElement(Details, null, /*#__PURE__*/React__default["default"].createElement(Header$9, null, /*#__PURE__*/React__default["default"].createElement(Name, null, otherParticipant.name), /*#__PURE__*/React__default["default"].createElement(Timestamp, null, formattedTimestamp)), /*#__PURE__*/React__default["default"].createElement(LastMessage, null, conversation.lastMessage.text)));
+  }), /*#__PURE__*/React__default["default"].createElement(Details, null, /*#__PURE__*/React__default["default"].createElement(Header$8, null, /*#__PURE__*/React__default["default"].createElement(Name, null, otherParticipant.name), /*#__PURE__*/React__default["default"].createElement(Timestamp, null, formattedTimestamp)), /*#__PURE__*/React__default["default"].createElement(LastMessage, null, conversation.lastMessage.text)));
 };
 
 // src/components/ConversationList.js
@@ -3081,7 +3081,7 @@ const Icon = styled__default["default"].svg`
   fill: #ef4444; /* Red color for the icon */
   margin-bottom: 1rem;
 `;
-const Title$b = styled__default["default"].h2`
+const Title$a = styled__default["default"].h2`
   font-size: 1.25rem;
   font-weight: bold;
   color: #1f2937;
@@ -3155,7 +3155,7 @@ const DeleteModal = ({
     clipRule: "evenodd",
     d: "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
     fillRule: "evenodd"
-  })), /*#__PURE__*/React__default["default"].createElement(Title$b, null, title || "Are you sure?"), /*#__PURE__*/React__default["default"].createElement(Message$1, null, message || "Do you really want to continue? This process cannot be undone.")), /*#__PURE__*/React__default["default"].createElement(ButtonContainer$2, null, /*#__PURE__*/React__default["default"].createElement(CancelButton, {
+  })), /*#__PURE__*/React__default["default"].createElement(Title$a, null, title || "Are you sure?"), /*#__PURE__*/React__default["default"].createElement(Message$1, null, message || "Do you really want to continue? This process cannot be undone.")), /*#__PURE__*/React__default["default"].createElement(ButtonContainer$2, null, /*#__PURE__*/React__default["default"].createElement(CancelButton, {
     onClick: onCancel
   }, "Cancel"), /*#__PURE__*/React__default["default"].createElement(ConfirmButton, {
     onClick: onConfirm
@@ -4409,22 +4409,22 @@ li {
 }
 
 // Styled Components
-const Container$8 = styled__default["default"].div`
+const Container$7 = styled__default["default"].div`
   padding: 20px;
 `;
-const Header$8 = styled__default["default"].header`
+const Header$7 = styled__default["default"].header`
   display: flex;
   align-items: center;
   margin-bottom: 24px;
 `;
-const Title$a = styled__default["default"].h1`
+const Title$9 = styled__default["default"].h1`
   margin-left: 40px;
   font-size: 1.5rem;
 `;
-const Footer$2 = styled__default["default"].footer`
+const Footer$1 = styled__default["default"].footer`
   margin-top: 24px;
 `;
-const SaveButton$2 = styled__default["default"].button`
+const SaveButton$1 = styled__default["default"].button`
   padding: 10px 16px;
   background-color: #3b82f6;
   color: white;
@@ -4461,7 +4461,7 @@ const EditSettingsTemplate = ({
       alert('Changes saved!');
     }
   };
-  return /*#__PURE__*/React__default["default"].createElement(Container$8, null, /*#__PURE__*/React__default["default"].createElement(Header$8, null, /*#__PURE__*/React__default["default"].createElement("button", {
+  return /*#__PURE__*/React__default["default"].createElement(Container$7, null, /*#__PURE__*/React__default["default"].createElement(Header$7, null, /*#__PURE__*/React__default["default"].createElement("button", {
     onClick: () => navigate(-1),
     style: {
       background: 'none',
@@ -4470,7 +4470,7 @@ const EditSettingsTemplate = ({
     }
   }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
     size: 24
-  })), /*#__PURE__*/React__default["default"].createElement(Title$a, null, headerTitle)), /*#__PURE__*/React__default["default"].createElement("main", null, sections.map(({
+  })), /*#__PURE__*/React__default["default"].createElement(Title$9, null, headerTitle)), /*#__PURE__*/React__default["default"].createElement("main", null, sections.map(({
     title,
     fields
   }, idx) => /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
@@ -4492,7 +4492,7 @@ const EditSettingsTemplate = ({
       }
     })),
     updateState: updateState
-  }))), /*#__PURE__*/React__default["default"].createElement(Footer$2, null, /*#__PURE__*/React__default["default"].createElement(SaveButton$2, {
+  }))), /*#__PURE__*/React__default["default"].createElement(Footer$1, null, /*#__PURE__*/React__default["default"].createElement(SaveButton$1, {
     onClick: handleSave
   }, "Save Changes")));
 };
@@ -4763,10 +4763,10 @@ const FAQContainer = styled__default["default"].div`
   padding: 24px;
   font-family: Arial, sans-serif;
 `;
-const Header$7 = styled__default["default"].div`
+const Header$6 = styled__default["default"].div`
   margin-bottom: 24px;
 `;
-const Title$9 = styled__default["default"].h2`
+const Title$8 = styled__default["default"].h2`
   font-size: 24px;
   margin-bottom: 8px;
 `;
@@ -4813,7 +4813,7 @@ const FAQ = () => {
   const handleToggle = index => {
     setOpenIndex(openIndex === index ? null : index);
   };
-  return /*#__PURE__*/React__default["default"].createElement(FAQContainer, null, /*#__PURE__*/React__default["default"].createElement(Header$7, null, /*#__PURE__*/React__default["default"].createElement(Title$9, null, "Frequently Asked Questions"), /*#__PURE__*/React__default["default"].createElement(Subtitle$1, null, "Answers to our most frequently asked questions are just one click away.")), FAQs.map((faq, index) => /*#__PURE__*/React__default["default"].createElement(FAQItem, {
+  return /*#__PURE__*/React__default["default"].createElement(FAQContainer, null, /*#__PURE__*/React__default["default"].createElement(Header$6, null, /*#__PURE__*/React__default["default"].createElement(Title$8, null, "Frequently Asked Questions"), /*#__PURE__*/React__default["default"].createElement(Subtitle$1, null, "Answers to our most frequently asked questions are just one click away.")), FAQs.map((faq, index) => /*#__PURE__*/React__default["default"].createElement(FAQItem, {
     key: index
   }, /*#__PURE__*/React__default["default"].createElement(FAQTitle, {
     onClick: () => handleToggle(index)
@@ -4834,7 +4834,7 @@ const FeedItemContainer = styled__default["default"].div`
   border-radius: 4px;
   background: #fff;
 `;
-const Title$8 = styled__default["default"].h3`
+const Title$7 = styled__default["default"].h3`
   margin: 0 0 0.5rem 0;
 `;
 const Description = styled__default["default"].p`
@@ -4843,7 +4843,7 @@ const Description = styled__default["default"].p`
 const FeedItem = ({
   data
 }) => {
-  return /*#__PURE__*/React__default["default"].createElement(FeedItemContainer, null, /*#__PURE__*/React__default["default"].createElement(Title$8, null, data.title), /*#__PURE__*/React__default["default"].createElement(Description, null, data.description));
+  return /*#__PURE__*/React__default["default"].createElement(FeedItemContainer, null, /*#__PURE__*/React__default["default"].createElement(Title$7, null, data.title), /*#__PURE__*/React__default["default"].createElement(Description, null, data.description));
 };
 
 // ../../components/search/FeedLogic.jsx
@@ -6154,7 +6154,7 @@ const FilterModal = ({
 };
 
 // The Footer component definition
-const Footer$1 = ({
+const Footer = ({
   email,
   phone,
   address,
@@ -6367,7 +6367,7 @@ const BackButton$4 = styled__default["default"].div`
   left: 24px;
   cursor: pointer;
 `;
-const Title$7 = styled__default["default"].h2`
+const Title$6 = styled__default["default"].h2`
   text-align: center;
   margin-bottom: 8px;
 `;
@@ -6403,7 +6403,7 @@ const HelpAndFAQs = () => {
   }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
     size: 20,
     color: "#333"
-  })), /*#__PURE__*/React__default["default"].createElement(Title$7, null, "Get Support"), /*#__PURE__*/React__default["default"].createElement(Subtitle, null, "Get help finding the right products and services for your needs."), /*#__PURE__*/React__default["default"].createElement(Option, {
+  })), /*#__PURE__*/React__default["default"].createElement(Title$6, null, "Get Support"), /*#__PURE__*/React__default["default"].createElement(Subtitle, null, "Get help finding the right products and services for your needs."), /*#__PURE__*/React__default["default"].createElement(Option, {
     to: "./contactus"
   }, /*#__PURE__*/React__default["default"].createElement(OptionContent, null, /*#__PURE__*/React__default["default"].createElement(fi.FiPhone, {
     size: 20
@@ -7036,7 +7036,7 @@ const Card$1 = styled__default["default"].div`
 `;
 
 // Header for LettzIcon and "Lettz" text
-const Header$6 = styled__default["default"].div`
+const Header$5 = styled__default["default"].div`
   position: absolute;
   top: 20px;
   left: 20px;
@@ -7126,7 +7126,7 @@ const ListYourPlaceCard = ({
       onButtonClick();
     }
   };
-  return /*#__PURE__*/React__default["default"].createElement(Card$1, null, /*#__PURE__*/React__default["default"].createElement(Header$6, null, /*#__PURE__*/React__default["default"].createElement(StyledLettzIcon$1, null), " ", /*#__PURE__*/React__default["default"].createElement(LogoText$1, null, "Lettz")), /*#__PURE__*/React__default["default"].createElement(IconWrapper$5, null, /*#__PURE__*/React__default["default"].createElement("span", {
+  return /*#__PURE__*/React__default["default"].createElement(Card$1, null, /*#__PURE__*/React__default["default"].createElement(Header$5, null, /*#__PURE__*/React__default["default"].createElement(StyledLettzIcon$1, null), " ", /*#__PURE__*/React__default["default"].createElement(LogoText$1, null, "Lettz")), /*#__PURE__*/React__default["default"].createElement(IconWrapper$5, null, /*#__PURE__*/React__default["default"].createElement("span", {
     role: "img",
     "aria-label": "icon"
   }, "\uD83C\uDFE1")), /*#__PURE__*/React__default["default"].createElement(Text$2, null, "Get started by listing your place today!"), /*#__PURE__*/React__default["default"].createElement(Button$7, {
@@ -7470,7 +7470,7 @@ const LoginPage = ({
   themeColor = "#A855F7"
 }) => {
   if (isSignupComplete) {
-    return /*#__PURE__*/React__default["default"].createElement(Container$7, null, /*#__PURE__*/React__default["default"].createElement(Title$6, null, "Signup Successful!"), /*#__PURE__*/React__default["default"].createElement("p", null, "Please check your email ", /*#__PURE__*/React__default["default"].createElement("strong", null, email), " for a verification link to activate your account."), /*#__PURE__*/React__default["default"].createElement(ButtonWrapper, null, /*#__PURE__*/React__default["default"].createElement(Button$6, {
+    return /*#__PURE__*/React__default["default"].createElement(Container$6, null, /*#__PURE__*/React__default["default"].createElement(Title$5, null, "Signup Successful!"), /*#__PURE__*/React__default["default"].createElement("p", null, "Please check your email ", /*#__PURE__*/React__default["default"].createElement("strong", null, email), " for a verification link to activate your account."), /*#__PURE__*/React__default["default"].createElement(ButtonWrapper, null, /*#__PURE__*/React__default["default"].createElement(Button$6, {
       themeColor: themeColor,
       onClick: () => {
         setIsSignupComplete(false); // Reset the signup complete state
@@ -7478,9 +7478,9 @@ const LoginPage = ({
       }
     }, "Return to Login")));
   }
-  return /*#__PURE__*/React__default["default"].createElement(Container$7, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper1, null, /*#__PURE__*/React__default["default"].createElement(LettzIconStyled, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$6, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper1, null, /*#__PURE__*/React__default["default"].createElement(LettzIconStyled, {
     themeColor: themeColor
-  })), /*#__PURE__*/React__default["default"].createElement(Title$6, null, isSignUp ? "Sign up to Lettz to get started!" : "Sign in to Lettz"), resetEmailSent && /*#__PURE__*/React__default["default"].createElement(Message, null, "A password reset email has been sent to ", email, "."), error && /*#__PURE__*/React__default["default"].createElement(Message, {
+  })), /*#__PURE__*/React__default["default"].createElement(Title$5, null, isSignUp ? "Sign up to Lettz to get started!" : "Sign in to Lettz"), resetEmailSent && /*#__PURE__*/React__default["default"].createElement(Message, null, "A password reset email has been sent to ", email, "."), error && /*#__PURE__*/React__default["default"].createElement(Message, {
     error: true
   }, error), /*#__PURE__*/React__default["default"].createElement(Form, {
     onSubmit: isSignUp ? handleSignup : handleLogin
@@ -7537,7 +7537,7 @@ const LoginPage = ({
     onClick: () => setShowSignUp(!isSignUp)
   }, isSignUp ? "Login" : "Sign up"))));
 };
-const Container$7 = styled__default["default"].div`
+const Container$6 = styled__default["default"].div`
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -7557,7 +7557,7 @@ const LettzIconStyled = styled__default["default"](LettzIcon)`
   height: 50px;
   color: ${props => props.themeColor}; /* Apply themeColor to currentColor */
 `;
-const Title$6 = styled__default["default"].h2`
+const Title$5 = styled__default["default"].h2`
   font-size: 1.5rem;
   font-weight: bold;
   color: #1f2937;
@@ -7715,16 +7715,16 @@ const accountFields = [{
   fieldName: 'notifications',
   icon: fi.FiUser
 }];
-const Container$6 = styled__default["default"].div`
+const Container$5 = styled__default["default"].div`
   padding: 20px;
   max-width: 28rem;
 `;
-const Header$5 = styled__default["default"].header`
+const Header$4 = styled__default["default"].header`
   display: flex;
   align-items: center;
   margin-bottom: 24px;
 `;
-const Title$5 = styled__default["default"].h1`
+const Title$4 = styled__default["default"].h1`
   margin-left: 40px;
   font-size: 1.5rem;
   font-weight: 600;
@@ -7756,11 +7756,11 @@ const ManageAccount = () => {
   const handleDeleteAccount = () => {
     console.log('Delete account clicked');
   };
-  return /*#__PURE__*/React__default["default"].createElement(Container$6, null, /*#__PURE__*/React__default["default"].createElement(Header$5, null, /*#__PURE__*/React__default["default"].createElement(reactRouterDom.Link, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(Header$4, null, /*#__PURE__*/React__default["default"].createElement(reactRouterDom.Link, {
     to: "/previous-page"
   }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
     size: 24
-  })), /*#__PURE__*/React__default["default"].createElement(Title$5, null, "Manage Account")), /*#__PURE__*/React__default["default"].createElement("main", null, /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
+  })), /*#__PURE__*/React__default["default"].createElement(Title$4, null, "Manage Account")), /*#__PURE__*/React__default["default"].createElement("main", null, /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
     items: accountFields.map(({
       name,
       type,
@@ -7827,75 +7827,17 @@ const sections = [{
     fieldName: 'notifications'
   }]
 }];
-const Container$5 = styled__default["default"].div`
-  padding: 20px;
-`;
-const Header$4 = styled__default["default"].header`
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-`;
-const Title$4 = styled__default["default"].h1`
-  margin-left: 40px;
-  font-size: 1.5rem;
-`;
-const Footer = styled__default["default"].footer`
-  margin-top: 24px;
-`;
-const SaveButton$1 = styled__default["default"].button`
-  padding: 10px 16px;
-  background-color: #3b82f6;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-
-  &:hover {
-    background-color: #2563eb;
-  }
-`;
 const ManageNotifications = () => {
-  const [formData, setFormData] = React.useState(initialFormState);
-  const updateState = (fieldName, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [fieldName]: value
-    }));
-  };
-  const saveChanges = () => {
-    console.log('Saving changes:', formData);
+  const handleSave = formData => {
+    console.log('Saving form data:', formData);
     alert('Changes saved! (Simulated for Storybook)');
   };
-  return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(Header$4, null, /*#__PURE__*/React__default["default"].createElement(reactRouterDom.Link, {
-    to: "/previous-page"
-  }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
-    size: 24
-  })), /*#__PURE__*/React__default["default"].createElement(Title$4, null, "Manage Notifications")), /*#__PURE__*/React__default["default"].createElement("main", null, sections.map(({
-    title,
-    fields
-  }, idx) => /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
-    key: idx,
-    title: title,
-    items: fields.map(({
-      name,
-      type,
-      fieldName,
-      options
-    }) => ({
-      type,
-      props: {
-        name,
-        fieldName,
-        currentState: formData[fieldName],
-        options,
-        value: formData[fieldName]
-      }
-    })),
-    updateState: updateState
-  }))), /*#__PURE__*/React__default["default"].createElement(Footer, null, /*#__PURE__*/React__default["default"].createElement(SaveButton$1, {
-    onClick: saveChanges
-  }, "Save Changes")));
+  return /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditSettingsTemplate, {
+    headerTitle: "Manage Notifications",
+    sections: sections,
+    initialValues: initialFormState,
+    onSave: handleSave
+  });
 };
 
 // Atoms
@@ -15418,7 +15360,7 @@ exports.FilterHorizontal = FilterHorizontal;
 exports.FilterIcon = FilterIcon;
 exports.FilterLogic = FilterLogic;
 exports.FilterModal = FilterModal;
-exports.Footer = Footer$1;
+exports.Footer = Footer;
 exports.ForkAndKnifeIcon = ForkAndKnifeIcon;
 exports.FormLogic = FormLogic;
 exports.GhostLoader = GhostLoader;

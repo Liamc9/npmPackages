@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FiChevronLeft } from 'react-icons/fi';
-import {StackedList} from 'liamc9npm'; // Make sure this works (default or named export)
+import { useNavigate } from 'react-router-dom';
+import { StackedList } from 'liamc9npm'; // Make sure this works (default or named export)
 
 // Styled components
 const Page = styled.div`
@@ -33,7 +34,9 @@ const Title = styled.h1`
 `;
 
 // Component
-const SettingsTemplate = ({ headerTitle = 'Page Title', settings = [], onBack }) => {
+const SettingsTemplate = ({ headerTitle = 'Page Title', settings = [] }) => {
+  const navigate = useNavigate();
+
   const groupedSettings = settings.reduce((acc, setting) => {
     if (!acc[setting.category]) {
       acc[setting.category] = [];
@@ -45,7 +48,7 @@ const SettingsTemplate = ({ headerTitle = 'Page Title', settings = [], onBack })
   return (
     <Page>
       <Header>
-        <BackButton onClick={onBack}>
+        <BackButton onClick={() => navigate(-1)}>
           <FiChevronLeft size={24} />
         </BackButton>
         <Title>{headerTitle}</Title>
