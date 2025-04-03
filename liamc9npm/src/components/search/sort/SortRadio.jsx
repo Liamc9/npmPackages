@@ -1,9 +1,9 @@
 // SortRadio.jsx
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import BottomDrawer from '../atoms/Drawers/BottomDrawer'; // Adjust import path as needed
+import BottomDrawer from '../../atoms/Drawers/BottomDrawer'; // Adjust import path as needed
 import SortLogic from './SortLogic';
-import { SortIcon } from '../Branding/icons/Icons';
+import { SortIcon } from '../../Branding/icons/Icons';
 
 const sortingOptions = [
   {

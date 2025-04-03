@@ -1,5 +1,4 @@
-// Search.js
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { useFuzzySearch } from './SearchLogic';
 
@@ -72,7 +71,10 @@ const SuggestionItem = styled.li`
 `;
 
 const Search = ({ onSearch, items, placeholder }) => {
-  const { query, setQuery, suggestions } = useFuzzySearch(items, { keys: ['title'] });
+  // Memoize the fuse options so that the reference remains stable between renders
+  const fuseOptions = useMemo(() => ({ keys: ['title'] }), []);
+
+  const { query, setQuery, suggestions } = useFuzzySearch(items, fuseOptions);
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);

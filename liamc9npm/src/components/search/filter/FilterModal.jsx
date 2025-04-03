@@ -1,39 +1,38 @@
-// src/components/FilterDrawer.jsx
+// src/components/FilterModal.jsx
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import BottomDrawer from '../atoms/Drawers/BottomDrawer'; // Adjust the import path as necessary
+import Modal from '../../atoms/modals/Modal'; // Adjust the import path as necessary
 import FilterLogic from './FilterLogic';
-import RangeSlider from '../atoms/inputs/RangeSlider';  // Adjust import paths as needed
-import SelectInput from '../atoms/inputs/SelectInput';
-import { FilterIcon } from '../Branding/icons/Icons';
+import RangeSlider from '../../atoms/inputs/RangeSlider';  // Adjust import paths as needed
+import SelectInput from '../../atoms/inputs/SelectInput';
 
 // Styled components for button and filter layout
 const Button = styled.button`
-  display: flex;
-  flex-direction: row;
   padding: 10px 20px;
+  background-color: #2563eb;
+  color: #fff;
   border: none;
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
 
-  .svg {
-    margin-right: 0.5rem;
-    width: 24px;
-    height: 24px;
-    align-self: center;
+  &:hover {
+    background-color: #1d4ed8;
   }
 
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+  }
 `;
 
 const FilterContainer = styled.div`
   display: grid;
   gap: 2rem;
   padding: 1rem;
+  width: 500px;
 `;
 
 const GroupContainer = styled.div`
@@ -69,16 +68,17 @@ const filtersConfig = {
   },
 };
 
-const FilterDrawer = ({ onChange }) => {
+const FilterModal = ({ onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpenDrawer = () => setIsOpen(true);
-  const handleCloseDrawer = () => setIsOpen(false);
+  const handleOpenModal = () => setIsOpen(true);
+  const handleCloseModal = () => setIsOpen(false);
 
   return (
     <>
-      <Button onClick={handleOpenDrawer}><FilterIcon className='svg'/> Filters</Button>
-      <BottomDrawer isOpen={isOpen} onClose={handleCloseDrawer}>
+      <Button onClick={handleOpenModal}>Open Filters</Button>
+    
+      <Modal isModalOpen={isOpen} closeModal={handleCloseModal} title="Filters" animate>
         <FilterLogic
           filters={Object.values(filtersConfig)}
           onChange={selectedFilters => {
@@ -130,9 +130,9 @@ const FilterDrawer = ({ onChange }) => {
             );
           }}
         </FilterLogic>
-      </BottomDrawer>
+      </Modal>
     </>
   );
 };
 
-export default FilterDrawer;
+export default FilterModal;

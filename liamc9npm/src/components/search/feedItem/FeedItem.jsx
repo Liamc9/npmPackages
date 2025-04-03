@@ -8,7 +8,7 @@ const ItemContainer = styled.div`
   border-radius: 4px;
 `;
 
-const FeedItem2 = ({ data }) => {
+const FeedItem = ({ data }) => {
   return (
     <ItemContainer>
       <h3>{data.title} (FeedItem2)</h3>
@@ -20,4 +20,4 @@ const FeedItem2 = ({ data }) => {
   );
 };
 
-export default FeedItem2;
+export default FeedItem;

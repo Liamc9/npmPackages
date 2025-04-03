@@ -1,8 +1,7 @@
 // src/components/search/Search2.jsx
-import React from 'react';
+import React, {useMemo} from 'react';
 import styled from 'styled-components';
-import BottomDrawer from '../atoms/Drawers/BottomDrawer'; // adjust path as needed
-import { SearchLogic } from './SearchLogic'; // adjust path as needed
+import  { BottomDrawer, SearchLogic } from 'liamc9npm'; // adjust path as needed
 
 
 // Styled components for Search2 UI
@@ -97,6 +96,8 @@ const OpenButton = styled(SearchButton)`
   margin: 20px;
 `;
 const Search2 = ({ items, onSearch, historyItems = [] }) => {
+  const fuseOptions = useMemo(() => ({ keys: ['title'] }), []);
+
   const {
     isOpen,
     open,
@@ -107,7 +108,10 @@ const Search2 = ({ items, onSearch, historyItems = [] }) => {
     handleInputChange,
     handleSuggestionClick,
     handleSearchForClick,
-  } = SearchLogic({ items, onSearch, historyItems }, { keys: ['title'] });
+  } = SearchLogic(
+    { items, onSearch, historyItems },
+    fuseOptions
+  );
 
   return (
     <>
