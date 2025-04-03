@@ -1467,7 +1467,7 @@ const ContentContainer$1 = styled__default["default"].div`
   padding: 16px;
   
 `;
-const Title$9 = styled__default["default"].p`
+const Title$8 = styled__default["default"].p`
   font-size: 24px;
   font-weight: bold;
   color: #1a202c;
@@ -1492,7 +1492,7 @@ const AccordionContent = styled__default["default"].div`
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 `;
-const Description$2 = styled__default["default"].p`
+const Description$1 = styled__default["default"].p`
   padding: 24px;
   background-color: #f7fafc;
   border-top: 1px solid #e2e8f0;
@@ -1518,7 +1518,7 @@ function AccordionCard({
   }, /*#__PURE__*/React__default["default"].createElement(IconContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     size: 80,
     color: "#38a169"
-  })), /*#__PURE__*/React__default["default"].createElement(ContentContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Title$9, null, title), /*#__PURE__*/React__default["default"].createElement(Subtitle$1, null, subtitle), /*#__PURE__*/React__default["default"].createElement(Institution, null, institution)), /*#__PURE__*/React__default["default"].createElement(GradeContainer, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Grade: ", grade), /*#__PURE__*/React__default["default"].createElement("p", null, "GPA: ", gpa), isOpen ? /*#__PURE__*/React__default["default"].createElement(ChevronUpIcon, {
+  })), /*#__PURE__*/React__default["default"].createElement(ContentContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Title$8, null, title), /*#__PURE__*/React__default["default"].createElement(Subtitle$1, null, subtitle), /*#__PURE__*/React__default["default"].createElement(Institution, null, institution)), /*#__PURE__*/React__default["default"].createElement(GradeContainer, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Grade: ", grade), /*#__PURE__*/React__default["default"].createElement("p", null, "GPA: ", gpa), isOpen ? /*#__PURE__*/React__default["default"].createElement(ChevronUpIcon, {
     size: 24,
     color: "#718096"
   }) : /*#__PURE__*/React__default["default"].createElement(ChevronDownIcon, {
@@ -1526,7 +1526,7 @@ function AccordionCard({
     color: "#718096"
   }))), /*#__PURE__*/React__default["default"].createElement(AccordionContent, {
     isOpen: isOpen
-  }, /*#__PURE__*/React__default["default"].createElement(Description$2, null, description)));
+  }, /*#__PURE__*/React__default["default"].createElement(Description$1, null, description)));
 }
 
 // IMPORTS
@@ -2543,15 +2543,15 @@ const Info = styled__default["default"].div`
   flex-direction: column;
   font-size: 16px;
 `;
-const Title$8 = styled__default["default"].span`
+const Title$7 = styled__default["default"].span`
   font-weight: bold;
   margin-bottom: 4px;
 `;
-const Description$1 = styled__default["default"].span`
+const Description = styled__default["default"].span`
   color: #555;
 `;
 const ContactUs = () => {
-  return /*#__PURE__*/React__default["default"].createElement(ContactContainer, null, /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMessageSquare, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$8, null, "Chat with us"), /*#__PURE__*/React__default["default"].createElement(Description$1, null, "6:00 - 23:59", /*#__PURE__*/React__default["default"].createElement("br", null), "7 days a week"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiPhone, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$8, null, "Call us"), /*#__PURE__*/React__default["default"].createElement(Description$1, null, "1800 811 6453", /*#__PURE__*/React__default["default"].createElement("br", null), "Products & Orders: 06:00 - 23:59, 7 days a week", /*#__PURE__*/React__default["default"].createElement("br", null), "Company Info & Enquiries: 10:00 - 19:00, Monday - Friday"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMapPin, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$8, null, "Find a Store"))));
+  return /*#__PURE__*/React__default["default"].createElement(ContactContainer, null, /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMessageSquare, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$7, null, "Chat with us"), /*#__PURE__*/React__default["default"].createElement(Description, null, "6:00 - 23:59", /*#__PURE__*/React__default["default"].createElement("br", null), "7 days a week"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiPhone, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$7, null, "Call us"), /*#__PURE__*/React__default["default"].createElement(Description, null, "1800 811 6453", /*#__PURE__*/React__default["default"].createElement("br", null), "Products & Orders: 06:00 - 23:59, 7 days a week", /*#__PURE__*/React__default["default"].createElement("br", null), "Company Info & Enquiries: 10:00 - 19:00, Monday - Friday"))), /*#__PURE__*/React__default["default"].createElement(ContactOption, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper$6, null, /*#__PURE__*/React__default["default"].createElement(fi.FiMapPin, null)), /*#__PURE__*/React__default["default"].createElement(Info, null, /*#__PURE__*/React__default["default"].createElement(Title$7, null, "Find a Store"))));
 };
 
 // src/components/ConversationItem.jsx
@@ -3081,7 +3081,7 @@ const Icon = styled__default["default"].svg`
   fill: #ef4444; /* Red color for the icon */
   margin-bottom: 1rem;
 `;
-const Title$7 = styled__default["default"].h2`
+const Title$6 = styled__default["default"].h2`
   font-size: 1.25rem;
   font-weight: bold;
   color: #1f2937;
@@ -3155,7 +3155,7 @@ const DeleteModal = ({
     clipRule: "evenodd",
     d: "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
     fillRule: "evenodd"
-  })), /*#__PURE__*/React__default["default"].createElement(Title$7, null, title || "Are you sure?"), /*#__PURE__*/React__default["default"].createElement(Message$1, null, message || "Do you really want to continue? This process cannot be undone.")), /*#__PURE__*/React__default["default"].createElement(ButtonContainer$2, null, /*#__PURE__*/React__default["default"].createElement(CancelButton, {
+  })), /*#__PURE__*/React__default["default"].createElement(Title$6, null, title || "Are you sure?"), /*#__PURE__*/React__default["default"].createElement(Message$1, null, message || "Do you really want to continue? This process cannot be undone.")), /*#__PURE__*/React__default["default"].createElement(ButtonContainer$2, null, /*#__PURE__*/React__default["default"].createElement(CancelButton, {
     onClick: onCancel
   }, "Cancel"), /*#__PURE__*/React__default["default"].createElement(ConfirmButton, {
     onClick: onConfirm
@@ -4434,7 +4434,7 @@ const BackButton$3 = styled__default["default"].button`
   border: none;
   cursor: pointer;
 `;
-const Title$6 = styled__default["default"].h1`
+const Title$5 = styled__default["default"].h1`
   font-size: 1.25rem;
   font-weight: 700;
   text-align: center;
@@ -4483,7 +4483,7 @@ const EditSettingsTemplate = ({
     onClick: () => navigate(-1)
   }, /*#__PURE__*/React__default["default"].createElement(fi.FiChevronLeft, {
     size: 24
-  })), /*#__PURE__*/React__default["default"].createElement(Title$6, null, headerTitle)), /*#__PURE__*/React__default["default"].createElement("main", null, sections.map(({
+  })), /*#__PURE__*/React__default["default"].createElement(Title$5, null, headerTitle)), /*#__PURE__*/React__default["default"].createElement("main", null, sections.map(({
     title,
     fields
   }, idx) => /*#__PURE__*/React__default["default"].createElement(liamc9npm.EditStackedList, {
@@ -4779,7 +4779,7 @@ const FAQContainer = styled__default["default"].div`
 const Header$4 = styled__default["default"].div`
   margin-bottom: 24px;
 `;
-const Title$5 = styled__default["default"].h2`
+const Title$4 = styled__default["default"].h2`
   font-size: 24px;
   margin-bottom: 8px;
 `;
@@ -4826,7 +4826,7 @@ const FAQ = () => {
   const handleToggle = index => {
     setOpenIndex(openIndex === index ? null : index);
   };
-  return /*#__PURE__*/React__default["default"].createElement(FAQContainer, null, /*#__PURE__*/React__default["default"].createElement(Header$4, null, /*#__PURE__*/React__default["default"].createElement(Title$5, null, "Frequently Asked Questions"), /*#__PURE__*/React__default["default"].createElement(Subtitle, null, "Answers to our most frequently asked questions are just one click away.")), FAQs.map((faq, index) => /*#__PURE__*/React__default["default"].createElement(FAQItem, {
+  return /*#__PURE__*/React__default["default"].createElement(FAQContainer, null, /*#__PURE__*/React__default["default"].createElement(Header$4, null, /*#__PURE__*/React__default["default"].createElement(Title$4, null, "Frequently Asked Questions"), /*#__PURE__*/React__default["default"].createElement(Subtitle, null, "Answers to our most frequently asked questions are just one click away.")), FAQs.map((faq, index) => /*#__PURE__*/React__default["default"].createElement(FAQItem, {
     key: index
   }, /*#__PURE__*/React__default["default"].createElement(FAQTitle, {
     onClick: () => handleToggle(index)
@@ -4841,22 +4841,67 @@ const FAQ = () => {
   }, "View all")))));
 };
 
-const FeedItemContainer = styled__default["default"].div`
-  border: 1px solid #ccc;
+// src/components/search/Feed.jsx
+
+// Styled component for the feed container
+const FeedContainer = styled__default["default"].div`
+  display: flex;
+  flex-direction: column;
+`;
+const Feed = ({
+  items = [],
+  sortBy,
+  selectedFilters = {},
+  ItemComponent = liamc9npm.FeedItem,
+  pagination,
+  // Optional: number of items per page
+  loadMore,
+  // Optional: number of items to load per click
+  infiniteScroll,
+  // Optional: number of items to load on bottom scroll
+  scrollContainerRef // Optional: container ref for infinite scrolling
+}) => {
+  // Retrieve computed values and logic from FeedLogic
+  const {
+    itemsToRender,
+    pages,
+    currentPage,
+    setCurrentPage,
+    hasMoreItems,
+    handleLoadMore
+  } = liamc9npm.FeedLogic({
+    items,
+    sortBy,
+    selectedFilters,
+    pagination,
+    loadMore,
+    infiniteScroll,
+    scrollContainerRef
+  });
+  return /*#__PURE__*/React__default["default"].createElement(FeedContainer, null, itemsToRender.map((item, index) => /*#__PURE__*/React__default["default"].createElement(ItemComponent, {
+    key: index,
+    data: item
+  })), /*#__PURE__*/React__default["default"].createElement(liamc9npm.PaginationControls, {
+    pages: pages,
+    currentPage: currentPage,
+    onPageChange: setCurrentPage
+  }), /*#__PURE__*/React__default["default"].createElement(liamc9npm.LoadMoreButton, {
+    loadMore: loadMore,
+    hasMoreItems: hasMoreItems,
+    onLoadMore: handleLoadMore
+  }));
+};
+
+// ../../components/search/FeedItem2.jsx
+const ItemContainer = styled__default["default"].div`
   padding: 1rem;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  background: #fff;
-`;
-const Title$4 = styled__default["default"].h3`
-  margin: 0 0 0.5rem 0;
-`;
-const Description = styled__default["default"].p`
-  margin: 0;
 `;
 const FeedItem = ({
   data
 }) => {
-  return /*#__PURE__*/React__default["default"].createElement(FeedItemContainer, null, /*#__PURE__*/React__default["default"].createElement(Title$4, null, data.title), /*#__PURE__*/React__default["default"].createElement(Description, null, data.description));
+  return /*#__PURE__*/React__default["default"].createElement(ItemContainer, null, /*#__PURE__*/React__default["default"].createElement("h3", null, data.title, " (FeedItem2)"), /*#__PURE__*/React__default["default"].createElement("p", null, data.description), /*#__PURE__*/React__default["default"].createElement("p", null, "Status: ", data.status), /*#__PURE__*/React__default["default"].createElement("p", null, "Priority: ", data.priority), /*#__PURE__*/React__default["default"].createElement("p", null, "Date: ", data.date));
 };
 
 // ../../components/search/FeedLogic.jsx
@@ -4997,108 +5042,6 @@ function FeedLogic({
     handleLoadMore
   };
 }
-
-// ../../components/search/Feed.jsx
-
-// ---------------------- Styled Components ----------------------
-const FeedContainer = styled__default["default"].div`
-  display: flex;
-  flex-direction: column;
-`;
-const PaginationContainer = styled__default["default"].div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 8px;
-`;
-const PageButton = styled__default["default"].button`
-  padding: 8px 12px;
-  border: none;
-  background-color: ${({
-  active
-}) => active ? '#007bff' : '#e0e0e0'};
-  color: ${({
-  active
-}) => active ? '#fff' : '#000'};
-  cursor: pointer;
-  border-radius: 4px;
-  
-  &:hover {
-    background-color: ${({
-  active
-}) => active ? '#0056b3' : '#ccc'};
-  }
-`;
-const LoadMoreButton = styled__default["default"].button`
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
-
-// ---------------------- Feed Component ----------------------
-const Feed = ({
-  items = [],
-  sortBy,
-  selectedFilters = {},
-  ItemComponent = FeedItem,
-  pagination,
-  // optional number of items per page
-  loadMore,
-  // optional number of items to load per click
-  infiniteScroll,
-  // optional number of items to load on bottom scroll
-  scrollContainerRef // optional container ref for infinite scrolling
-}) => {
-  // -- 1) Retrieve all the logic from FeedLogic
-  const {
-    itemsToRender,
-    pages,
-    currentPage,
-    setCurrentPage,
-    hasMoreItems,
-    handleLoadMore
-  } = FeedLogic({
-    items,
-    sortBy,
-    selectedFilters,
-    pagination,
-    loadMore,
-    infiniteScroll,
-    scrollContainerRef
-  });
-
-  // -- 2) Render
-  return /*#__PURE__*/React__default["default"].createElement(FeedContainer, null, itemsToRender.map((item, index) => /*#__PURE__*/React__default["default"].createElement(ItemComponent, {
-    key: index,
-    data: item
-  })), pages?.length > 1 && /*#__PURE__*/React__default["default"].createElement(PaginationContainer, null, pages.map(page => /*#__PURE__*/React__default["default"].createElement(PageButton, {
-    key: page,
-    active: page === currentPage,
-    onClick: () => setCurrentPage(page)
-  }, page))), loadMore && hasMoreItems && /*#__PURE__*/React__default["default"].createElement(LoadMoreButton, {
-    onClick: handleLoadMore
-  }, "Load More"));
-};
-
-// ../../components/search/FeedItem2.jsx
-const ItemContainer = styled__default["default"].div`
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-const FeedItem2 = ({
-  data
-}) => {
-  return /*#__PURE__*/React__default["default"].createElement(ItemContainer, null, /*#__PURE__*/React__default["default"].createElement("h3", null, data.title, " (FeedItem2)"), /*#__PURE__*/React__default["default"].createElement("p", null, data.description), /*#__PURE__*/React__default["default"].createElement("p", null, "Status: ", data.status), /*#__PURE__*/React__default["default"].createElement("p", null, "Priority: ", data.priority), /*#__PURE__*/React__default["default"].createElement("p", null, "Date: ", data.date));
-};
 
 // Styled Components
 const FileInputWrapper = styled__default["default"].div`
@@ -7354,6 +7297,31 @@ ListingCard.defaultProps = {
   isManaging: false,
   onUpdate: () => {},
   onRemove: () => {}
+};
+
+// src/components/search/LoadMoreButton.jsx
+const LoadMoreButtonStyled = styled__default["default"].button`
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+const LoadMoreButton = ({
+  loadMore,
+  hasMoreItems,
+  onLoadMore
+}) => {
+  if (!loadMore || !hasMoreItems) return null;
+  return /*#__PURE__*/React__default["default"].createElement(LoadMoreButtonStyled, {
+    onClick: onLoadMore
+  }, "Load More");
 };
 
 // Loader.js
@@ -9646,6 +9614,44 @@ function MultiPageForm({
     handlePrevious
   })));
 }
+
+// src/components/search/PaginationControls.jsx
+const PaginationContainer = styled__default["default"].div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 8px;
+`;
+const PageButton = styled__default["default"].button`
+  padding: 8px 12px;
+  border: none;
+  background-color: ${({
+  active
+}) => active ? '#007bff' : '#e0e0e0'};
+  color: ${({
+  active
+}) => active ? '#fff' : '#000'};
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: ${({
+  active
+}) => active ? '#0056b3' : '#ccc'};
+  }
+`;
+const PaginationControls = ({
+  pages,
+  currentPage,
+  onPageChange
+}) => {
+  if (!pages || pages.length <= 1) return null;
+  return /*#__PURE__*/React__default["default"].createElement(PaginationContainer, null, pages.map(page => /*#__PURE__*/React__default["default"].createElement(PageButton, {
+    key: page,
+    active: page === currentPage,
+    onClick: () => onPageChange(page)
+  }, page)));
+};
 
 const PlansAndBilling = () => {
   const billingSettings = [{
@@ -13213,24 +13219,11 @@ Fuse.config = Config;
 }
 
 // searchLogic.js
-
-/**
- * Default Fuse.js configuration options.
- * These defaults work for many use cases and can be adjusted as needed.
- */
 const defaultFuseOptions = {
   keys: ['title'],
   threshold: 0.4 // Adjusts fuzziness (0 = exact match, 1 = match anything)
   // You can include other default Fuse.js options here
 };
-
-/**
- * Creates a Fuse.js instance with provided items and optional options.
- * Falls back to default options if not provided.
- * @param {Array} items - Array of items to search through.
- * @param {Object} [options] - Custom Fuse.js configuration options.
- * @returns {Fuse} - A Fuse.js instance.
- */
 function createFuseInstance(items, options = {}) {
   const fuseOptions = {
     ...defaultFuseOptions,
@@ -13238,30 +13231,12 @@ function createFuseInstance(items, options = {}) {
   };
   return new Fuse(items, fuseOptions);
 }
-
-/**
- * Performs a fuzzy search using a given Fuse.js instance and query.
- * @param {Fuse} fuseInstance - A configured Fuse.js instance.
- * @param {string} query - The search query.
- * @returns {Array} - Array of matching items.
- */
 function performFuzzySearch(fuseInstance, query) {
   if (!query.trim()) return [];
   const results = fuseInstance.search(query);
   // Extract the original items from Fuse results
   return results.map(result => result.item);
 }
-
-/**
- * A reusable React hook for fuzzy searching.
- * This hook abstracts Fuse.js instance creation and searching logic,
- * making it easy to integrate fuzzy search into components without repeating logic.
- *
- * @param {Array} items - The data to search.
- * @param {Object} [options] - Optional Fuse.js configuration overrides.
- * @returns {Object} - { query, setQuery, suggestions }
- */
-
 function useFuzzySearch(items, options = {}) {
   const [query, setQuery] = React.useState('');
   const [suggestions, setSuggestions] = React.useState([]);
@@ -13328,8 +13303,6 @@ function SearchLogic({
     handleSearchForClick
   };
 }
-
-// Search.js
 
 // Styled components
 const SearchContainer = styled__default["default"].div`
@@ -13399,13 +13372,15 @@ const Search = ({
   items,
   placeholder
 }) => {
+  // Memoize the fuse options so that the reference remains stable between renders
+  const fuseOptions = React.useMemo(() => ({
+    keys: ['title']
+  }), []);
   const {
     query,
     setQuery,
     suggestions
-  } = useFuzzySearch(items, {
-    keys: ['title']
-  });
+  } = useFuzzySearch(items, fuseOptions);
   const handleInputChange = e => {
     setQuery(e.target.value);
   };
@@ -13513,6 +13488,9 @@ const Search2 = ({
   onSearch,
   historyItems = []
 }) => {
+  const fuseOptions = React.useMemo(() => ({
+    keys: ['title']
+  }), []);
   const {
     isOpen,
     open,
@@ -13523,18 +13501,16 @@ const Search2 = ({
     handleInputChange,
     handleSuggestionClick,
     handleSearchForClick
-  } = SearchLogic({
+  } = liamc9npm.SearchLogic({
     items,
     onSearch,
     historyItems
-  }, {
-    keys: ['title']
-  });
+  }, fuseOptions);
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(OpenButton, {
     onClick: open
   }, /*#__PURE__*/React__default["default"].createElement(SearchText, {
     hasQuery: lastQuery
-  }, lastQuery || 'Search...')), /*#__PURE__*/React__default["default"].createElement(BottomDrawer, {
+  }, lastQuery || 'Search...')), /*#__PURE__*/React__default["default"].createElement(liamc9npm.BottomDrawer, {
     isOpen: isOpen,
     onClose: close
   }, /*#__PURE__*/React__default["default"].createElement(Container$2, null, /*#__PURE__*/React__default["default"].createElement(SearchInputContainer, null, /*#__PURE__*/React__default["default"].createElement(SearchInput, {
@@ -15173,7 +15149,6 @@ exports.EditableTextField = EditableTextField;
 exports.FAQ = FAQ;
 exports.Feed = Feed;
 exports.FeedItem = FeedItem;
-exports.FeedItem2 = FeedItem2;
 exports.FeedLogic = FeedLogic;
 exports.FemaleIcon = FemaleIcon;
 exports.FemaleIcon2 = FemaleIcon2;
@@ -15213,6 +15188,7 @@ exports.LettzSearchButton = LettzSearchButton;
 exports.LinkedInIcon = LinkedInIcon;
 exports.ListYourPlaceCard = ListYourPlaceCard;
 exports.ListingCard = ListingCard;
+exports.LoadMoreButton = LoadMoreButton;
 exports.Loader = Loader;
 exports.LocationIcon = LocationIcon;
 exports.LoginIcon = LoginIcon;
@@ -15236,6 +15212,7 @@ exports.MoneyIcon2 = MoneyIcon2;
 exports.MultiPageForm = MultiPageForm;
 exports.MuteIcon = MuteIcon;
 exports.NotificationsIcon = NotificationsIcon;
+exports.PaginationControls = PaginationControls;
 exports.PasswordIcon = PasswordIcon;
 exports.PeriodIcon = PeriodIcon;
 exports.PlansAndBilling = PlansAndBilling;
