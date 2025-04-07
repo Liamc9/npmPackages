@@ -5,7 +5,7 @@ import styled from "styled-components";
 import ImageCarousel2 from "../../../atoms/carousels/ImageCarousel2";
 import { CalendarIcon, LocationIcon, ChevronLeftIcon } from "../../../Branding/icons/Icons";
 import BottomSheet from "../../../atoms/Drawers/BottomSheet";
-import MessageForm from "../../../Lettz/components/MessageForm";
+import MessageForm from "../components/MessageForm";
 import { useNavigate } from "react-router-dom"; 
 import PropTypes from "prop-types";
 
