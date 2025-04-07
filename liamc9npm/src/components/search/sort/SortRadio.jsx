@@ -1,7 +1,7 @@
 // SortRadio.jsx
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import BottomSheet from '../../../atoms/Drawers/BottomSheet';
+import BottomSheet from '../../../components/atoms/overlays/drawers/BottomSheet';
 import SortLogic from './SortLogic';
 import { SortIcon } from '../../Branding/icons/Icons';
 
