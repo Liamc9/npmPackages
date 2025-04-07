@@ -1,10 +1,10 @@
 // src/components/FilterModal.jsx
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Modal from '../../atoms/modals/Modal'; // Adjust the import path as necessary
+import Modal from '../../atoms/overlays/modals/Modal'; // Adjust the import path as necessary
 import FilterLogic from './FilterLogic';
-import RangeSlider from '../../atoms/inputs/RangeSlider';  // Adjust import paths as needed
-import SelectInput from '../../atoms/inputs/SelectInput';
+import RangeSlider from '../../form/inputs/rangeInputs/RangeSlider';
+import SelectInput from '../../form/inputs/selectInputs/SelectInput';
 
 // Styled components for button and filter layout
 const Button = styled.button`

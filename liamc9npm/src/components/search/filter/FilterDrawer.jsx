@@ -1,10 +1,10 @@
 // src/components/FilterDrawer.jsx
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import BottomDrawer from '../../atoms/Drawers/BottomDrawer'; // Adjust the import path as necessary
+import BottomDrawer from '../../atoms/overlays/drawers/BottomDrawer'; // Adjust the import path as necessary
 import FilterLogic from './FilterLogic';
-import RangeSlider from '../../atoms/inputs/RangeSlider';  // Adjust import paths as needed
-import SelectInput from '../../atoms/inputs/SelectInput';
+import RangeSlider from '../../form/inputs/rangeInputs/RangeSlider';  // Adjust import paths as needed
+import SelectInput from '../../form/inputs/selectInputs/SelectInput';
 import { FilterIcon } from '../../Branding/icons/Icons';
 
 // Styled components for button and filter layout

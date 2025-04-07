@@ -1,9 +1,9 @@
 // Filter.jsx
 import React from 'react';
 import FilterLogic from './FilterLogic';
-import RangeSlider from '../../atoms/inputs/RangeSlider';  // Adjust import paths as needed
+import RangeSlider from '../../form/inputs/rangeInputs/RangeSlider';
 import styled from 'styled-components';
-import SelectInput from '../../atoms/inputs/SelectInput';
+import SelectInput from '../../form/inputs/selectInputs/SelectInput';
 
 export const FilterContainer = styled.div`
   display: grid;

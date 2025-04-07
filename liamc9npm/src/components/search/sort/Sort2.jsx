@@ -1,7 +1,7 @@
 // Sort2.jsx
 import React from 'react';
 import SortLogic from './SortLogic'; // Reusable sorting logic
-import SelectInput from '../../atoms/inputs/SelectInput'; // Custom styled select component
+import SelectInput from '../../form/inputs/selectInputs/SelectInput';
 
 // Simplified sorting options with labels as values
 const sortingOptions = [
