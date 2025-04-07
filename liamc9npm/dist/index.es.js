@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect, useCallback, useSyncExternalStore, useLayoutEffect, isValidElement, cloneElement, useMemo } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useSyncExternalStore, useLayoutEffect, isValidElement, cloneElement, useMemo } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { ChevronRightIcon as ChevronRightIcon$1, StackedList as StackedList$1, EditStackedList as EditStackedList$1, FeedLogic as FeedLogic$1, PaginationControls as PaginationControls$1, LoadMoreButton as LoadMoreButton$1, FeedItem as FeedItem$1, SettingsTemplate as SettingsTemplate$1, Input as Input$2, EditSettingsTemplate as EditSettingsTemplate$1, SearchLogic as SearchLogic$1, BottomDrawer as BottomDrawer$1 } from 'liamc9npm';
 import { Link as Link$1, useNavigate, NavLink } from 'react-router-dom';
 import ReactDOM, { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { FiMessageSquare, FiPhone, FiMapPin, FiChevronLeft, FiChevronUp, FiChevronDown, FiHelpCircle, FiChevronRight } from 'react-icons/fi';
-import classNames from 'classnames';
+import { MdClose } from 'react-icons/md';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -1424,98 +1424,6 @@ const CoupleIcon = ({
   strokeLinecap: "round"
 }));
 
-// Styled components
-const AccordionWrapper = styled.div`
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
-`;
-const AccordionHeader = styled.div`
-  display: flex;
-  align-items: center;
-  border-left: 8px solid green;
-  background-color: white;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-`;
-const IconContainer$1 = styled.div`
-  width: 112px;
-  height: 112px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const ContentContainer$1 = styled.div`
-  flex-grow: 1;
-  padding: 16px;
-  
-`;
-const Title$8 = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  color: #1a202c;
-`;
-const Subtitle$1 = styled.p`
-  font-size: 18px;
-  font-weight: medium;
-  color: #4a5568;
-`;
-const Institution = styled.p`
-  font-size: 16px;
-  font-weight: medium;
-  color: #2d3748;
-`;
-const GradeContainer = styled.div`
-  width: 25%;
-  text-align: center;
-  padding-right: 16px;
-`;
-const AccordionContent = styled.div`
-  max-height: ${props => props.isOpen ? '240px' : '0'};
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out;
-`;
-const Description$1 = styled.p`
-  padding: 24px;
-  background-color: #f7fafc;
-  border-top: 1px solid #e2e8f0;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  color: #4a5568;
-`;
-function AccordionCard({
-  Icon = CollegeIcon,
-  title = 'ME',
-  subtitle = 'Mechanical Engineering With Business',
-  institution = 'University College Dublin',
-  grade = '1:1',
-  gpa = '3.72',
-  description = 'This program combines advanced mechanical engineering concepts with business strategies, providing a comprehensive understanding that bridges technical and commercial domains. Key modules included Thermodynamics, Fluid Mechanics, Project Management, and Business Analytics. Achievements include leading a team project on sustainable energy solutions that received commendation from faculty.'
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-  return /*#__PURE__*/React.createElement(AccordionWrapper, null, /*#__PURE__*/React.createElement(AccordionHeader, {
-    onClick: toggleAccordion
-  }, /*#__PURE__*/React.createElement(IconContainer$1, null, /*#__PURE__*/React.createElement(Icon, {
-    size: 80,
-    color: "#38a169"
-  })), /*#__PURE__*/React.createElement(ContentContainer$1, null, /*#__PURE__*/React.createElement(Title$8, null, title), /*#__PURE__*/React.createElement(Subtitle$1, null, subtitle), /*#__PURE__*/React.createElement(Institution, null, institution)), /*#__PURE__*/React.createElement(GradeContainer, null, /*#__PURE__*/React.createElement("p", null, "Grade: ", grade), /*#__PURE__*/React.createElement("p", null, "GPA: ", gpa), isOpen ? /*#__PURE__*/React.createElement(ChevronUpIcon, {
-    size: 24,
-    color: "#718096"
-  }) : /*#__PURE__*/React.createElement(ChevronDownIcon, {
-    size: 24,
-    color: "#718096"
-  }))), /*#__PURE__*/React.createElement(AccordionContent, {
-    isOpen: isOpen
-  }, /*#__PURE__*/React.createElement(Description$1, null, description)));
-}
-
 // IMPORTS
 
 // Styled Components
@@ -1575,7 +1483,7 @@ const IconWrapper$7 = styled.div`
     color: #666;
   }
 `;
-const LogoutButton$1 = styled.button`
+const LogoutButton$2 = styled.button`
   background-color: #f3f4f6; /* Light gray */
   color: #dc2626; /* Red text */
   border: none;
@@ -1661,7 +1569,7 @@ const Account = ({
     key: index,
     category: category,
     items: categories[category]
-  })), /*#__PURE__*/React.createElement(LogoutButton$1, {
+  })), /*#__PURE__*/React.createElement(LogoutButton$2, {
     onClick: handleLogout
   }, "Log Out"), /*#__PURE__*/React.createElement(Footer$2, null, /*#__PURE__*/React.createElement("div", null, "Company Name"), /*#__PURE__*/React.createElement("div", null, "Version 1.0.0"), /*#__PURE__*/React.createElement(FooterLinks$2, null, /*#__PURE__*/React.createElement("a", {
     href: "/terms"
@@ -1670,73 +1578,8 @@ const Account = ({
   }, "Policy"))));
 };
 
-function AppCard({
-  image,
-  name,
-  id,
-  githubUrl,
-  url
-}) {
-  const [hovered, setHovered] = useState(false);
-  return /*#__PURE__*/React.createElement("div", {
-    className: `w-full aspect-square transition-all duration-300 rounded-xl shadow-lg border-2 border-gray-200 overflow-hidden transform bg-white ${hovered ? "scale-105 shadow-xl" : "scale-100"}`,
-    onMouseEnter: () => setHovered(true),
-    onMouseLeave: () => setHovered(false)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "h-[75%] relative"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: `absolute inset-0 transition-opacity duration-300 ${hovered ? "opacity-0" : "opacity-100"} flex justify-center items-center`
-  }, /*#__PURE__*/React.createElement("img", {
-    src: image,
-    alt: "profile",
-    className: "w-full h-full object-cover rounded-t-xl"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: `absolute inset-0 transition-all duration-300 transform ${hovered ? "opacity-100 scale-100" : "opacity-0 scale-95"} flex flex-col justify-center items-center bg-white bg-opacity-90 p-4 rounded-t-xl`
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "grid w-full gap-2 grid-cols-2"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: url,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    className: "flex flex-col items-center p-2 border rounded-lg hover:bg-blue-100 transition-colors"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "https://firebasestorage.googleapis.com/v0/b/stackgallery-fa1bb.appspot.com/o/svg%2Finternet-svgrepo-com.svg?alt=media&token=e42ec486-bc63-422e-a172-5e505156fe93",
-    className: "w-6 h-6 mb-1"
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "text-sm"
-  }, "App")), /*#__PURE__*/React.createElement("a", {
-    href: githubUrl,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    className: "flex flex-col items-center p-2 border rounded-lg hover:bg-blue-100 transition-colors"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "https://firebasestorage.googleapis.com/v0/b/stackgallery-fa1bb.appspot.com/o/svg%2Fgithub-142-svgrepo-com.svg?alt=media&token=e2051d67-b0a4-440a-877e-c153fa692f07",
-    className: "w-6 h-6 mb-1"
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "text-sm"
-  }, "Code")), /*#__PURE__*/React.createElement(Link$1, {
-    to: `/stacklist/${id}`,
-    className: "flex flex-col items-center p-2 border rounded-lg hover:bg-blue-100 transition-colors"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "https://firebasestorage.googleapis.com/v0/b/stackgallery-fa1bb.appspot.com/o/svg%2Fstack2-svgrepo-com.svg?alt=media&token=c4331c1b-d147-4435-bbfe-4e75ed418b3c",
-    className: "w-6 h-6 mb-1"
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "text-sm"
-  }, "Stack")), /*#__PURE__*/React.createElement(Link$1, {
-    to: `/notes/${id}`,
-    className: "flex flex-col items-center p-2 border rounded-lg hover:bg-blue-100 transition-colors"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "https://firebasestorage.googleapis.com/v0/b/stackgallery-fa1bb.appspot.com/o/svg%2Fms-onenote-svgrepo-com.svg?alt=media&token=eecb9f71-21a6-43b5-b798-7446f7bee4f7",
-    className: "w-6 h-6 mb-1"
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "text-sm"
-  }, "Notes"))))), /*#__PURE__*/React.createElement("p", {
-    className: "text-center text-lg font-bold text-gray-800 mt-2"
-  }, name));
-}
-
 // src/components/Drawers/BottomDrawer.jsx
-const DrawerContainer$1 = styled.div`
+const DrawerContainer$3 = styled.div`
   position: fixed;
   inset: 0;
   z-index: 50;
@@ -1753,7 +1596,7 @@ const DrawerContainer$1 = styled.div`
   isOpen
 }) => isOpen ? "auto" : "none"};
 `;
-const BackgroundOverlay = styled.div`
+const BackgroundOverlay$2 = styled.div`
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -1764,7 +1607,7 @@ const BackgroundOverlay = styled.div`
   isOpen
 }) => isOpen ? "1" : "0"};
 `;
-const Drawer$1 = styled.div`
+const Drawer$3 = styled.div`
   width: 100%;
   max-width: ${({
   maxWidth
@@ -1797,7 +1640,7 @@ const Drawer$1 = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Handle = styled.div`
+const Handle$1 = styled.div`
   width: 48px;
   height: 4px;
   background-color: #d1d5db;
@@ -1807,7 +1650,7 @@ const Handle = styled.div`
   hideHandle
 }) => hideHandle ? "none" : "block"};
 `;
-const DrawerContent$1 = styled.div`
+const DrawerContent$3 = styled.div`
   flex: 1;
   overflow-y: ${({
   autoHeight
@@ -1845,14 +1688,14 @@ function BottomDrawer({
       document.body.style.overflow = "auto";
     };
   }, [isOpen, onClose]);
-  return /*#__PURE__*/createPortal(/*#__PURE__*/React.createElement(DrawerContainer$1, {
+  return /*#__PURE__*/createPortal(/*#__PURE__*/React.createElement(DrawerContainer$3, {
     isOpen: isOpen,
     transitionDuration: transitionDuration
-  }, /*#__PURE__*/React.createElement(BackgroundOverlay, {
+  }, /*#__PURE__*/React.createElement(BackgroundOverlay$2, {
     isOpen: isOpen,
     onClick: onClose,
     transitionDuration: transitionDuration
-  }), /*#__PURE__*/React.createElement(Drawer$1, {
+  }), /*#__PURE__*/React.createElement(Drawer$3, {
     ref: drawerRef,
     isOpen: isOpen,
     transitionDuration: transitionDuration,
@@ -1860,9 +1703,9 @@ function BottomDrawer({
     autoHeight: autoHeight,
     maxWidth: maxWidth,
     noRoundedCorners: noRoundedCorners // Pass the new prop
-  }, /*#__PURE__*/React.createElement(Handle, {
+  }, /*#__PURE__*/React.createElement(Handle$1, {
     hideHandle: hideHandle
-  }), " ", /*#__PURE__*/React.createElement(DrawerContent$1, {
+  }), " ", /*#__PURE__*/React.createElement(DrawerContent$3, {
     autoHeight: autoHeight
   }, children))), document.body);
 }
@@ -1930,48 +1773,290 @@ const BottomNav = ({
   }, /*#__PURE__*/React.createElement(Icon, null), hasNotification && /*#__PURE__*/React.createElement(NotificationDot, null), text)));
 };
 
-// IMPORTS
+// src/components/Drawers/BottomSheet.jsx
+const DrawerContainer$2 = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: opacity ${({
+  transitionDuration
+}) => transitionDuration}ms ease-in-out;
+  opacity: ${({
+  isOpen
+}) => isOpen ? "1" : "0"};
+  pointer-events: ${({
+  isOpen
+}) => isOpen ? "auto" : "none"};
+`;
+const BackgroundOverlay$1 = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity ${({
+  transitionDuration
+}) => transitionDuration}ms ease-in-out;
+  opacity: ${({
+  isOpen
+}) => isOpen ? "1" : "0"};
+`;
+const Drawer$2 = styled.div`
+  width: 100%;
+  max-width: ${({
+  maxWidth
+}) => maxWidth};
+  height: ${({
+  autoHeight,
+  height
+}) => autoHeight ? "auto" : height};
+  background-color: white;
+  ${({
+  noRoundedCorners
+}) => noRoundedCorners ? css`
+          border-radius: 0;
+        ` : css`
+          border-radius: 16px 16px 0 0;
+        `}
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: ${({
+  isOpen
+}) => isOpen ? "translateY(0)" : "translateY(100%)"};
+  transition: transform ${({
+  transitionDuration
+}) => transitionDuration}ms ease-in-out,
+    opacity ${({
+  transitionDuration
+}) => transitionDuration}ms ease-in-out;
+  opacity: ${({
+  isOpen
+}) => isOpen ? "1" : "0"};
+  display: flex;
+  flex-direction: column;
+`;
+const Handle = styled.div`
+  width: 48px;
+  height: 4px;
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  margin: 8px auto;
+  display: ${({
+  hideHandle
+}) => hideHandle ? "none" : "block"};
+`;
+const DrawerContent$2 = styled.div`
+  flex: 1;
+  overflow-y: ${({
+  autoHeight
+}) => autoHeight ? "visible" : "auto"};
+`;
+function BottomSheet({
+  isOpen,
+  onClose,
+  children,
+  transitionDuration = 300,
+  height = "80vh",
+  autoHeight = false,
+  maxWidth = "600px",
+  hideHandle = false,
+  // New prop to hide handle
+  noRoundedCorners = false // New prop to remove rounded corners
+}) {
+  const drawerRef = useRef();
 
-// CREATE FUNCTION
-function CV() {
-  // STATE VARIABLES
-
-  // HTML
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("head", null), /*#__PURE__*/React.createElement("body", null, /*#__PURE__*/React.createElement("div", {
-    className: "grid grid-cols-2 gap-4"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "space-y-4"
-  }, /*#__PURE__*/React.createElement(AccordionCard, {
-    description: "This program combines advanced mechanical engineering concepts with business strategies, providing a comprehensive understanding that bridges technical and commercial domains.",
-    gpa: "3.68",
-    grade: "1:1",
-    institution: "University College Dublin",
-    subtitle: "Mechanical Engineering With Business",
-    title: "ME"
-  }), /*#__PURE__*/React.createElement(AccordionCard, {
-    description: "This program combines advanced mechanical engineering concepts with business strategies, providing a comprehensive understanding that bridges technical and commercial domains.",
-    gpa: "3.72",
-    grade: "1:1",
-    institution: "University College Dublin",
-    subtitle: "Mechanical Engineering With Business",
-    title: "BSc"
-  }), /*#__PURE__*/React.createElement(AccordionCard, {
-    description: "Focused on AI development, covering machine learning, neural networks, and advanced algorithms. Completed a capstone project on reinforcement learning applied to robotics.",
-    gpa: "4.0",
-    grade: "Summa Cum Laude",
-    icon: () => {},
-    institution: "Massachusetts Institute of Technology",
-    subtitle: "Leaving Certificate",
-    title: ""
-  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(AccordionCard, {
-    description: "A two-year program focused on leadership, strategy, and innovation in the business world.",
-    gpa: "3.9",
-    grade: "Distinction",
-    institution: "Harvard Business School",
-    subtitle: "MBA",
-    title: "Business Administration"
-  })))));
+  // Close the drawer when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden"; // Prevent background scrolling
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen, onClose]);
+  return /*#__PURE__*/createPortal(/*#__PURE__*/React.createElement(DrawerContainer$2, {
+    isOpen: isOpen,
+    transitionDuration: transitionDuration
+  }, /*#__PURE__*/React.createElement(BackgroundOverlay$1, {
+    isOpen: isOpen,
+    onClick: onClose,
+    transitionDuration: transitionDuration
+  }), /*#__PURE__*/React.createElement(Drawer$2, {
+    ref: drawerRef,
+    isOpen: isOpen,
+    transitionDuration: transitionDuration,
+    height: height,
+    autoHeight: autoHeight,
+    maxWidth: maxWidth,
+    noRoundedCorners: noRoundedCorners // Pass the new prop
+  }, /*#__PURE__*/React.createElement(Handle, {
+    hideHandle: hideHandle
+  }), " ", /*#__PURE__*/React.createElement(DrawerContent$2, {
+    autoHeight: autoHeight
+  }, children))), document.body);
 }
+
+const Button2 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$k, null, /*#__PURE__*/React.createElement("button", {
+    className: "learn-more"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "circle",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "icon arrow"
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "button-text"
+  }, "Learn More")));
+};
+const StyledWrapper$k = styled.div`
+  button {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+   outline: none;
+   border: 0;
+   vertical-align: middle;
+   text-decoration: none;
+   background: transparent;
+   padding: 0;
+   font-size: inherit;
+   font-family: inherit;
+  }
+
+  button.learn-more {
+   width: 12rem;
+   height: auto;
+  }
+
+  button.learn-more .circle {
+   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+   position: relative;
+   display: block;
+   margin: 0;
+   width: 3rem;
+   height: 3rem;
+   background: #282936;
+   border-radius: 1.625rem;
+  }
+
+  button.learn-more .circle .icon {
+   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   margin: auto;
+   background: #fff;
+  }
+
+  button.learn-more .circle .icon.arrow {
+   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+   left: 0.625rem;
+   width: 1.125rem;
+   height: 0.125rem;
+   background: none;
+  }
+
+  button.learn-more .circle .icon.arrow::before {
+   position: absolute;
+   content: "";
+   top: -0.29rem;
+   right: 0.0625rem;
+   width: 0.625rem;
+   height: 0.625rem;
+   border-top: 0.125rem solid #fff;
+   border-right: 0.125rem solid #fff;
+   transform: rotate(45deg);
+  }
+
+  button.learn-more .button-text {
+   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   padding: 0.75rem 0;
+   margin: 0 0 0 1.85rem;
+   color: #282936;
+   font-weight: 700;
+   line-height: 1.6;
+   text-align: center;
+   text-transform: uppercase;
+  }
+
+  button:hover .circle {
+   width: 100%;
+  }
+
+  button:hover .circle .icon.arrow {
+   background: #fff;
+   transform: translate(1rem, 0);
+  }
+
+  button:hover .button-text {
+   color: #fff;
+  }`;
+
+const Button3 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$j, null, /*#__PURE__*/React.createElement("button", {
+    className: "button type1"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "btn-txt"
+  }, "Hello")));
+};
+const StyledWrapper$j = styled.div`
+  .button {
+    height: 50px;
+    width: 200px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #252525;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #333;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .btn-txt {
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 4px;
+  }
+
+  .type1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: #333;
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+  }
+
+  .button:hover {
+    box-shadow: 1px 1px 200px #252525;
+    color: #fff;
+    border: none;
+  }
+
+  .type1:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+  }`;
 
 function Card2() {
   return /*#__PURE__*/React.createElement("div", {
@@ -2042,6 +2127,869 @@ Card3.defaultProps = {
   description: "Elevate your experience with smoother transitions and vibrant design. Perfect for prototyping and sharing ideas in style.",
   linkText: "Explore Documentation"
 };
+
+const Card4 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$i, null, /*#__PURE__*/React.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "content"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "back"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "back-content"
+  }, /*#__PURE__*/React.createElement("svg", {
+    stroke: "#ffffff",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 50 50",
+    height: "50px",
+    width: "50px",
+    fill: "#ffffff"
+  }, /*#__PURE__*/React.createElement("g", {
+    strokeWidth: 0,
+    id: "SVGRepo_bgCarrier"
+  }), /*#__PURE__*/React.createElement("g", {
+    strokeLinejoin: "round",
+    strokeLinecap: "round",
+    id: "SVGRepo_tracerCarrier"
+  }), /*#__PURE__*/React.createElement("g", {
+    id: "SVGRepo_iconCarrier"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z M 17 16C19.761719 16 22 18.238281 22 21C22 23.761719 19.761719 26 17 26C15.140625 26 13.550781 24.972656 12.6875 23.46875L15.6875 16.1875C16.101563 16.074219 16.550781 16 17 16 Z M 31 22C32.65625 22 34 23.34375 34 25C34 25.917969 33.585938 26.730469 32.9375 27.28125L32.90625 27.28125C33.570313 27.996094 34 28.949219 34 30C34 32.210938 32.210938 34 30 34C27.789063 34 26 32.210938 26 30C26 28.359375 26.996094 26.960938 28.40625 26.34375L28.3125 26.3125C28.117188 25.917969 28 25.472656 28 25C28 23.34375 29.34375 22 31 22 Z M 21 32C23.210938 32 25 33.789063 25 36C25 36.855469 24.710938 37.660156 24.25 38.3125L20.3125 39.9375C18.429688 39.609375 17 37.976563 17 36C17 33.789063 18.789063 32 21 32 Z M 9 34C10.65625 34 12 35.34375 12 37C12 38.65625 10.65625 40 9 40C7.902344 40 6.960938 39.414063 6.4375 38.53125L8.25 34.09375C8.488281 34.03125 8.742188 34 9 34Z"
+  }))), /*#__PURE__*/React.createElement("strong", null, "Hover Me"))), /*#__PURE__*/React.createElement("div", {
+    className: "front"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "img"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "circle"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "circle",
+    id: "right"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "circle",
+    id: "bottom"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "front-content"
+  }, /*#__PURE__*/React.createElement("small", {
+    className: "badge"
+  }, "Pasta"), /*#__PURE__*/React.createElement("div", {
+    className: "description"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "title"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "title"
+  }, /*#__PURE__*/React.createElement("strong", null, "Spaguetti Bolognese")), /*#__PURE__*/React.createElement("svg", {
+    fillRule: "nonzero",
+    height: "15px",
+    width: "15px",
+    viewBox: "0,0,256,256",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("g", {
+    style: {
+      mixBlendMode: 'normal'
+    },
+    textAnchor: "none",
+    fontSize: "none",
+    fontWeight: "none",
+    fontFamily: "none",
+    strokeDashoffset: 0,
+    strokeDasharray: true,
+    strokeMiterlimit: 10,
+    strokeLinejoin: "miter",
+    strokeLinecap: "butt",
+    strokeWidth: 1,
+    stroke: "none",
+    fillRule: "nonzero",
+    fill: "#20c997"
+  }, /*#__PURE__*/React.createElement("g", {
+    transform: "scale(8,8)"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M25,27l-9,-6.75l-9,6.75v-23h18z"
+  }))))), /*#__PURE__*/React.createElement("p", {
+    className: "card-footer"
+  }, "30 Mins \xA0 | \xA0 1 Serving")))))));
+};
+const StyledWrapper$i = styled.div`
+  .card {
+    overflow: visible;
+    width: 190px;
+    height: 254px;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms;
+    box-shadow: 0px 0px 10px 1px #000000ee;
+    border-radius: 5px;
+  }
+
+  .front, .back {
+    background-color: #151515;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .back {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .back::before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 160px;
+    height: 160%;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+    animation: rotation_481 5000ms infinite linear;
+  }
+
+  .back-content {
+    position: absolute;
+    width: 99%;
+    height: 99%;
+    background-color: #151515;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .card:hover .content {
+    transform: rotateY(180deg);
+  }
+
+  @keyframes rotation_481 {
+    0% {
+      transform: rotateZ(0deg);
+    }
+
+    0% {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  .front {
+    transform: rotateY(180deg);
+    color: white;
+  }
+
+  .front .front-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .front-content .badge {
+    background-color: #00000055;
+    padding: 2px 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    width: fit-content;
+  }
+
+  .description {
+    box-shadow: 0px 0px 10px 5px #00000088;
+    width: 100%;
+    padding: 10px;
+    background-color: #00000099;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+  }
+
+  .title {
+    font-size: 11px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title p {
+    width: 50%;
+  }
+
+  .card-footer {
+    color: #ffffff88;
+    margin-top: 5px;
+    font-size: 8px;
+  }
+
+  .front .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #ffbb66;
+    position: relative;
+    filter: blur(15px);
+    animation: floating 2600ms infinite linear;
+  }
+
+  #bottom {
+    background-color: #ff8866;
+    left: 50px;
+    top: 0px;
+    width: 150px;
+    height: 150px;
+    animation-delay: -800ms;
+  }
+
+  #right {
+    background-color: #ff2233;
+    left: 160px;
+    top: -80px;
+    width: 30px;
+    height: 30px;
+    animation-delay: -1800ms;
+  }
+
+  @keyframes floating {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(10px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }`;
+
+const Card5 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$h, null, /*#__PURE__*/React.createElement("article", {
+    className: "card"
+  }, /*#__PURE__*/React.createElement("section", {
+    className: "card__hero"
+  }, /*#__PURE__*/React.createElement("header", {
+    className: "card__hero-header"
+  }, /*#__PURE__*/React.createElement("span", null, "$150/hr"), /*#__PURE__*/React.createElement("div", {
+    className: "card__icon"
+  }, /*#__PURE__*/React.createElement("svg", {
+    height: 20,
+    width: 20,
+    stroke: "currentColor",
+    strokeWidth: "1.5",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z",
+    strokeLinejoin: "round",
+    strokeLinecap: "round"
+  })))), /*#__PURE__*/React.createElement("p", {
+    className: "card__job-title"
+  }, "Senior Backend Engineer")), /*#__PURE__*/React.createElement("footer", {
+    className: "card__footer"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card__job-summary"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card__job-icon"
+  }, /*#__PURE__*/React.createElement("svg", {
+    height: 35,
+    width: 28,
+    viewBox: "0 0 250 250",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#4285F4",
+    d: "M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#34A853",
+    d: "M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#FBBC05",
+    d: "M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#EB4335",
+    d: "M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "card__job"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "card__job-title"
+  }, "Senior Backend ", /*#__PURE__*/React.createElement("br", null), "Engineer"))), /*#__PURE__*/React.createElement("button", {
+    className: "card__btn"
+  }, "view"))));
+};
+const StyledWrapper$h = styled.div`
+  .card {
+    margin: auto;
+    width: min(300px, 100%);
+    background-color: #fefefe;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    color: #141417;
+  }
+  .card__hero {
+    background-color: #fef4e2;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1.5rem;
+    font-size: 0.875rem;
+  }
+  .card__hero .card__job-title {
+    margin: 2rem 0;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-right: 2rem;
+  }
+  .card__hero-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    font-weight: 700;
+  }
+  .card__footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0.75rem;
+    row-gap: 1rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+  @media (min-width: 340px) {
+    .card__footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+  .card__job-summary {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+  }
+  .card__btn {
+    width: 100%;
+    font-weight: 400;
+    border: none;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1rem;
+    background-color: #141417;
+    color: #fff;
+    font-size: 1rem;
+  }
+  @media (min-width: 340px) {
+    .card__btn {
+      width: max-content;
+    }
+  }`;
+
+const Card6 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$g, null, /*#__PURE__*/React.createElement("div", {
+    className: "parent"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "logo"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "circle circle1"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "circle circle2"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "circle circle3"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "circle circle4"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "circle circle5"
+  }, /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 29.667 31.69",
+    className: "svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    id: "Path_6",
+    "data-name": "Path 6",
+    d: "M12.827,1.628A1.561,1.561,0,0,1,14.31,0h2.964a1.561,1.561,0,0,1,1.483,1.628v11.9a9.252,9.252,0,0,1-2.432,6.852q-2.432,2.409-6.963,2.409T2.4,20.452Q0,18.094,0,13.669V1.628A1.561,1.561,0,0,1,1.483,0h2.98A1.561,1.561,0,0,1,5.947,1.628V13.191a5.635,5.635,0,0,0,.85,3.451,3.153,3.153,0,0,0,2.632,1.094,3.032,3.032,0,0,0,2.582-1.076,5.836,5.836,0,0,0,.816-3.486Z",
+    transform: "translate(0 0)"
+  }), /*#__PURE__*/React.createElement("path", {
+    id: "Path_7",
+    "data-name": "Path 7",
+    d: "M75.207,20.857a1.561,1.561,0,0,1-1.483,1.628h-2.98a1.561,1.561,0,0,1-1.483-1.628V1.628A1.561,1.561,0,0,1,70.743,0h2.98a1.561,1.561,0,0,1,1.483,1.628Z",
+    transform: "translate(-45.91 0)"
+  }), /*#__PURE__*/React.createElement("path", {
+    id: "Path_8",
+    "data-name": "Path 8",
+    d: "M0,80.018A1.561,1.561,0,0,1,1.483,78.39h26.7a1.561,1.561,0,0,1,1.483,1.628v2.006a1.561,1.561,0,0,1-1.483,1.628H1.483A1.561,1.561,0,0,1,0,82.025Z",
+    transform: "translate(0 -51.963)"
+  })))), /*#__PURE__*/React.createElement("div", {
+    className: "glass"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "content"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "title"
+  }, "UIVERSE (3D UI)"), /*#__PURE__*/React.createElement("span", {
+    className: "text"
+  }, "Create, share, and use beautiful custom elements made with CSS")), /*#__PURE__*/React.createElement("div", {
+    className: "bottom"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "social-buttons-container"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "social-button .social-button1"
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 30 30",
+    xmlns: "http://www.w3.org/2000/svg",
+    className: "svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"
+  }))), /*#__PURE__*/React.createElement("button", {
+    className: "social-button .social-button2"
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 512 512",
+    xmlns: "http://www.w3.org/2000/svg",
+    className: "svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+  }))), /*#__PURE__*/React.createElement("button", {
+    className: "social-button .social-button3"
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 640 512",
+    xmlns: "http://www.w3.org/2000/svg",
+    className: "svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"
+  })))), /*#__PURE__*/React.createElement("div", {
+    className: "view-more"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "view-more-button"
+  }, "View more"), /*#__PURE__*/React.createElement("svg", {
+    className: "svg",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 24 24",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "m6 9 6 6 6-6"
+  })))))));
+};
+const StyledWrapper$g = styled.div`
+  .parent {
+    width: 290px;
+    height: 300px;
+    perspective: 1000px;
+  }
+
+  .card {
+    height: 100%;
+    border-radius: 50px;
+    background: linear-gradient(135deg, rgb(0, 255, 214) 0%, rgb(8, 226, 96) 100%);
+    transition: all 0.5s ease-in-out;
+    transform-style: preserve-3d;
+    box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+  }
+
+  .glass {
+    transform-style: preserve-3d;
+    position: absolute;
+    inset: 8px;
+    border-radius: 55px;
+    border-top-right-radius: 100%;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
+    /* -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); */
+    transform: translate3d(0px, 0px, 25px);
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .content {
+    padding: 100px 60px 0px 30px;
+    transform: translate3d(0, 0, 26px);
+  }
+
+  .content .title {
+    display: block;
+    color: #00894d;
+    font-weight: 900;
+    font-size: 20px;
+  }
+
+  .content .text {
+    display: block;
+    color: rgba(0, 137, 78, 0.7647058824);
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  .bottom {
+    padding: 10px 12px;
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translate3d(0, 0, 26px);
+  }
+
+  .bottom .view-more {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: flex-end;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .bottom .view-more:hover {
+    transform: translate3d(0, 0, 10px);
+  }
+
+  .bottom .view-more .view-more-button {
+    background: none;
+    border: none;
+    color: #00c37b;
+    font-weight: bolder;
+    font-size: 12px;
+  }
+
+  .bottom .view-more .svg {
+    fill: none;
+    stroke: #00c37b;
+    stroke-width: 3px;
+    max-height: 15px;
+  }
+
+  .bottom .social-buttons-container {
+    display: flex;
+    gap: 10px;
+    transform-style: preserve-3d;
+  }
+
+  .bottom .social-buttons-container .social-button {
+    width: 30px;
+    aspect-ratio: 1;
+    padding: 5px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: none;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
+  }
+
+  .bottom .social-buttons-container .social-button:first-child {
+    transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+  }
+
+  .bottom .social-buttons-container .social-button:nth-child(2) {
+    transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+  }
+
+  .bottom .social-buttons-container .social-button:nth-child(3) {
+    transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
+  }
+
+  .bottom .social-buttons-container .social-button .svg {
+    width: 15px;
+    fill: #00894d;
+  }
+
+  .bottom .social-buttons-container .social-button:hover {
+    background: black;
+  }
+
+  .bottom .social-buttons-container .social-button:hover .svg {
+    fill: white;
+  }
+
+  .bottom .social-buttons-container .social-button:active {
+    background: rgb(255, 234, 0);
+  }
+
+  .bottom .social-buttons-container .social-button:active .svg {
+    fill: black;
+  }
+
+  .logo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-style: preserve-3d;
+  }
+
+  .logo .circle {
+    display: block;
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background: rgba(0, 249, 203, 0.2);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .logo .circle1 {
+    width: 170px;
+    transform: translate3d(0, 0, 20px);
+    top: 8px;
+    right: 8px;
+  }
+
+  .logo .circle2 {
+    width: 140px;
+    transform: translate3d(0, 0, 40px);
+    top: 10px;
+    right: 10px;
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    transition-delay: 0.4s;
+  }
+
+  .logo .circle3 {
+    width: 110px;
+    transform: translate3d(0, 0, 60px);
+    top: 17px;
+    right: 17px;
+    transition-delay: 0.8s;
+  }
+
+  .logo .circle4 {
+    width: 80px;
+    transform: translate3d(0, 0, 80px);
+    top: 23px;
+    right: 23px;
+    transition-delay: 1.2s;
+  }
+
+  .logo .circle5 {
+    width: 50px;
+    transform: translate3d(0, 0, 100px);
+    top: 30px;
+    right: 30px;
+    display: grid;
+    place-content: center;
+    transition-delay: 1.6s;
+  }
+
+  .logo .circle5 .svg {
+    width: 20px;
+    fill: white;
+  }
+
+  .parent:hover .card {
+    transform: rotate3d(1, 1, 0, 30deg);
+    box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
+  }
+
+  .parent:hover .card .bottom .social-buttons-container .social-button {
+    transform: translate3d(0, 0, 50px);
+    box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
+  }
+
+  .parent:hover .card .logo .circle2 {
+    transform: translate3d(0, 0, 60px);
+  }
+
+  .parent:hover .card .logo .circle3 {
+    transform: translate3d(0, 0, 80px);
+  }
+
+  .parent:hover .card .logo .circle4 {
+    transform: translate3d(0, 0, 100px);
+  }
+
+  .parent:hover .card .logo .circle5 {
+    transform: translate3d(0, 0, 120px);
+  }`;
+
+const Card7 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$f, null, /*#__PURE__*/React.createElement("article", {
+    className: "article-wrapper"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "rounded-lg container-project"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "project-info"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-pr"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "project-title text-nowrap"
+  }, "Project"), /*#__PURE__*/React.createElement("div", {
+    className: "project-hover"
+  }, /*#__PURE__*/React.createElement("svg", {
+    style: {
+      color: 'black'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "2em",
+    height: "2em",
+    color: "black",
+    strokeLinejoin: "round",
+    strokeLinecap: "round",
+    viewBox: "0 0 24 24",
+    strokeWidth: 2,
+    fill: "none",
+    stroke: "currentColor"
+  }, /*#__PURE__*/React.createElement("line", {
+    y2: 12,
+    x2: 19,
+    y1: 12,
+    x1: 5
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "12 5 19 12 12 19"
+  })))), /*#__PURE__*/React.createElement("div", {
+    className: "types"
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      backgroundColor: 'rgba(165, 96, 247, 0.43)',
+      color: 'rgb(85, 27, 177)'
+    },
+    className: "project-type"
+  }, "\u2022 Analytics"), /*#__PURE__*/React.createElement("span", {
+    className: "project-type"
+  }, "\u2022 Dashboards")))));
+};
+const StyledWrapper$f = styled.div`
+  .article-wrapper {
+    width: 250px;
+    -webkit-transition: 0.15s all ease-in-out;
+    transition: 0.15s all ease-in-out;
+    border-radius: 10px;
+    padding: 5px;
+    border: 4px solid transparent;
+    cursor: pointer;
+    background-color: white;
+  }
+
+  .article-wrapper:hover {
+    -webkit-box-shadow: 10px 10px 0 #4e84ff, 20px 20px 0 #4444bd;
+    box-shadow: 10px 10px 0 #4e84ff, 20px 20px 0 #4444bd;
+    border-color: #0578c5;
+    -webkit-transform: translate(-20px, -20px);
+    -ms-transform: translate(-20px, -20px);
+    transform: translate(-20px, -20px);
+  }
+
+  .article-wrapper:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .types {
+    gap: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    place-content: flex-start;
+  }
+
+  .rounded-lg {
+   /* class tailwind */
+    border-radius: 10px;
+  }
+
+  .article-wrapper:hover .project-hover {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    background-color: #a6c2f0;
+  }
+
+  .project-info {
+    padding-top: 20px;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-title {
+    font-size: 2em;
+    margin: 0;
+    font-weight: 600;
+   /* depend de la font */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: black;
+  }
+
+  .flex-pr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .project-type {
+    background: #b2b2fd;
+    color: #1a41cd;
+    font-weight: bold;
+    padding: 0.3em 0.7em;
+    border-radius: 15px;
+    font-size: 12px;
+    letter-spacing: -0.6px
+  }
+
+  .project-hover {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 9px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .container-project {
+    width: 100%;
+    height: 170px;
+    background: gray;
+  }`;
 
 // Card.jsx
 const CardProduct = ({
@@ -2168,7 +3116,7 @@ const Checkbox2 = ({
   label,
   ...props
 }) => {
-  return /*#__PURE__*/React.createElement(StyledWrapper$7, {
+  return /*#__PURE__*/React.createElement(StyledWrapper$e, {
     gridSpan: props.gridSpan
   }, /*#__PURE__*/React.createElement("div", {
     className: "checkbox-wrapper"
@@ -2181,7 +3129,7 @@ const Checkbox2 = ({
     className: "tick_mark"
   }))));
 };
-const StyledWrapper$7 = styled.div`
+const StyledWrapper$e = styled.div`
        grid-column: ${props => props.gridSpan || 'auto'};
 
   .checkbox-wrapper * {
@@ -2299,7 +3247,7 @@ const Checkbox3 = ({
   label,
   ...props
 }) => {
-  return /*#__PURE__*/React.createElement(StyledWrapper$6, {
+  return /*#__PURE__*/React.createElement(StyledWrapper$d, {
     gridSpan: props.gridSpan
   }, /*#__PURE__*/React.createElement("label", {
     className: "container"
@@ -2316,7 +3264,7 @@ const Checkbox3 = ({
     className: "path"
   }))));
 };
-const StyledWrapper$6 = styled.div`
+const StyledWrapper$d = styled.div`
       grid-column: ${props => props.gridSpan || 'auto'};
 
   .container {
@@ -2530,7 +3478,7 @@ const Info = styled.div`
   flex-direction: column;
   font-size: 16px;
 `;
-const Title$7 = styled.span`
+const Title$6 = styled.span`
   font-weight: bold;
   margin-bottom: 4px;
 `;
@@ -2538,7 +3486,7 @@ const Description = styled.span`
   color: #555;
 `;
 const ContactUs = () => {
-  return /*#__PURE__*/React.createElement(ContactContainer, null, /*#__PURE__*/React.createElement(ContactOption, null, /*#__PURE__*/React.createElement(IconWrapper$6, null, /*#__PURE__*/React.createElement(FiMessageSquare, null)), /*#__PURE__*/React.createElement(Info, null, /*#__PURE__*/React.createElement(Title$7, null, "Chat with us"), /*#__PURE__*/React.createElement(Description, null, "6:00 - 23:59", /*#__PURE__*/React.createElement("br", null), "7 days a week"))), /*#__PURE__*/React.createElement(ContactOption, null, /*#__PURE__*/React.createElement(IconWrapper$6, null, /*#__PURE__*/React.createElement(FiPhone, null)), /*#__PURE__*/React.createElement(Info, null, /*#__PURE__*/React.createElement(Title$7, null, "Call us"), /*#__PURE__*/React.createElement(Description, null, "1800 811 6453", /*#__PURE__*/React.createElement("br", null), "Products & Orders: 06:00 - 23:59, 7 days a week", /*#__PURE__*/React.createElement("br", null), "Company Info & Enquiries: 10:00 - 19:00, Monday - Friday"))), /*#__PURE__*/React.createElement(ContactOption, null, /*#__PURE__*/React.createElement(IconWrapper$6, null, /*#__PURE__*/React.createElement(FiMapPin, null)), /*#__PURE__*/React.createElement(Info, null, /*#__PURE__*/React.createElement(Title$7, null, "Find a Store"))));
+  return /*#__PURE__*/React.createElement(ContactContainer, null, /*#__PURE__*/React.createElement(ContactOption, null, /*#__PURE__*/React.createElement(IconWrapper$6, null, /*#__PURE__*/React.createElement(FiMessageSquare, null)), /*#__PURE__*/React.createElement(Info, null, /*#__PURE__*/React.createElement(Title$6, null, "Chat with us"), /*#__PURE__*/React.createElement(Description, null, "6:00 - 23:59", /*#__PURE__*/React.createElement("br", null), "7 days a week"))), /*#__PURE__*/React.createElement(ContactOption, null, /*#__PURE__*/React.createElement(IconWrapper$6, null, /*#__PURE__*/React.createElement(FiPhone, null)), /*#__PURE__*/React.createElement(Info, null, /*#__PURE__*/React.createElement(Title$6, null, "Call us"), /*#__PURE__*/React.createElement(Description, null, "1800 811 6453", /*#__PURE__*/React.createElement("br", null), "Products & Orders: 06:00 - 23:59, 7 days a week", /*#__PURE__*/React.createElement("br", null), "Company Info & Enquiries: 10:00 - 19:00, Monday - Friday"))), /*#__PURE__*/React.createElement(ContactOption, null, /*#__PURE__*/React.createElement(IconWrapper$6, null, /*#__PURE__*/React.createElement(FiMapPin, null)), /*#__PURE__*/React.createElement(Info, null, /*#__PURE__*/React.createElement(Title$6, null, "Find a Store"))));
 };
 
 // src/components/ConversationItem.jsx
@@ -2655,7 +3603,7 @@ const ConversationList = ({
 
 // Styled Components
 
-const CardContainer$2 = styled.div`
+const CardContainer$3 = styled.div`
   display: flex;
   flex-direction: row;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
@@ -2713,7 +3661,7 @@ const RecipeImage$1 = styled.img`
   top: 0;
   left: 0;
 `;
-const CardContent$2 = styled.div`
+const CardContent$3 = styled.div`
   flex: 1;
   padding: 1rem;
   text-align: left;
@@ -2721,7 +3669,7 @@ const CardContent$2 = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-const CardTitle$1 = styled.h3`
+const CardTitle$2 = styled.h3`
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
@@ -2764,12 +3712,12 @@ const CookbookCard = ({
     imageUrl,
     numberOfRecipes
   } = cookbook;
-  return /*#__PURE__*/React.createElement(CardContainer$2, {
+  return /*#__PURE__*/React.createElement(CardContainer$3, {
     onClick: onCardClick
   }, /*#__PURE__*/React.createElement(ImageContainer$3, null, /*#__PURE__*/React.createElement(RecipeImage$1, {
     src: imageUrl,
     alt: title
-  })), /*#__PURE__*/React.createElement(CardContent$2, null, /*#__PURE__*/React.createElement(CardTitle$1, null, title), /*#__PURE__*/React.createElement(CardSubtitle, null, "By ", chef), /*#__PURE__*/React.createElement(CardDetails, null, /*#__PURE__*/React.createElement(CardDetail, null, "Cuisine: ", cuisine), /*#__PURE__*/React.createElement(CardDetail, null, "Recipes: ", numberOfRecipes))));
+  })), /*#__PURE__*/React.createElement(CardContent$3, null, /*#__PURE__*/React.createElement(CardTitle$2, null, title), /*#__PURE__*/React.createElement(CardSubtitle, null, "By ", chef), /*#__PURE__*/React.createElement(CardDetails, null, /*#__PURE__*/React.createElement(CardDetail, null, "Cuisine: ", cuisine), /*#__PURE__*/React.createElement(CardDetail, null, "Recipes: ", numberOfRecipes))));
 };
 
 const CookbookProfile = ({
@@ -2825,48 +3773,171 @@ const CookbookProfile = ({
   }, "Open Drawer"))));
 };
 
-const CustomButton = ({
-  children,
-  variant = 'primary',
-  size = 'md',
-  className,
-  ...props
-}) => {
-  // Base styles for all buttons
-  const baseStyles = 'font-semibold rounded focus:outline-none focus:ring';
-
-  // Styles based on the 'variant' prop
-  const variantStyles = {
-    primary: 'text-white bg-blue-500 hover:bg-blue-600 focus:ring-blue-300',
-    secondary: 'text-gray-800 bg-gray-200 hover:bg-gray-300 focus:ring-gray-300',
-    success: 'text-white bg-green-500 hover:bg-green-600 focus:ring-green-300',
-    danger: 'text-white bg-red-500 hover:bg-red-600 focus:ring-red-300'
-  };
-
-  // Styles based on the 'size' prop
-  const sizeStyles = {
-    sm: 'text-sm px-2 py-1',
-    md: 'text-base px-4 py-2',
-    lg: 'text-lg px-6 py-3'
-  };
-
-  // Combine all class names
-  const combinedClassName = classNames(baseStyles, variantStyles[variant], sizeStyles[size], className // User-provided class names
-  );
-  return /*#__PURE__*/React.createElement("button", _extends({
-    className: combinedClassName
-  }, props), children);
+const CopyButton = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$c, null, /*#__PURE__*/React.createElement("button", {
+    className: "copy"
+  }, /*#__PURE__*/React.createElement("span", {
+    "data-text-end": "Copied!",
+    "data-text-initial": "Copy to clipboard",
+    className: "tooltip"
+  }), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("svg", {
+    xmlSpace: "preserve",
+    style: {
+      enableBackground: 'new 0 0 512 512'
+    },
+    viewBox: "0 0 6.35 6.35",
+    y: 0,
+    x: 0,
+    height: 20,
+    width: 20,
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    version: "1.1",
+    xmlns: "http://www.w3.org/2000/svg",
+    className: "clipboard"
+  }, /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("path", {
+    fill: "currentColor",
+    d: "M2.43.265c-.3 0-.548.236-.573.53h-.328a.74.74 0 0 0-.735.734v3.822a.74.74 0 0 0 .735.734H4.82a.74.74 0 0 0 .735-.734V1.529a.74.74 0 0 0-.735-.735h-.328a.58.58 0 0 0-.573-.53zm0 .529h1.49c.032 0 .049.017.049.049v.431c0 .032-.017.049-.049.049H2.43c-.032 0-.05-.017-.05-.049V.843c0-.032.018-.05.05-.05zm-.901.53h.328c.026.292.274.528.573.528h1.49a.58.58 0 0 0 .573-.529h.328a.2.2 0 0 1 .206.206v3.822a.2.2 0 0 1-.206.205H1.53a.2.2 0 0 1-.206-.205V1.529a.2.2 0 0 1 .206-.206z"
+  }))), /*#__PURE__*/React.createElement("svg", {
+    xmlSpace: "preserve",
+    style: {
+      enableBackground: 'new 0 0 512 512'
+    },
+    viewBox: "0 0 24 24",
+    y: 0,
+    x: 0,
+    height: 18,
+    width: 18,
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    version: "1.1",
+    xmlns: "http://www.w3.org/2000/svg",
+    className: "checkmark"
+  }, /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("path", {
+    "data-original": "#000000",
+    fill: "currentColor",
+    d: "M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+  }))))));
 };
-CustomButton.propTypes = {
-  /** The content of the button */
-  children: PropTypes.node.isRequired,
-  /** The variant changes the visual style of the button */
-  variant: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger']),
-  /** The size adjusts the padding and font size */
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  /** Additional class names to customize styling */
-  className: PropTypes.string
-};
+const StyledWrapper$c = styled.div`
+  /* tooltip settings 👇 */
+
+  .copy {
+    /* button */
+    --button-bg: #353434;
+    --button-hover-bg: #464646;
+    --button-text-color: #CCCCCC;
+    --button-hover-text-color: #8bb9fe;
+    --button-border-radius: 10px;
+    --button-diameter: 36px;
+    --button-outline-width: 1px;
+    --button-outline-color: rgb(141, 141, 141);
+    /* tooltip */
+    --tooltip-bg: #f4f3f3;
+    --toolptip-border-radius: 4px;
+    --tooltip-font-family: Menlo, Roboto Mono, monospace;
+    /* 👆 this field should not be empty */
+    --tooltip-font-size: 12px;
+    /* 👆 this field should not be empty */
+    --tootip-text-color: rgb(50, 50, 50);
+    --tooltip-padding-x: 7px;
+    --tooltip-padding-y: 7px;
+    --tooltip-offset: 8px;
+    /* --tooltip-transition-duration: 0.3s; */
+    /* 👆 if you need a transition, 
+    just remove the comment,
+    but I didn't like the transition :| */
+  }
+
+  .copy {
+    box-sizing: border-box;
+    width: var(--button-diameter);
+    height: var(--button-diameter);
+    border-radius: var(--button-border-radius);
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+  }
+
+  .tooltip {
+    position: absolute;
+    opacity: 0;
+    visibility: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font: var(--tooltip-font-size) var(--tooltip-font-family);
+    color: var(--tootip-text-color);
+    background: var(--tooltip-bg);
+    padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+    border-radius: var(--toolptip-border-radius);
+    pointer-events: none;
+    transition: all var(--tooltip-transition-duration) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .tooltip::before {
+    content: attr(data-text-initial);
+  }
+
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: calc(var(--tooltip-padding-y) / 2 * -1);
+    width: var(--tooltip-padding-y);
+    height: var(--tooltip-padding-y);
+    background: inherit;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -999;
+    pointer-events: none;
+  }
+
+  .copy svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .checkmark {
+    display: none;
+  }
+
+  /* actions */
+
+  .copy:hover .tooltip,
+  .copy:focus:not(:focus-visible) .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: calc((100% + var(--tooltip-offset)) * -1);
+  }
+
+  .copy:focus:not(:focus-visible) .tooltip::before {
+    content: attr(data-text-end);
+  }
+
+  .copy:focus:not(:focus-visible) .clipboard {
+    display: none;
+  }
+
+  .copy:focus:not(:focus-visible) .checkmark {
+    display: block;
+  }
+
+  .copy:hover,
+  .copy:focus {
+    background-color: var(--button-hover-bg);
+  }
+
+  .copy:active {
+    outline: var(--button-outline-width) solid var(--button-outline-color);
+  }
+
+  .copy:hover svg {
+    color: var(--button-hover-text-color);
+  }`;
 
 // CustomFileUpload.js
 const CustomFileUpload = ({
@@ -3011,9 +4082,6 @@ DateTimeLocalInput.defaultProps = {
   className: ''
 };
 
-// DeleteModal.js
-
-// Fade-in animation for the modal
 const fadeIn$1 = keyframes`
   from {
     opacity: 0;
@@ -3022,8 +4090,6 @@ const fadeIn$1 = keyframes`
     opacity: 1;
   }
 `;
-
-// Slide-down animation for the modal content
 const slideDown = keyframes`
   from {
     transform: translateY(-20px);
@@ -3032,49 +4098,35 @@ const slideDown = keyframes`
     transform: translateY(0);
   }
 `;
-
-// Styled Components
-const Overlay$3 = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: ${fadeIn$1} 0.3s ease-out forwards;
-  z-index: 1000; /* Ensure it sits above other elements */
-`;
-const ModalContainer$1 = styled.div`
+const CardContainer$2 = styled.div`
   background-color: white;
   border-radius: 1.5rem;
   padding: 1.5rem;
-  width: 90%;
+  width: 100%;
   max-width: 400px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   animation: ${slideDown} 0.3s ease-out forwards;
 `;
-const ModalContent$1 = styled.div`
+const CardContent$2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  animation: ${fadeIn$1} 0.3s ease-out forwards;
 `;
 const Icon = styled.svg`
   height: 3rem;
   width: 3rem;
-  fill: #ef4444; /* Red color for the icon */
+  fill: #ef4444;
   margin-bottom: 1rem;
 `;
-const Title$6 = styled.h2`
+const CardTitle$1 = styled.h2`
   font-size: 1.25rem;
   font-weight: bold;
   color: #1f2937;
   margin-bottom: 0.5rem;
 `;
-const Message$1 = styled.p`
+const CardMessage = styled.p`
   font-size: 0.875rem;
   color: #4b5563;
   margin-bottom: 1.5rem;
@@ -3088,11 +4140,10 @@ const Button$b = styled.button`
   border-radius: 9999px;
   padding: 0.5rem 1.25rem;
   font-size: 0.875rem;
-  font-weight: medium;
+  font-weight: 500;
   transition: all 0.3s ease-in;
   border: 2px solid;
   cursor: pointer;
-
   &:hover {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
@@ -3101,7 +4152,6 @@ const CancelButton = styled(Button$b)`
   border-color: #d1d5db;
   background-color: #e5e7eb;
   color: #4b5563;
-
   &:hover {
     border-color: #9ca3af;
     background-color: #d1d5db;
@@ -3111,43 +4161,29 @@ const ConfirmButton = styled(Button$b)`
   border-color: #ef4444;
   background-color: #ef4444;
   color: white;
-
   &:hover {
     background-color: transparent;
     color: #ef4444;
   }
 `;
-
-// DeleteModal Component
-const DeleteModal = ({
-  onCancel,
-  onConfirm,
+const DeleteCard = ({
   title,
-  message
-}) => {
-  // Prevent scrolling when the modal is open
-  React.useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
-
-  // Render the modal using React Portal
-  return /*#__PURE__*/ReactDOM.createPortal(/*#__PURE__*/React.createElement(Overlay$3, null, /*#__PURE__*/React.createElement(ModalContainer$1, null, /*#__PURE__*/React.createElement(ModalContent$1, null, /*#__PURE__*/React.createElement(Icon, {
-    fill: "currentColor",
-    viewBox: "0 0 20 20",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, /*#__PURE__*/React.createElement("path", {
-    clipRule: "evenodd",
-    d: "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
-    fillRule: "evenodd"
-  })), /*#__PURE__*/React.createElement(Title$6, null, title || "Are you sure?"), /*#__PURE__*/React.createElement(Message$1, null, message || "Do you really want to continue? This process cannot be undone.")), /*#__PURE__*/React.createElement(ButtonContainer$2, null, /*#__PURE__*/React.createElement(CancelButton, {
-    onClick: onCancel
-  }, "Cancel"), /*#__PURE__*/React.createElement(ConfirmButton, {
-    onClick: onConfirm
-  }, "Confirm")))), document.getElementById("modal-root"));
-};
+  message,
+  onCancel,
+  onConfirm
+}) => /*#__PURE__*/React.createElement(CardContainer$2, null, /*#__PURE__*/React.createElement(CardContent$2, null, /*#__PURE__*/React.createElement(Icon, {
+  fill: "currentColor",
+  viewBox: "0 0 20 20",
+  xmlns: "http://www.w3.org/2000/svg"
+}, /*#__PURE__*/React.createElement("path", {
+  clipRule: "evenodd",
+  d: "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
+  fillRule: "evenodd"
+})), /*#__PURE__*/React.createElement(CardTitle$1, null, title || "Are you sure?"), /*#__PURE__*/React.createElement(CardMessage, null, message || "Do you really want to continue? This process cannot be undone.")), /*#__PURE__*/React.createElement(ButtonContainer$2, null, /*#__PURE__*/React.createElement(CancelButton, {
+  onClick: onCancel
+}, "Cancel"), /*#__PURE__*/React.createElement(ConfirmButton, {
+  onClick: onConfirm
+}, "Confirm")));
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -4395,6 +5431,136 @@ li {
   }, "Delete"))))));
 }
 
+// src/components/Drawers/Drawer.jsx
+const DrawerContainer$1 = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: ${({
+  side
+}) => side === "left" ? "flex-start" : "flex-end"};
+  align-items: stretch;
+  transition: opacity ${({
+  transitionDuration
+}) => transitionDuration}ms ease-in-out;
+  opacity: ${({
+  isOpen
+}) => isOpen ? "1" : "0"};
+  pointer-events: ${({
+  isOpen
+}) => isOpen ? "auto" : "none"};
+`;
+const BackgroundOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity ${({
+  transitionDuration
+}) => transitionDuration}ms ease-in-out;
+  opacity: ${({
+  isOpen
+}) => isOpen ? "1" : "0"};
+`;
+const DrawerStyle = styled.div`
+  width: ${({
+  width
+}) => width || "80%"};
+  max-width: ${({
+  maxWidth
+}) => maxWidth || "400px"};
+  height: ${({
+  height
+}) => height || "100%"};
+  max-height: ${({
+  maxHeight
+}) => maxHeight || "100%"};
+  background-color: white;
+  ${({
+  noRoundedCorners,
+  side
+}) => noRoundedCorners ? css`
+          border-radius: 0;
+        ` : side === "left" ? css`
+          border-radius: 0 16px 16px 0;
+        ` : css`
+          border-radius: 16px 0 0 16px;
+        `}
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: ${({
+  isOpen,
+  side
+}) => isOpen ? "translateX(0)" : side === "left" ? "translateX(-100%)" : "translateX(100%)"};
+  transition: transform ${({
+  transitionDuration
+}) => transitionDuration}ms ease-in-out,
+    opacity ${({
+  transitionDuration
+}) => transitionDuration}ms ease-in-out;
+  opacity: ${({
+  isOpen
+}) => isOpen ? "1" : "0"};
+  display: flex;
+  flex-direction: column;
+`;
+const DrawerContent$1 = styled.div`
+  flex: 1;
+  overflow-y: auto;
+`;
+const Drawer$1 = ({
+  isOpen,
+  onClose,
+  children,
+  side = "left",
+  // "left" or "right"
+  transitionDuration = 300,
+  width,
+  height,
+  maxWidth,
+  maxHeight,
+  noRoundedCorners = false
+}) => {
+  const drawerRef = useRef();
+
+  // Close the drawer when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden"; // Prevent background scrolling
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen, onClose]);
+  return /*#__PURE__*/createPortal(/*#__PURE__*/React.createElement(DrawerContainer$1, {
+    isOpen: isOpen,
+    transitionDuration: transitionDuration,
+    side: side
+  }, /*#__PURE__*/React.createElement(BackgroundOverlay, {
+    isOpen: isOpen,
+    onClick: onClose,
+    transitionDuration: transitionDuration
+  }), /*#__PURE__*/React.createElement(DrawerStyle, {
+    ref: drawerRef,
+    isOpen: isOpen,
+    transitionDuration: transitionDuration,
+    width: width,
+    height: height,
+    maxWidth: maxWidth,
+    maxHeight: maxHeight,
+    noRoundedCorners: noRoundedCorners,
+    side: side
+  }, /*#__PURE__*/React.createElement(DrawerContent$1, null, children))), document.body);
+};
+
 // Styled Components
 const Page$1 = styled.div`
   display: flex;
@@ -5079,7 +6245,7 @@ const FileInput = ({
 const FileInput2 = ({
   ...props
 }) => {
-  return /*#__PURE__*/React.createElement(StyledWrapper$5, {
+  return /*#__PURE__*/React.createElement(StyledWrapper$b, {
     gridSpan: props.gridSpan
   }, /*#__PURE__*/React.createElement("label", {
     className: "custum-file-upload",
@@ -5110,7 +6276,7 @@ const FileInput2 = ({
     type: "file"
   }, props))));
 };
-const StyledWrapper$5 = styled.div`
+const StyledWrapper$b = styled.div`
       grid-column: ${props => props.gridSpan || 'auto'};
 
   .custum-file-upload {
@@ -5884,11 +7050,12 @@ const Overlay$2 = styled.div`
 `;
 const ModalContainer = styled.div`
   background-color: white;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: ${props => props.rounded ? "12px" : "0"};
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  width: ${props => props.fullScreen ? "100vw" : props.width ? props.width : "auto"};
+  height: ${props => props.fullScreen ? "100vh" : props.height ? props.height : "auto"};
+  max-width: ${props => props.maxWidth ? props.maxWidth : props.fullScreen ? "100%" : "90%"};
+  max-height: ${props => props.maxHeight ? props.maxHeight : props.fullScreen ? "100%" : "90%"};
   overflow-y: auto;
   ${props => props.animate && css`
       animation: ${slideIn} 0.3s ease-out forwards;
@@ -5908,9 +7075,7 @@ const CloseButton$1 = styled.button`
     color: #555;
   }
 `;
-const ModalContent = styled.div`
-  padding: 16px;
-`;
+const ModalContent = styled.div``;
 const ModalTitle = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 8px;
@@ -5927,7 +7092,14 @@ const Modal = ({
   closeModal,
   title,
   children,
-  animate = true
+  animate = true,
+  rounded = true,
+  fullScreen = false,
+  width,
+  height,
+  maxWidth,
+  maxHeight,
+  showCloseButton = true
 }) => {
   useEffect(() => {
     if (isModalOpen) {
@@ -5956,14 +7128,20 @@ const Modal = ({
     onClick: closeModal
   }, /*#__PURE__*/React.createElement(ModalContainer, {
     animate: animate,
+    rounded: rounded,
+    fullScreen: fullScreen,
+    width: width,
+    height: height,
+    maxWidth: maxWidth,
+    maxHeight: maxHeight,
     onClick: e => e.stopPropagation(),
     "aria-modal": "true",
     role: "dialog",
     "aria-labelledby": "modal-title"
-  }, /*#__PURE__*/React.createElement(CloseButton$1, {
+  }, showCloseButton && /*#__PURE__*/React.createElement(CloseButton$1, {
     onClick: closeModal,
     "aria-label": "Close Modal"
-  }, /*#__PURE__*/React.createElement(XIcon, null)), /*#__PURE__*/React.createElement(ModalContent, null, title && /*#__PURE__*/React.createElement(ModalTitle, {
+  }, /*#__PURE__*/React.createElement(MdClose, null)), /*#__PURE__*/React.createElement(ModalContent, null, title && /*#__PURE__*/React.createElement(ModalTitle, {
     id: "modal-title"
   }, title), /*#__PURE__*/React.createElement(ModalBody, null, children)))), document.getElementById("modal-root"));
 };
@@ -5972,7 +7150,14 @@ Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   title: PropTypes.string,
   children: PropTypes.node.isRequired,
-  animate: PropTypes.bool // Enable or disable animations
+  animate: PropTypes.bool,
+  rounded: PropTypes.bool,
+  fullScreen: PropTypes.bool,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  maxWidth: PropTypes.string,
+  maxHeight: PropTypes.string,
+  showCloseButton: PropTypes.bool
 };
 
 // src/components/FilterModal.jsx
@@ -6278,23 +7463,6 @@ function FormLogic({
     handlePrevious
   }));
 }
-
-// GhostLoader Component
-const GhostLoader = () => {
-  return /*#__PURE__*/React.createElement("div", {
-    className: "relative flex w-64 animate-pulse gap-2 p-4"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "h-12 w-12 rounded-full bg-slate-400"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "flex-1"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "mb-1 h-5 w-3/5 rounded-lg bg-slate-400 text-lg"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "h-5 w-[90%] rounded-lg bg-slate-400 text-sm"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute bottom-5 right-0 h-4 w-4 rounded-full bg-slate-400"
-  }));
-};
 
 const HelpAndFAQs = () => {
   const settings = [{
@@ -7365,6 +8533,113 @@ const Loader = () => {
   })));
 };
 
+const Loader2 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$a, null, /*#__PURE__*/React.createElement("div", {
+    className: "wrapper"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "circle"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "circle"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "circle"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "shadow"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "shadow"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "shadow"
+  })));
+};
+const StyledWrapper$a = styled.div`
+  .wrapper {
+    width: 200px;
+    height: 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .circle {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #000;
+    left: 15%;
+    transform-origin: 50%;
+    animation: circle7124 .5s alternate infinite ease;
+  }
+
+  @keyframes circle7124 {
+    0% {
+      top: 60px;
+      height: 5px;
+      border-radius: 50px 50px 25px 25px;
+      transform: scaleX(1.7);
+    }
+
+    40% {
+      height: 20px;
+      border-radius: 50%;
+      transform: scaleX(1);
+    }
+
+    100% {
+      top: 0%;
+    }
+  }
+
+  .circle:nth-child(2) {
+    left: 45%;
+    animation-delay: .2s;
+  }
+
+  .circle:nth-child(3) {
+    left: auto;
+    right: 15%;
+    animation-delay: .3s;
+  }
+
+  .shadow {
+    width: 20px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 62px;
+    transform-origin: 50%;
+    z-index: -1;
+    left: 15%;
+    filter: blur(1px);
+    animation: shadow046 .5s alternate infinite ease;
+  }
+
+  @keyframes shadow046 {
+    0% {
+      transform: scaleX(1.5);
+    }
+
+    40% {
+      transform: scaleX(1);
+      opacity: .7;
+    }
+
+    100% {
+      transform: scaleX(.2);
+      opacity: .4;
+    }
+  }
+
+  .shadow:nth-child(4) {
+    left: 45%;
+    animation-delay: .2s
+  }
+
+  .shadow:nth-child(5) {
+    left: auto;
+    right: 15%;
+    animation-delay: .3s;
+  }`;
+
 const LoginPage = ({
   email,
   setEmail,
@@ -7611,6 +8886,87 @@ const IconWrapper$4 = styled.span`
     height: 20px;
   }
 `;
+
+const LogoutButton$1 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$9, null, /*#__PURE__*/React.createElement("button", {
+    className: "Btn"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sign"
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 512 512"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "text"
+  }, "Logout")));
+};
+const StyledWrapper$9 = styled.div`
+  .Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+  }
+
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sign svg {
+    width: 17px;
+  }
+
+  .sign svg path {
+    fill: white;
+  }
+  /* text */
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .Btn:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  /* hover effect button's text */
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }`;
 
 const initialAccountState = {
   email: 'user@example.com',
@@ -8713,7 +10069,7 @@ const TextArea = styled.textarea`
     border-color: #007bff;
   }
 `;
-const SendButton = styled.button`
+const SendButton$1 = styled.button`
   background-color: #28a745;
   color: #fff;
   font-size: 1rem;
@@ -8777,7 +10133,7 @@ const MessageForm = ({
     value: message,
     onChange: e => setMessage(e.target.value),
     rows: 5
-  }), /*#__PURE__*/React.createElement(SendButton, {
+  }), /*#__PURE__*/React.createElement(SendButton$1, {
     type: "submit",
     disabled: sending
   }, sending ? "Sending..." : "Send Message")));
@@ -9032,7 +10388,7 @@ const ToggleSwitch2 = ({
   name,
   ...props
 }) => {
-  return /*#__PURE__*/React.createElement(StyledWrapper$4, {
+  return /*#__PURE__*/React.createElement(StyledWrapper$8, {
     gridSpan: props.gridSpan
   }, /*#__PURE__*/React.createElement("label", {
     className: "theme-switch"
@@ -9069,7 +10425,7 @@ const ToggleSwitch2 = ({
     className: "theme-switch__spot"
   })))))));
 };
-const StyledWrapper$4 = styled.div`
+const StyledWrapper$8 = styled.div`
         grid-column: ${props => props.gridSpan || 'auto'};
 
   .theme-switch {
@@ -9280,7 +10636,7 @@ const RadioButtons2 = ({
   options = [],
   ...props
 }) => {
-  return /*#__PURE__*/React.createElement(StyledWrapper$3, {
+  return /*#__PURE__*/React.createElement(StyledWrapper$7, {
     gridSpan: props.gridSpan
   }, /*#__PURE__*/React.createElement("div", {
     className: "radio-input"
@@ -9300,7 +10656,7 @@ const RadioButtons2 = ({
     className: "text"
   }, label)))));
 };
-const StyledWrapper$3 = styled.div`
+const StyledWrapper$7 = styled.div`
       grid-column: ${props => props.gridSpan || 'auto'};
 
   .radio-input {
@@ -9837,37 +11193,97 @@ PollItem.propTypes = {
   chosenOpt: PropTypes.string
 };
 
-// Popover Component
+const PopoverContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+const TriggerWrapper = styled.div`
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+`;
+const Content = styled.div`
+  position: absolute;
+  background-color: white;
+  border-radius: 0.375rem; /* similar to Tailwind's rounded-md */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  width: 12rem; /* ~192px */
+  z-index: 50;
+  white-space: normal;
+
+  ${({
+  placement
+}) => {
+  switch (placement) {
+    case 'top':
+      return css`
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-8px);
+          margin-bottom: 8px;
+        `;
+    case 'left':
+      return css`
+          right: 100%;
+          top: 50%;
+          transform: translateX(-8px) translateY(-50%);
+          margin-right: 8px;
+        `;
+    case 'right':
+      return css`
+          left: 100%;
+          top: 50%;
+          transform: translateX(8px) translateY(-50%);
+          margin-left: 8px;
+        `;
+    case 'bottom':
+    default:
+      return css`
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(8px);
+          margin-top: 8px;
+        `;
+  }
+}}
+`;
 const Popover = ({
   trigger,
-  children
+  children,
+  placement = 'bottom',
+  onOpen,
+  onClose,
+  ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const popoverRef = useRef();
   const triggerRef = useRef();
   const handleTogglePopover = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(prev => {
+      const newState = !prev;
+      if (newState && onOpen) onOpen();
+      if (!newState && onClose) onClose();
+      return newState;
+    });
   };
   useEffect(() => {
     const handleClickOutside = event => {
       if (popoverRef.current && !popoverRef.current.contains(event.target) && triggerRef.current && !triggerRef.current.contains(event.target)) {
         setIsOpen(false);
+        if (onClose) onClose();
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-  return /*#__PURE__*/React.createElement("div", {
-    className: "relative inline-block"
-  }, /*#__PURE__*/React.createElement("div", {
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [onClose]);
+  return /*#__PURE__*/React.createElement(PopoverContainer, props, /*#__PURE__*/React.createElement(TriggerWrapper, {
     ref: triggerRef,
-    onClick: handleTogglePopover,
-    className: "cursor-pointer inline-flex items-center"
-  }, trigger), isOpen && /*#__PURE__*/React.createElement("div", {
+    onClick: handleTogglePopover
+  }, trigger), isOpen && /*#__PURE__*/React.createElement(Content, {
     ref: popoverRef,
-    className: "absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50"
+    placement: placement
   }, children));
 };
 
@@ -10604,7 +12020,7 @@ const RadioButtons = ({
 const RangeInput2 = ({
   ...props
 }) => {
-  return /*#__PURE__*/React.createElement(StyledWrapper$2, {
+  return /*#__PURE__*/React.createElement(StyledWrapper$6, {
     gridSpan: props.gridSpan
   }, /*#__PURE__*/React.createElement("label", {
     className: "slider"
@@ -10635,7 +12051,7 @@ const RangeInput2 = ({
     "data-original": "#000000"
   })))));
 };
-const StyledWrapper$2 = styled.div`
+const StyledWrapper$6 = styled.div`
       grid-column: ${props => props.gridSpan || 'auto'};
 
   /* level settings 👇 */
@@ -11409,7 +12825,7 @@ const RoomsView = ({
   }), /*#__PURE__*/React.createElement(AddressText, null, roomData.streetAddress ? roomData.streetAddress : "No address provided", ", ", roomData.city ? roomData.city : "City", ", ", roomData.county ? roomData.county : "County", ", ", roomData.eircode ? roomData.eircode : "eirCode"))), /*#__PURE__*/React.createElement(SectionHeader, null, "Description"), /*#__PURE__*/React.createElement(SectionContent, null, roomData.description ? roomData.description : "No description provided")), /*#__PURE__*/React.createElement(FixedBottomBar, null, /*#__PURE__*/React.createElement(RentContainer, null, /*#__PURE__*/React.createElement(RentLabel, null, "Monthly Rent"), /*#__PURE__*/React.createElement(RentText, null, "\u20AC", roomData.rent !== undefined ? roomData.rent : "N/A")), /*#__PURE__*/React.createElement(SendMessageButton, {
     onClick: handleSendMessage,
     disabled: roomData.userId === currentUser?.uid
-  }, "Send Message")), /*#__PURE__*/React.createElement(BottomDrawer, {
+  }, "Send Message")), /*#__PURE__*/React.createElement(BottomSheet, {
     isOpen: isDrawerOpen,
     onClose: closeDrawer,
     transitionDuration: 300,
@@ -13654,6 +15070,79 @@ const SelectToTextInput = ({
   }));
 };
 
+const SendButton = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$5, null, /*#__PURE__*/React.createElement("button", null, /*#__PURE__*/React.createElement("div", {
+    className: "svg-wrapper-1"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "svg-wrapper"
+  }, /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 24 24",
+    width: 24,
+    height: 24
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "currentColor",
+    d: "M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+  })))), /*#__PURE__*/React.createElement("span", null, "Send")));
+};
+const StyledWrapper$5 = styled.div`
+  button {
+    font-family: inherit;
+    font-size: 20px;
+    background: royalblue;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+
+  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+
+  button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+
+  button:hover span {
+    transform: translateX(5em);
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+
+    to {
+      transform: translateY(-0.1em);
+    }
+  }`;
+
 // Styled components
 const Page = styled.div`
   display: flex;
@@ -14033,6 +15522,69 @@ function SinglePageForm({
   }), /*#__PURE__*/React.createElement(ButtonContainer, null, /*#__PURE__*/React.createElement(ResetButton, null, "Reset"), /*#__PURE__*/React.createElement(SubmitButton$1, null, "Submit")))));
 }
 
+// SkeletonLoader Component
+const SkeletonLoader = () => {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "relative flex w-64 animate-pulse gap-2 p-4"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "h-12 w-12 rounded-full bg-slate-400"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "flex-1"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "mb-1 h-5 w-3/5 rounded-lg bg-slate-400 text-lg"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "h-5 w-[90%] rounded-lg bg-slate-400 text-sm"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "absolute bottom-5 right-0 h-4 w-4 rounded-full bg-slate-400"
+  }));
+};
+
+const SkeletonLoader2 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$4, null, /*#__PURE__*/React.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card__skeleton card__title"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "card__skeleton card__description"
+  }, "       ")));
+};
+const StyledWrapper$4 = styled.div`
+  .card {
+    width: 18rem;
+    padding: 1rem;
+    text-align: center;
+    border-radius: .8rem;
+    background-color: white;
+  }
+
+  .card__skeleton {
+    background-image: linear-gradient(
+  		90deg,
+  		#ccc 0px,
+  		rgb(229 229 229 / 90%) 40px,
+  		#ccc 80px
+  	);
+    background-size: 300%;
+    background-position: 100% 0;
+    border-radius: inherit;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .card__title {
+    height: 15px;
+    margin-bottom: 15px;
+  }
+
+  .card__description {
+    height: 100px;
+  }
+
+  @keyframes shimmer {
+    to {
+      background-position: -100% 0;
+    }
+  }`;
+
 // IMPORTS
 
 // CREATE FUNCTION
@@ -14346,7 +15898,7 @@ const SortRadio = ({
     onClick: () => setDrawerOpen(true)
   }, /*#__PURE__*/React.createElement(SortIcon, {
     className: "icon"
-  }), "Sort by"), /*#__PURE__*/React.createElement(BottomDrawer, {
+  }), "Sort by"), /*#__PURE__*/React.createElement(BottomSheet, {
     isOpen: isDrawerOpen,
     onClose: () => setDrawerOpen(false)
   }, /*#__PURE__*/React.createElement(DrawerHeader, null, /*#__PURE__*/React.createElement("h4", null, "Sort By")), /*#__PURE__*/React.createElement(RadioContainer, null, sortingOptions.map(option => /*#__PURE__*/React.createElement(RadioOption, {
@@ -14477,7 +16029,7 @@ const TextInput2 = ({
   label,
   ...props
 }) => {
-  return /*#__PURE__*/React.createElement(StyledWrapper$1, {
+  return /*#__PURE__*/React.createElement(StyledWrapper$3, {
     gridSpan: props.gridSpan
   }, /*#__PURE__*/React.createElement("div", {
     className: "input-container"
@@ -14490,7 +16042,7 @@ const TextInput2 = ({
     className: "underline"
   })));
 };
-const StyledWrapper$1 = styled.div`
+const StyledWrapper$3 = styled.div`
         grid-column: ${props => props.gridSpan || 'auto'};
 
   .input-container {
@@ -14545,7 +16097,7 @@ const TextInput3 = ({
   label,
   ...props
 }) => {
-  return /*#__PURE__*/React.createElement(StyledWrapper, {
+  return /*#__PURE__*/React.createElement(StyledWrapper$2, {
     gridSpan: props.gridSpan
   }, /*#__PURE__*/React.createElement("div", {
     className: "input-group"
@@ -14558,7 +16110,7 @@ const TextInput3 = ({
     className: "user-label"
   }, label)));
 };
-const StyledWrapper = styled.div`
+const StyledWrapper$2 = styled.div`
       grid-column: ${props => props.gridSpan || 'auto'};
 
   .input-group {
@@ -14783,59 +16335,196 @@ const ToggleSwitch = ({
   htmlFor: props.id
 }, label));
 
-// Tooltip Component
-const Tooltip = ({
-  tooltipText,
+// Tooltip container with relative positioning
+const TooltipContainer = styled.div`
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+`;
+
+// Base tooltip styles with dynamic positioning
+const BaseTooltip = styled.div`
+  position: absolute;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0.9;
+  z-index: 10;
+  width: 200px;
+  white-space: nowrap;
+
+  ${({
   position
 }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
-  const tooltipStyle = {
-    position: "absolute",
-    bottom: "100%",
-    // Positioned above the element by default
-    left: "50%",
-    transform: "translateX(-50%) translateY(-5px)",
-    // Centered horizontally, slightly above
-    opacity: 0.9,
-    padding: "5px",
-    backgroundColor: "black",
-    color: "white",
-    borderRadius: "4px",
-    textAlign: "center",
-    width: "200px",
-    zIndex: 10
-  };
-
-  // Adjust the position based on the passed prop
-  if (position === "right") {
-    tooltipStyle.left = "100%";
-    tooltipStyle.transform = "translateX(10px)"; // Adjust as needed for spacing
-  } else if (position === "left") {
-    tooltipStyle.right = "100%";
-    tooltipStyle.left = "auto"; // Remove left positioning to avoid conflicts
-    tooltipStyle.transform = "translateX(-10px)"; // Adjust as needed for spacing
-  } else if (position === "top") {
-    tooltipStyle.bottom = "100%";
-    tooltipStyle.transform = "translateX(-50%) translateY(-10px)"; // Adjust as needed for spacing
-  } else if (position === "bottom") {
-    tooltipStyle.top = "100%";
-    tooltipStyle.bottom = "auto"; // Remove bottom positioning to avoid conflicts
-    tooltipStyle.transform = "translateX(-50%) translateY(10px)"; // Adjust as needed for spacing
+  switch (position) {
+    case "bottom":
+      return css`
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(10px);
+        `;
+    case "left":
+      return css`
+          right: 100%;
+          top: 50%;
+          transform: translateX(-10px) translateY(-50%);
+        `;
+    case "right":
+      return css`
+          left: 100%;
+          top: 50%;
+          transform: translateX(10px) translateY(-50%);
+        `;
+    case "top":
+    default:
+      return css`
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-10px);
+        `;
   }
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "inline-block",
-      position: "relative"
-    },
-    className: "cursor-pointer",
-    onMouseEnter: () => setShowTooltip(true),
-    onMouseLeave: () => setShowTooltip(false)
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "flex h-4 w-4 items-center justify-center rounded-full bg-gray-400 text-xs text-white"
-  }, "i"), showTooltip && /*#__PURE__*/React.createElement("div", {
-    style: tooltipStyle
+}}
+`;
+
+// Default icon styling if no child is provided
+const DefaultIcon = styled.span`
+  display: flex;
+  height: 1rem;
+  width: 1rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #cbd5e0; /* Equivalent to Tailwind's bg-gray-400 */
+  font-size: 0.75rem;
+  color: white;
+`;
+const Tooltip = ({
+  tooltipText,
+  position = "top",
+  children,
+  tooltipStyle: customStyle = {}
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  return /*#__PURE__*/React.createElement(TooltipContainer, {
+    onMouseEnter: () => setIsVisible(true),
+    onMouseLeave: () => setIsVisible(false)
+  }, children || /*#__PURE__*/React.createElement(DefaultIcon, null, "i"), isVisible && /*#__PURE__*/React.createElement(BaseTooltip, {
+    position: position,
+    style: customStyle
   }, tooltipText));
 };
+
+const Tooltip2 = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper$1, null, /*#__PURE__*/React.createElement("div", {
+    className: "tooltip-container"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon"
+  }, /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 24 24",
+    width: 50,
+    height: 50
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "tooltip"
+  }, /*#__PURE__*/React.createElement("p", null, "Alerts users to save their progress before leaving a page"))));
+};
+const StyledWrapper$1 = styled.div`
+  /* Basic reset and styling */
+
+  /* Tooltip container */
+  .tooltip-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+  }
+
+  /* Icon styling */
+  .icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  /* SVG Animation: Rotate and scale effect */
+  .icon svg {
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .icon:hover svg {
+    transform: rotate(360deg) scale(1.2);
+  }
+
+  /* Tooltip styling */
+  .tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    margin-left: -100px; /* Center the tooltip */
+    opacity: 0;
+    transition:
+      opacity 0.5s,
+      transform 0.5s;
+    transform: translateY(10px);
+  }
+
+  /* Tooltip Arrow */
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+
+  /* Show tooltip on hover */
+  .tooltip-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+  .tooltip-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    animation: bounce 0.6s ease;
+  }`;
 
 // IMPORTS
 
@@ -15041,6 +16730,222 @@ const SignInLink = styled(Link$1)`
   }
 `;
 
+const TruckLoader = () => {
+  return /*#__PURE__*/React.createElement(StyledWrapper, null, /*#__PURE__*/React.createElement("div", {
+    className: "loader"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "truckWrapper"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "truckBody"
+  }, /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 198 93",
+    className: "trucksvg"
+  }, /*#__PURE__*/React.createElement("path", {
+    strokeWidth: 3,
+    stroke: "#282828",
+    fill: "#F83D3D",
+    d: "M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z"
+  }), /*#__PURE__*/React.createElement("path", {
+    strokeWidth: 3,
+    stroke: "#282828",
+    fill: "#7D7C7C",
+    d: "M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z"
+  }), /*#__PURE__*/React.createElement("path", {
+    strokeWidth: 2,
+    stroke: "#282828",
+    fill: "#282828",
+    d: "M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z"
+  }), /*#__PURE__*/React.createElement("rect", {
+    strokeWidth: 2,
+    stroke: "#282828",
+    fill: "#FFFCAB",
+    rx: 1,
+    height: 7,
+    width: 5,
+    y: 63,
+    x: 187
+  }), /*#__PURE__*/React.createElement("rect", {
+    strokeWidth: 2,
+    stroke: "#282828",
+    fill: "#282828",
+    rx: 1,
+    height: 11,
+    width: 4,
+    y: 81,
+    x: 193
+  }), /*#__PURE__*/React.createElement("rect", {
+    strokeWidth: 3,
+    stroke: "#282828",
+    fill: "#DFDFDF",
+    rx: "2.5",
+    height: 90,
+    width: 121,
+    y: "1.5",
+    x: "6.5"
+  }), /*#__PURE__*/React.createElement("rect", {
+    strokeWidth: 2,
+    stroke: "#282828",
+    fill: "#DFDFDF",
+    rx: 2,
+    height: 4,
+    width: 6,
+    y: 84,
+    x: 1
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "truckTires"
+  }, /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 30 30",
+    className: "tiresvg"
+  }, /*#__PURE__*/React.createElement("circle", {
+    strokeWidth: 3,
+    stroke: "#282828",
+    fill: "#282828",
+    r: "13.5",
+    cy: 15,
+    cx: 15
+  }), /*#__PURE__*/React.createElement("circle", {
+    fill: "#DFDFDF",
+    r: 7,
+    cy: 15,
+    cx: 15
+  })), /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 30 30",
+    className: "tiresvg"
+  }, /*#__PURE__*/React.createElement("circle", {
+    strokeWidth: 3,
+    stroke: "#282828",
+    fill: "#282828",
+    r: "13.5",
+    cy: 15,
+    cx: 15
+  }), /*#__PURE__*/React.createElement("circle", {
+    fill: "#DFDFDF",
+    r: 7,
+    cy: 15,
+    cx: 15
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "road"
+  }), /*#__PURE__*/React.createElement("svg", {
+    xmlSpace: "preserve",
+    viewBox: "0 0 453.459 453.459",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    xmlns: "http://www.w3.org/2000/svg",
+    id: "Capa_1",
+    version: "1.1",
+    fill: "#000000",
+    className: "lampPost"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993\r c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514\r c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16\r c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914\r h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75\r v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795\r V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0z\r M232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017\r h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
+  })))));
+};
+const StyledWrapper = styled.div`
+  .loader {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .truckWrapper {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-x: hidden;
+  }
+  /* truck upper body */
+  .truckBody {
+    width: 130px;
+    height: fit-content;
+    margin-bottom: 6px;
+    animation: motion 1s linear infinite;
+  }
+  /* truck suspension animation*/
+  @keyframes motion {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(3px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  /* truck's tires */
+  .truckTires {
+    width: 130px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 0px 15px;
+    position: absolute;
+    bottom: 0;
+  }
+  .truckTires svg {
+    width: 24px;
+  }
+
+  .road {
+    width: 100%;
+    height: 1.5px;
+    background-color: #282828;
+    position: relative;
+    bottom: 0;
+    align-self: flex-end;
+    border-radius: 3px;
+  }
+  .road::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-color: #282828;
+    right: -50%;
+    border-radius: 3px;
+    animation: roadAnimation 1.4s linear infinite;
+    border-left: 10px solid white;
+  }
+  .road::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background-color: #282828;
+    right: -65%;
+    border-radius: 3px;
+    animation: roadAnimation 1.4s linear infinite;
+    border-left: 4px solid white;
+  }
+
+  .lampPost {
+    position: absolute;
+    bottom: 0;
+    right: -90%;
+    height: 90px;
+    animation: roadAnimation 1.4s linear infinite;
+  }
+
+  @keyframes roadAnimation {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-350px);
+    }
+  }`;
+
 const FieldContainer = styled.div`
   display: flex;
   align-items: center;
@@ -15082,5 +16987,5 @@ const UneditableTextField = ({
   return /*#__PURE__*/React.createElement(FieldContainer, null, IconComponent && /*#__PURE__*/React.createElement(IconWrapper, null, /*#__PURE__*/React.createElement(IconComponent, null)), /*#__PURE__*/React.createElement(TextWrapper, null, /*#__PURE__*/React.createElement(FieldName, null, name), /*#__PURE__*/React.createElement(FieldValue, null, value)));
 };
 
-export { AccordionCard, Account, AppCard, AppleIcon, ArrowRightIcon, BedIcon, BookIcon, BookOpenIcon, BookmarkIcon, BottomDrawer, BottomNav, ButtonArrowIcon, CV, CalendarIcon, Card2, Card3, CardProduct, CardSocial, CartIcon, ChatIcon, Checkbox$1 as Checkbox, Checkbox2, Checkbox3, CheckedItem, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpDownIcon, ChevronUpIcon, ClockIcon, CodeIcon, CogIcon, CollegeIcon, ColorPicker, ContactUs, ConversationItem, ConversationList, CookbookCard, CookbookProfile, CoupleIcon, CustomButton, CustomFileUpload, DataIcon, DateInput, DateTimeLocalInput, DeleteModal, DragAndDrop, EditIcon, EditSettingsTemplate, EditStackedList, EditableTextField, FAQ, Feed, FeedItem, FeedLogic, FemaleIcon, FemaleIcon2, FemaleIcon3, FileInput, FileInput2, FileUpload, Filter, Filter2, FilterDrawer, FilterHorizontal, FilterIcon, FilterLogic, FilterModal, Footer, ForkAndKnifeIcon, FormLogic, GhostLoader, GithubIcon, GoogleIcon, HeartIcon, HelpAndFAQs, Hero, HeroContent, HiddenInput, HomeIcon, HomeIcon2, HomeIcon3, IdeaIcon, ImageCarousel, ImageCarousel2, Input$1 as Input, InstagramIcon, LettzFilterDrawer, LettzIcon, LettzSearchButton, LinkedInIcon, ListYourPlaceCard, ListingCard, LoadMoreButton, Loader, LocationIcon, LoginIcon, LoginPage, MaleIcon, MaleIcon2, MaleIcon3, ManageAccount, ManageNotifications, ManagePaymentMethods, MarketingIcon, MenuIcon, MenuIcon3, MenuItem, MessageForm, MessagesPrompt, MessagesView, Modal, MoneyIcon, MoneyIcon2, MultiPageForm, MuteIcon, NotificationsIcon, PaginationControls, PasswordIcon, PeriodIcon, PlansAndBilling, PlusIcon, PollItem, Popover, PortfolioMainSlider, PrivacyAndSecurity, ProgressBar, ProjectCard, RadioButtons, RadioButtons2, RangeInput, RangeInput2, RangeSlider, RecipeCard$1 as RecipeCard, RecipeSwipeComponent, ResetButton, RoomsView, ScriptIcon, Search, Search2, SearchIcon, SearchIcon2, SearchLogic, SecurityIcon, SelectField, SelectInput, SelectInput2, SelectInput3, SelectToTextInput, SettingsIcon, SettingsTemplate, ShareIcon, SideBar, SideNav, SinglePageForm, SocialButtons, Sort, Sort2, SortIcon, SortLogic, SortRadio, StackedList, StrategyIcon, SubmitButton$1 as SubmitButton, TabGroup, TargetIcon, TextInput, TextInput2, TextInput3, TextInput4, TimeInput, ToastMessage, ToggleField, ToggleSwitch, ToggleSwitch2, Tooltip, TopNavBar, TopNavBar2, TopNavBar3, TopWSideNav, TrashIcon, TwitterIcon, TwoBedsIcon, UneditableTextField, UserIcon2, UserIcon3, UserPairIcon, UsersIcon, VolumeIcon, WebsiteIcon, WhatsAppIcon, XIcon };
+export { Account, AppleIcon, ArrowRightIcon, BedIcon, BookIcon, BookOpenIcon, BookmarkIcon, BottomDrawer, BottomNav, BottomSheet, Button2, Button3, ButtonArrowIcon, CalendarIcon, Card2, Card3, Card4, Card5, Card6, Card7, CardProduct, CardSocial, CartIcon, ChatIcon, Checkbox$1 as Checkbox, Checkbox2, Checkbox3, CheckedItem, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpDownIcon, ChevronUpIcon, ClockIcon, CodeIcon, CogIcon, CollegeIcon, ColorPicker, ContactUs, ConversationItem, ConversationList, CookbookCard, CookbookProfile, CopyButton, CoupleIcon, CustomFileUpload, DataIcon, DateInput, DateTimeLocalInput, DeleteCard, DragAndDrop, Drawer$1 as Drawer, EditIcon, EditSettingsTemplate, EditStackedList, EditableTextField, FAQ, Feed, FeedItem, FeedLogic, FemaleIcon, FemaleIcon2, FemaleIcon3, FileInput, FileInput2, FileUpload, Filter, Filter2, FilterDrawer, FilterHorizontal, FilterIcon, FilterLogic, FilterModal, Footer, ForkAndKnifeIcon, FormLogic, GithubIcon, GoogleIcon, HeartIcon, HelpAndFAQs, Hero, HeroContent, HiddenInput, HomeIcon, HomeIcon2, HomeIcon3, IdeaIcon, ImageCarousel, ImageCarousel2, Input$1 as Input, InstagramIcon, LettzFilterDrawer, LettzIcon, LettzSearchButton, LinkedInIcon, ListYourPlaceCard, ListingCard, LoadMoreButton, Loader, Loader2, LocationIcon, LoginIcon, LoginPage, LogoutButton$1 as LogoutButton, MaleIcon, MaleIcon2, MaleIcon3, ManageAccount, ManageNotifications, ManagePaymentMethods, MarketingIcon, MenuIcon, MenuIcon3, MenuItem, MessageForm, MessagesPrompt, MessagesView, Modal, MoneyIcon, MoneyIcon2, MultiPageForm, MuteIcon, NotificationsIcon, PaginationControls, PasswordIcon, PeriodIcon, PlansAndBilling, PlusIcon, PollItem, Popover, PortfolioMainSlider, PrivacyAndSecurity, ProgressBar, ProjectCard, RadioButtons, RadioButtons2, RangeInput, RangeInput2, RangeSlider, RecipeCard$1 as RecipeCard, RecipeSwipeComponent, ResetButton, RoomsView, ScriptIcon, Search, Search2, SearchIcon, SearchIcon2, SearchLogic, SecurityIcon, SelectField, SelectInput, SelectInput2, SelectInput3, SelectToTextInput, SendButton, SettingsIcon, SettingsTemplate, ShareIcon, SideBar, SideNav, SinglePageForm, SkeletonLoader, SkeletonLoader2, SocialButtons, Sort, Sort2, SortIcon, SortLogic, SortRadio, StackedList, StrategyIcon, SubmitButton$1 as SubmitButton, TabGroup, TargetIcon, TextInput, TextInput2, TextInput3, TextInput4, TimeInput, ToastMessage, ToggleField, ToggleSwitch, ToggleSwitch2, Tooltip, Tooltip2, TopNavBar, TopNavBar2, TopNavBar3, TopWSideNav, TrashIcon, TruckLoader, TwitterIcon, TwoBedsIcon, UneditableTextField, UserIcon2, UserIcon3, UserPairIcon, UsersIcon, VolumeIcon, WebsiteIcon, WhatsAppIcon, XIcon };
 //# sourceMappingURL=index.es.js.map
