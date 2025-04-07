@@ -1,7 +1,7 @@
 // SortRadio.jsx
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import BottomDrawer from '../../atoms/Drawers/BottomDrawer'; // Adjust import path as needed
+import BottomSheet from '../../../atoms/Drawers/BottomSheet';
 import SortLogic from './SortLogic';
 import { SortIcon } from '../../Branding/icons/Icons';
 
@@ -80,7 +80,7 @@ const SortRadio = ({ items, onSortedChange }) => {
     <>
       <SortButton onClick={() => setDrawerOpen(true)}><SortIcon className="icon"/>Sort by</SortButton>
 
-      <BottomDrawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+      <BottomSheet isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
         <DrawerHeader>
           <h4>Sort By</h4>
         </DrawerHeader>
@@ -98,7 +98,7 @@ const SortRadio = ({ items, onSortedChange }) => {
             </RadioOption>
           ))}
         </RadioContainer>
-      </BottomDrawer>
+      </BottomSheet>
     </>
   );
 };
