@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ImageCarousel2 from "../../../atoms/carousels/ImageCarousel2";
 import { CalendarIcon, LocationIcon, ChevronLeftIcon } from "../../../Branding/icons/Icons";
-import BottomSheet from "../../../atoms/Drawers/BottomSheet";
+import BottomSheet from "../../../atoms/overlays/drawers/BottomSheet";
 import MessageForm from "../components/MessageForm";
 import { useNavigate } from "react-router-dom"; 
 import PropTypes from "prop-types";
