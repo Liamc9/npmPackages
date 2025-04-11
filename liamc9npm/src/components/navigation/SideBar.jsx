@@ -70,61 +70,6 @@ export default function SideBar({
 }
 
 
-// Styled Components remain the same
-const NavBar = styled.nav`
-  position: relative;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-`;
-
-const NavContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem;
-  box-sizing: border-box;
-
-  @media (min-width: 768px) {
-    padding: 0.75rem 1.5rem;
-  }
-`;
-
-const DrawerButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-right: 1rem;
-
-  .icon {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-
-const BrandLink = styled(Link)`
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1f2937;
-  text-decoration: none;
-  flex-grow: 1;
-`;
-
-const SignInLink = styled(Link)`
-  border-radius: 0.375rem;
-  background-color: ${(props) => props.signInColor};
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  color: white;
-  text-decoration: none;
-  transition: background-color 0.2s;
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.5);
-  }
-`;
-
 const Overlay = styled.div`
   position: fixed;
   inset: 0;

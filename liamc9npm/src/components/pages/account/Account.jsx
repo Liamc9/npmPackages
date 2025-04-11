@@ -37,7 +37,7 @@ const ProfileImage = styled.div`
   width: 80px; /* Increased size */
   height: 80px; /* Increased size */
   border-radius: 50%;
-  background-image: url(${(props) => props.image || "https://via.placeholder.com/80"});
+  background-image: url(${(props) => props.image || "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg"});
   background-size: cover;
   background-position: center;
   margin-right: 24px; /* Increased margin */
