@@ -1,10 +1,11 @@
+// ToggleField.jsx
 import React from "react";
 import styled from "styled-components";
+import ToggleSwitch from "../../form/inputs/toggleSwitches/ToggleSwitch";
 
 const FieldContainer = styled.div`
   display: flex;
   align-items: center;
-
 `;
 
 const FieldName = styled.div`
@@ -14,46 +15,28 @@ const FieldName = styled.div`
   margin-right: auto;
 `;
 
-const ToggleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
+const ToggleField = ({ name, value, onChange, activeColor, size, id, ...rest }) => {
+  // Generate an id based on name if none is provided.
+  const toggleId = id || `toggle-${name.replace(/\s+/g, "-").toLowerCase()}`;
 
-const ToggleButton = styled.div`
-  width: 40px;
-  height: 20px;
-  border-radius: 12px;
-  background-color: ${(props) => (props.checked ? "#3b82f6" : "#d1d5db")};
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:before {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: white;
-    border-radius: 50%;
-    top: 2px;
-    left: ${(props) => (props.checked ? "20px" : "2px")};
-    transition: left 0.3s;
-  }
-`;
-
-const ToggleField = ({ name, value, onChange }) => {
-  const handleToggleChange = () => {
-    onChange(!value);
+  // Handle change event from ToggleSwitch; pass boolean to onChange.
+  const handleChange = (event) => {
+    onChange(event.target.checked);
   };
 
   return (
     <FieldContainer>
       <FieldName>{name}</FieldName>
-      <ToggleWrapper>
-        {/* Rename isChecked to checked when passing to the styled component */}
-        <ToggleButton checked={value} onClick={handleToggleChange} />
-      </ToggleWrapper>
+      <ToggleSwitch
+        id={toggleId}
+        checked={value}
+        onChange={handleChange}
+        activeColor={activeColor}
+        size={size}
+        {...rest}
+      />
     </FieldContainer>
   );
 };
+
 export default ToggleField;

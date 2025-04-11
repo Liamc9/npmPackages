@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRightIcon } from '../../Branding/icons/Icons';
+import { FaChevronRight } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const StyledLink = styled(Link)`
@@ -58,7 +58,7 @@ const MenuItem = ({ icon: IconComponent, text, link }) => {
         <div>{text}</div>
       </TextWrapper>
       <IconContainer>
-        <ChevronRightIcon />
+        <FaChevronRight />
       </IconContainer>
     </StyledLink>
   );

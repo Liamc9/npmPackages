@@ -1,14 +1,10 @@
 // ToggleSwitch.jsx
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ToggleWrapper = styled.div`
-      grid-column: ${(props) => props.gridSpan || 'auto'};
-
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
 `;
 
 const ToggleLabel = styled.label`
@@ -16,35 +12,40 @@ const ToggleLabel = styled.label`
   font-weight: 500;
 `;
 
-const ToggleInput = styled.input`
-  width: 50px;
-  height: 25px;
+const ToggleInput = styled.input.attrs({ type: 'checkbox' })`
+  /* Use the "size" prop (default to 50px if not provided) */
+  width: ${(props) => (props.size ? `${props.size}px` : '50px')};
+  height: ${(props) => (props.size ? `${props.size / 2}px` : '25px')};
   -webkit-appearance: none;
-  background: #c6c6c6;
+  background: ${(props) => props.inactiveColor || '#c6c6c6'};
   outline: none;
-  border-radius: 25px;
+  border-radius: ${(props) => (props.size ? `${props.size / 2}px` : '25px')};
   position: relative;
   cursor: pointer;
   transition: background 0.3s;
 
   &:checked {
-    background: #007bff;
+    background: ${(props) => props.activeColor || '#007bff'};
   }
 
   &:before {
     content: '';
     position: absolute;
-    width: 21px;
-    height: 21px;
+    /* Knob size scales in proportion to the default (21px when size=50) */
+    width: ${(props) => (props.size ? `${21 * (props.size / 50)}px` : '21px')};
+    height: ${(props) => (props.size ? `${21 * (props.size / 50)}px` : '21px')};
     border-radius: 50%;
-    top: 2px;
-    left: 2px;
+    /* Offset scales proportionally (default 2px) */
+    top: ${(props) => (props.size ? `${2 * (props.size / 50)}px` : '2px')};
+    left: ${(props) => (props.size ? `${2 * (props.size / 50)}px` : '2px')};
     background: white;
     transition: transform 0.3s;
   }
 
   &:checked:before {
-    transform: translateX(25px);
+    /* Translation distance scales proportionally (25px when size=50) */
+    transform: translateX(${(props) =>
+      props.size ? `${25 * (props.size / 50)}px` : '25px'});
   }
 
   &:disabled {
@@ -57,18 +58,11 @@ const ToggleInput = styled.input`
   }
 `;
 
-const ToggleSwitch = ({
-  label,
-  ...props
-}) => (
-  <ToggleWrapper gridSpan={props.gridSpan}>
-    <ToggleInput
-      type="checkbox"
-      {...props}
-    />
-    <ToggleLabel htmlFor={props.id}>{label}</ToggleLabel>
+const ToggleSwitch = ({ label, activeColor, size, ...props }) => (
+  <ToggleWrapper>
+    <ToggleInput activeColor={activeColor} size={size} {...props} />
+    {label && <ToggleLabel htmlFor={props.id}>{label}</ToggleLabel>}
   </ToggleWrapper>
 );
-
 
 export default ToggleSwitch;

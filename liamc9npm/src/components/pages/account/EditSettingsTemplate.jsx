@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { EditStackedList } from 'liamc9npm';
+import EditStackedList  from '../../../components/molecules/stackedlist/EditStackedList'
 import { FiChevronLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
@@ -39,56 +39,45 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const Footer = styled.footer`
-  margin-top: 24px;
-`;
-
-const SaveButton = styled.button`
-  padding: 10px 16px;
-  background-color: #3b82f6;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-
-  &:hover {
-    background-color: #2563eb;
-  }
-`;
-
-// Component
-const EditSettingsTemplate = ({ headerTitle = 'Settings', sections = [], initialValues = {}, onSave }) => {
+const EditSettingsTemplate = ({
+  headerTitle = 'Settings',
+  sections = [],
+  initialValues = {},
+  onSave,
+  toggleColor,
+}) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState(initialValues);
 
+  // Whenever a field changes, update formData
+  // and immediately call onSave (or log to console if onSave is not provided).
   const updateState = (fieldName, value) => {
-    setFormData(prev => ({ ...prev, [fieldName]: value }));
-  };
-
-  const handleSave = () => {
-    if (onSave) {
-      onSave(formData);
-    } else {
-      console.log('Form Data:', formData);
-      alert('Changes saved!');
-    }
+    setFormData((prev) => {
+      const newData = { ...prev, [fieldName]: value };
+      if (onSave) {
+        onSave(newData);
+      } else {
+        console.log('Form Data:', newData);
+      }
+      return newData;
+    });
   };
 
   return (
     <Page>
-       <Header>
-              <BackButton onClick={() => navigate(-1)}>
-                <FiChevronLeft size={24} />
-              </BackButton>
-              <Title>{headerTitle}</Title>
-            </Header>
+      <Header>
+        <BackButton onClick={() => navigate(-1)}>
+          <FiChevronLeft size={24} />
+        </BackButton>
+        <Title>{headerTitle}</Title>
+      </Header>
 
       <main>
         {sections.map(({ title, fields }, idx) => (
           <EditStackedList
             key={idx}
             title={title}
+            toggleColor={toggleColor}
             items={fields.map(({ name, type, fieldName, options }) => ({
               type,
               props: {
@@ -103,10 +92,6 @@ const EditSettingsTemplate = ({ headerTitle = 'Settings', sections = [], initial
           />
         ))}
       </main>
-
-      <Footer>
-        <SaveButton onClick={handleSave}>Save Changes</SaveButton>
-      </Footer>
     </Page>
   );
 };

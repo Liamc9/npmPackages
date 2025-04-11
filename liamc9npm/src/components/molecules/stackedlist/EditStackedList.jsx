@@ -1,3 +1,4 @@
+// EditStackedList.jsx
 import React from "react";
 import styled from "styled-components";
 import EditableTextField from "../../atoms/menuitem/EditableTextField";
@@ -5,43 +6,48 @@ import SelectField from "../../atoms/menuitem/SelectField";
 import ToggleField from "../../atoms/menuitem/ToggleField";
 
 const CategoryWrapper = styled.div`
-  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+  margin-bottom: 1.5rem;
 `;
 
 const CategoryTitle = styled.h3`
-  font-size: 1.25rem; /* Equivalent to text-xl */
-  font-weight: 600; /* Equivalent to font-semibold */
-  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 `;
 
 const ItemsContainer = styled.div`
-  border: 1px solid #e5e7eb; /* Equivalent to border */
-  border-radius: 0.375rem; /* Equivalent to rounded-md */
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
   overflow: hidden;
   & > *:not(:last-child) {
-    border-bottom: 1px solid #e5e7eb; /* Equivalent to divide-y */
+    border-bottom: 1px solid #e5e7eb;
   }
 `;
 
 const ListItem = styled.div`
   padding: 16px;
   border-bottom: 1px solid #e5e7eb;
-
   &:last-child {
     border-bottom: none;
   }
 `;
 
-const EditStackedList = ({ title, items, updateState }) => {
+const EditStackedList = ({ title, items, updateState, toggleColor }) => {
   const renderComponent = (item, index) => {
     const { type, props } = item;
+    
+    // Always call updateState to keep the list in sync,
+    // and also call the user-provided onChange if it exists.
+    const handleChange = (newValue) => {
+      if (props.onChange) {
+        props.onChange(newValue);  // user-provided callback
+      }
+      updateState(props.fieldName, newValue); // keep local state updated
+    };
 
     const childProps = {
       ...props,
-      // Use the provided onChange if available; otherwise fall back to updateState
-      onChange: props.onChange 
-        ? props.onChange 
-        : (newValue) => updateState(props.fieldName, newValue),
+      onChange: handleChange,
     };
 
     switch (type) {
@@ -50,7 +56,7 @@ const EditStackedList = ({ title, items, updateState }) => {
       case "SelectField":
         return <SelectField key={index} {...childProps} />;
       case "ToggleField":
-        return <ToggleField key={index} {...childProps} />;
+        return <ToggleField key={index} {...childProps} activeColor={toggleColor}/>;
       default:
         return null;
     }
