@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback, useSyncExternalStore, useLayoutEffect, isValidElement, cloneElement, useMemo } from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import { ChevronRightIcon as ChevronRightIcon$1, StackedList as StackedList$1, EditStackedList as EditStackedList$1, FeedLogic as FeedLogic$1, PaginationControls as PaginationControls$1, LoadMoreButton as LoadMoreButton$1, FeedItem as FeedItem$1, SettingsTemplate as SettingsTemplate$1, Input as Input$2, EditSettingsTemplate as EditSettingsTemplate$1, SearchLogic as SearchLogic$1, BottomDrawer as BottomDrawer$1 } from 'liamc9npm';
+import { ChevronRightIcon as ChevronRightIcon$1, StackedList as StackedList$1, FeedLogic as FeedLogic$1, PaginationControls as PaginationControls$1, LoadMoreButton as LoadMoreButton$1, FeedItem as FeedItem$1, SettingsTemplate as SettingsTemplate$1, Input as Input$2, EditSettingsTemplate as EditSettingsTemplate$1, SearchLogic as SearchLogic$1, BottomDrawer as BottomDrawer$1 } from 'liamc9npm';
 import { Link as Link$1, useNavigate, NavLink } from 'react-router-dom';
 import ReactDOM, { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Navigation, Pagination, Autoplay, A11y } from 'swiper/modules';
-import { FaReceipt, FaMoneyBillAlt, FaRegCreditCard } from 'react-icons/fa';
+import { FaChevronRight, FaReceipt, FaMoneyBillAlt, FaRegCreditCard } from 'react-icons/fa';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import ReactPlayer from 'react-player';
 
@@ -1522,7 +1522,7 @@ const LogoutButton$2 = styled.button`
     background-color: #e5e7eb; /* Slightly darker gray */
   }
 `;
-const Footer$2 = styled.footer`
+const Footer$1 = styled.footer`
   margin-top: auto; /* Push footer to the bottom */
   text-align: center;
   padding: 1.5rem 0; /* Increased padding */
@@ -1593,7 +1593,7 @@ const Account = ({
     items: categories[category]
   })), /*#__PURE__*/React.createElement(LogoutButton$2, {
     onClick: handleLogout
-  }, "Log Out"), /*#__PURE__*/React.createElement(Footer$2, null, /*#__PURE__*/React.createElement("div", null, "Company Name"), /*#__PURE__*/React.createElement("div", null, "Version 1.0.0"), /*#__PURE__*/React.createElement(FooterLinks$2, null, /*#__PURE__*/React.createElement("a", {
+  }, "Log Out"), /*#__PURE__*/React.createElement(Footer$1, null, /*#__PURE__*/React.createElement("div", null, "Company Name"), /*#__PURE__*/React.createElement("div", null, "Version 1.0.0"), /*#__PURE__*/React.createElement(FooterLinks$2, null, /*#__PURE__*/React.createElement("a", {
     href: "/terms"
   }, "Terms"), /*#__PURE__*/React.createElement("a", {
     href: "/policy"
@@ -5583,108 +5583,6 @@ const Drawer$1 = ({
   }, /*#__PURE__*/React.createElement(DrawerContent$1, null, children))), document.body);
 };
 
-// Styled Components
-const Page$1 = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 1rem;
-`;
-const Header$5 = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e5e7eb; /* light tailwind-gray */
-`;
-const BackButton$3 = styled.button`
-  position: absolute;
-  left: 0;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-`;
-const Title$5 = styled.h1`
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-align: center;
-`;
-const Footer$1 = styled.footer`
-  margin-top: 24px;
-`;
-const SaveButton = styled.button`
-  padding: 10px 16px;
-  background-color: #3b82f6;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-
-  &:hover {
-    background-color: #2563eb;
-  }
-`;
-
-// Component
-const EditSettingsTemplate = ({
-  headerTitle = 'Settings',
-  sections = [],
-  initialValues = {},
-  onSave
-}) => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState(initialValues);
-  const updateState = (fieldName, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [fieldName]: value
-    }));
-  };
-  const handleSave = () => {
-    if (onSave) {
-      onSave(formData);
-    } else {
-      console.log('Form Data:', formData);
-      alert('Changes saved!');
-    }
-  };
-  return /*#__PURE__*/React.createElement(Page$1, null, /*#__PURE__*/React.createElement(Header$5, null, /*#__PURE__*/React.createElement(BackButton$3, {
-    onClick: () => navigate(-1)
-  }, /*#__PURE__*/React.createElement(FiChevronLeft, {
-    size: 24
-  })), /*#__PURE__*/React.createElement(Title$5, null, headerTitle)), /*#__PURE__*/React.createElement("main", null, sections.map(({
-    title,
-    fields
-  }, idx) => /*#__PURE__*/React.createElement(EditStackedList$1, {
-    key: idx,
-    title: title,
-    items: fields.map(({
-      name,
-      type,
-      fieldName,
-      options
-    }) => ({
-      type,
-      props: {
-        name,
-        fieldName,
-        currentState: formData[fieldName],
-        value: formData[fieldName],
-        options
-      }
-    })),
-    updateState: updateState
-  }))), /*#__PURE__*/React.createElement(Footer$1, null, /*#__PURE__*/React.createElement(SaveButton, {
-    onClick: handleSave
-  }, "Save Changes")));
-};
-
 const FieldContainer$3 = styled.div`
   display: flex;
   flex-direction: column;
@@ -5834,10 +5732,75 @@ const SelectField = ({
   })));
 };
 
+const ToggleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const ToggleLabel = styled.label`
+  margin-left: 8px;
+  font-weight: 500;
+`;
+const ToggleInput = styled.input.attrs({
+  type: 'checkbox'
+})`
+  /* Use the "size" prop (default to 50px if not provided) */
+  width: ${props => props.size ? `${props.size}px` : '50px'};
+  height: ${props => props.size ? `${props.size / 2}px` : '25px'};
+  -webkit-appearance: none;
+  background: ${props => props.inactiveColor || '#c6c6c6'};
+  outline: none;
+  border-radius: ${props => props.size ? `${props.size / 2}px` : '25px'};
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:checked {
+    background: ${props => props.activeColor || '#007bff'};
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    /* Knob size scales in proportion to the default (21px when size=50) */
+    width: ${props => props.size ? `${21 * (props.size / 50)}px` : '21px'};
+    height: ${props => props.size ? `${21 * (props.size / 50)}px` : '21px'};
+    border-radius: 50%;
+    /* Offset scales proportionally (default 2px) */
+    top: ${props => props.size ? `${2 * (props.size / 50)}px` : '2px'};
+    left: ${props => props.size ? `${2 * (props.size / 50)}px` : '2px'};
+    background: white;
+    transition: transform 0.3s;
+  }
+
+  &:checked:before {
+    /* Translation distance scales proportionally (25px when size=50) */
+    transform: translateX(${props => props.size ? `${25 * (props.size / 50)}px` : '25px'});
+  }
+
+  &:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+
+    &:before {
+      background: #ced4da;
+    }
+  }
+`;
+const ToggleSwitch = ({
+  label,
+  activeColor,
+  size,
+  ...props
+}) => /*#__PURE__*/React.createElement(ToggleWrapper, null, /*#__PURE__*/React.createElement(ToggleInput, _extends({
+  activeColor: activeColor,
+  size: size
+}, props)), label && /*#__PURE__*/React.createElement(ToggleLabel, {
+  htmlFor: props.id
+}, label));
+
 const FieldContainer$1 = styled.div`
   display: flex;
   align-items: center;
-
 `;
 const FieldName$1 = styled.div`
   font-size: 16px;
@@ -5845,65 +5808,50 @@ const FieldName$1 = styled.div`
   color: #111827;
   margin-right: auto;
 `;
-const ToggleWrapper$1 = styled.div`
-  display: flex;
-  align-items: center;
-`;
-const ToggleButton = styled.div`
-  width: 40px;
-  height: 20px;
-  border-radius: 12px;
-  background-color: ${props => props.checked ? "#3b82f6" : "#d1d5db"};
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:before {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: white;
-    border-radius: 50%;
-    top: 2px;
-    left: ${props => props.checked ? "20px" : "2px"};
-    transition: left 0.3s;
-  }
-`;
 const ToggleField = ({
   name,
   value,
-  onChange
+  onChange,
+  activeColor,
+  size,
+  id,
+  ...rest
 }) => {
-  const handleToggleChange = () => {
-    onChange(!value);
+  // Generate an id based on name if none is provided.
+  const toggleId = id || `toggle-${name.replace(/\s+/g, "-").toLowerCase()}`;
+
+  // Handle change event from ToggleSwitch; pass boolean to onChange.
+  const handleChange = event => {
+    onChange(event.target.checked);
   };
-  return /*#__PURE__*/React.createElement(FieldContainer$1, null, /*#__PURE__*/React.createElement(FieldName$1, null, name), /*#__PURE__*/React.createElement(ToggleWrapper$1, null, /*#__PURE__*/React.createElement(ToggleButton, {
+  return /*#__PURE__*/React.createElement(FieldContainer$1, null, /*#__PURE__*/React.createElement(FieldName$1, null, name), /*#__PURE__*/React.createElement(ToggleSwitch, _extends({
+    id: toggleId,
     checked: value,
-    onClick: handleToggleChange
-  })));
+    onChange: handleChange,
+    activeColor: activeColor,
+    size: size
+  }, rest)));
 };
 
 const CategoryWrapper$1 = styled.div`
-  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+  margin-bottom: 1.5rem;
 `;
 const CategoryTitle$1 = styled.h3`
-  font-size: 1.25rem; /* Equivalent to text-xl */
-  font-weight: 600; /* Equivalent to font-semibold */
-  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 `;
 const ItemsContainer$1 = styled.div`
-  border: 1px solid #e5e7eb; /* Equivalent to border */
-  border-radius: 0.375rem; /* Equivalent to rounded-md */
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
   overflow: hidden;
   & > *:not(:last-child) {
-    border-bottom: 1px solid #e5e7eb; /* Equivalent to divide-y */
+    border-bottom: 1px solid #e5e7eb;
   }
 `;
 const ListItem$1 = styled.div`
   padding: 16px;
   border-bottom: 1px solid #e5e7eb;
-
   &:last-child {
     border-bottom: none;
   }
@@ -5911,17 +5859,26 @@ const ListItem$1 = styled.div`
 const EditStackedList = ({
   title,
   items,
-  updateState
+  updateState,
+  toggleColor
 }) => {
   const renderComponent = (item, index) => {
     const {
       type,
       props
     } = item;
+
+    // Always call updateState to keep the list in sync,
+    // and also call the user-provided onChange if it exists.
+    const handleChange = newValue => {
+      if (props.onChange) {
+        props.onChange(newValue); // user-provided callback
+      }
+      updateState(props.fieldName, newValue); // keep local state updated
+    };
     const childProps = {
       ...props,
-      // Use the provided onChange if available; otherwise fall back to updateState
-      onChange: props.onChange ? props.onChange : newValue => updateState(props.fieldName, newValue)
+      onChange: handleChange
     };
     switch (type) {
       case "EditableTextField":
@@ -5935,7 +5892,9 @@ const EditStackedList = ({
       case "ToggleField":
         return /*#__PURE__*/React.createElement(ToggleField, _extends({
           key: index
-        }, childProps));
+        }, childProps, {
+          activeColor: toggleColor
+        }));
       default:
         return null;
     }
@@ -5943,6 +5902,93 @@ const EditStackedList = ({
   return /*#__PURE__*/React.createElement(CategoryWrapper$1, null, title && /*#__PURE__*/React.createElement(CategoryTitle$1, null, title), /*#__PURE__*/React.createElement(ItemsContainer$1, null, items.map((item, index) => /*#__PURE__*/React.createElement(ListItem$1, {
     key: index
   }, renderComponent(item, index)))));
+};
+
+// Styled Components
+const Page$1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+`;
+const Header$5 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb; /* light tailwind-gray */
+`;
+const BackButton$3 = styled.button`
+  position: absolute;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+const Title$5 = styled.h1`
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+`;
+const EditSettingsTemplate = ({
+  headerTitle = 'Settings',
+  sections = [],
+  initialValues = {},
+  onSave,
+  toggleColor
+}) => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState(initialValues);
+
+  // Whenever a field changes, update formData
+  // and immediately call onSave (or log to console if onSave is not provided).
+  const updateState = (fieldName, value) => {
+    setFormData(prev => {
+      const newData = {
+        ...prev,
+        [fieldName]: value
+      };
+      if (onSave) {
+        onSave(newData);
+      } else {
+        console.log('Form Data:', newData);
+      }
+      return newData;
+    });
+  };
+  return /*#__PURE__*/React.createElement(Page$1, null, /*#__PURE__*/React.createElement(Header$5, null, /*#__PURE__*/React.createElement(BackButton$3, {
+    onClick: () => navigate(-1)
+  }, /*#__PURE__*/React.createElement(FiChevronLeft, {
+    size: 24
+  })), /*#__PURE__*/React.createElement(Title$5, null, headerTitle)), /*#__PURE__*/React.createElement("main", null, sections.map(({
+    title,
+    fields
+  }, idx) => /*#__PURE__*/React.createElement(EditStackedList, {
+    key: idx,
+    title: title,
+    toggleColor: toggleColor,
+    items: fields.map(({
+      name,
+      type,
+      fieldName,
+      options
+    }) => ({
+      type,
+      props: {
+        name,
+        fieldName,
+        currentState: formData[fieldName],
+        value: formData[fieldName],
+        options
+      }
+    })),
+    updateState: updateState
+  }))));
 };
 
 const FAQContainer = styled.div`
@@ -9176,7 +9222,7 @@ const MenuItem = ({
     to: link
   }, /*#__PURE__*/React.createElement(TextWrapper$1, null, IconComponent && /*#__PURE__*/React.createElement(IconWrapper$3, null, /*#__PURE__*/React.createElement(IconComponent, {
     className: "svg"
-  })), /*#__PURE__*/React.createElement("div", null, text)), /*#__PURE__*/React.createElement(IconContainer, null, /*#__PURE__*/React.createElement(ChevronRightIcon, null)));
+  })), /*#__PURE__*/React.createElement("div", null, text)), /*#__PURE__*/React.createElement(IconContainer, null, /*#__PURE__*/React.createElement(FaChevronRight, null)));
 };
 
 function r(e) {
@@ -16294,68 +16340,6 @@ const ToastMessage = () => {
     draggable: true
   }));
 };
-
-const ToggleWrapper = styled.div`
-      grid-column: ${props => props.gridSpan || 'auto'};
-
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-`;
-const ToggleLabel = styled.label`
-  margin-left: 8px;
-  font-weight: 500;
-`;
-const ToggleInput = styled.input`
-  width: 50px;
-  height: 25px;
-  -webkit-appearance: none;
-  background: #c6c6c6;
-  outline: none;
-  border-radius: 25px;
-  position: relative;
-  cursor: pointer;
-  transition: background 0.3s;
-
-  &:checked {
-    background: #007bff;
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    width: 21px;
-    height: 21px;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-    background: white;
-    transition: transform 0.3s;
-  }
-
-  &:checked:before {
-    transform: translateX(25px);
-  }
-
-  &:disabled {
-    background: #e9ecef;
-    cursor: not-allowed;
-
-    &:before {
-      background: #ced4da;
-    }
-  }
-`;
-const ToggleSwitch = ({
-  label,
-  ...props
-}) => /*#__PURE__*/React.createElement(ToggleWrapper, {
-  gridSpan: props.gridSpan
-}, /*#__PURE__*/React.createElement(ToggleInput, _extends({
-  type: "checkbox"
-}, props)), /*#__PURE__*/React.createElement(ToggleLabel, {
-  htmlFor: props.id
-}, label));
 
 // Tooltip container with relative positioning
 const TooltipContainer = styled.div`
