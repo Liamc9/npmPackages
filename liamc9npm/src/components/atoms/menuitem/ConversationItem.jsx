@@ -88,7 +88,7 @@ const ConversationItem = ({ conversation, currentUser, participantsData }) => {
           <Name hasNewMessage={conversation.hasNewMessage}>
             {other.displayName || otherUID}
           </Name>
-          <Timestamp>{formatTimestamp(conversation.lastMessage?.timestamp)}</Timestamp>
+          <Timestamp>{formatTimestamp(conversation.lastMessage?.localTimestamp)}</Timestamp>
         </Header>
         <LastMessage hasNewMessage={conversation.hasNewMessage}>
           {conversation.lastMessage?.text}

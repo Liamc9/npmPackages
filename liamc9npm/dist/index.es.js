@@ -9344,8 +9344,6 @@ const ContactUs = () => {
 };
 
 // src/components/ConversationItem.jsx
-
-// === Styled Components ===
 const ItemWrapper = styled(Link$1)`
   display: flex;
   align-items: center;
@@ -9399,7 +9397,7 @@ const LastMessage = styled.span`
   max-width: 80%;
 `;
 
-// === Helper ===
+// Helper to display a "time ago" format
 const formatTimestamp = timestamp => {
   if (!timestamp) return '';
   const messageDate = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
@@ -9409,16 +9407,14 @@ const formatTimestamp = timestamp => {
   if (daysDiff === 1) return 'Yesterday';
   return `${daysDiff} days ago`;
 };
-
-// === Main Component ===
 const ConversationItem = ({
   conversation,
   currentUser,
   participantsData
 }) => {
-  // Get the other participant's UID from the participantUIDs array.
+  // Identify the other participant’s UID
   const otherUID = conversation.participantUIDs.find(uid => uid !== currentUser.uid);
-  // Lookup the "other" participant's full details from participantsData.
+  // Look up the other participant’s profile from participantsData
   const other = participantsData && participantsData[otherUID] ? participantsData[otherUID] : {};
   return /*#__PURE__*/React.createElement(ItemWrapper, {
     to: `/conversation/${conversation.id}`
@@ -9441,7 +9437,7 @@ const ConversationList = ({
   currentUser,
   participantsData
 }) => {
-  // Helper to extract time in milliseconds from a timestamp, handling Firestore or Date objects.
+  // Helper to extract time in milliseconds from various timestamp types.
   const getTime = timestamp => {
     if (!timestamp) return 0;
     if (timestamp.toMillis) return timestamp.toMillis();
@@ -9449,7 +9445,7 @@ const ConversationList = ({
     return new Date(timestamp).getTime();
   };
 
-  // Sort conversations by lastMessage.timestamp (most recent first)
+  // Sort conversations by their lastMessage timestamp, descending.
   const sortedConversations = useMemo(() => {
     return conversations ? [...conversations].sort((a, b) => {
       const aTime = getTime(a.lastMessage?.timestamp);
@@ -9461,7 +9457,7 @@ const ConversationList = ({
     key: conversation.id,
     conversation: conversation,
     currentUser: currentUser,
-    participantsData: participantsData
+    participantsData: participantsData // Pass participantsData
   })));
 };
 
