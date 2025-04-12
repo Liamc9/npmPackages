@@ -61,15 +61,25 @@ const LastMessage = styled.span`
 // Helper to display a "time ago" format
 const formatTimestamp = (timestamp) => {
   if (!timestamp) return '';
-  const messageDate = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+  
+  const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+
   const now = new Date();
-  const daysDiff = Math.floor(
-    (now.setHours(0, 0, 0, 0) - messageDate.setHours(0, 0, 0, 0)) / (1000 * 60 * 60 * 24)
-  );
+  const today = new Date(now);
+  const messageDay = new Date(date);
+
+  // Zero out time for both dates
+  today.setHours(0, 0, 0, 0);
+  messageDay.setHours(0, 0, 0, 0);
+
+  const msDiff = today - messageDay;
+  const daysDiff = Math.floor(msDiff / (1000 * 60 * 60 * 24));
+
   if (daysDiff === 0) return 'Today';
   if (daysDiff === 1) return 'Yesterday';
   return `${daysDiff} days ago`;
 };
+
 
 const ConversationItem = ({ conversation, currentUser, participantsData }) => {
   // Identify the other participant’s UID

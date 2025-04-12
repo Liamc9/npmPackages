@@ -9423,7 +9423,7 @@ const ConversationItem = ({
     alt: "Profile"
   }), /*#__PURE__*/React.createElement(Column, null, /*#__PURE__*/React.createElement(Header$6, null, /*#__PURE__*/React.createElement(Name, {
     hasNewMessage: conversation.hasNewMessage
-  }, other.displayName || otherUID), /*#__PURE__*/React.createElement(Timestamp, null, formatTimestamp(conversation.lastMessage?.timestamp))), /*#__PURE__*/React.createElement(LastMessage, {
+  }, other.displayName || otherUID), /*#__PURE__*/React.createElement(Timestamp, null, formatTimestamp(conversation.lastMessage?.localTimestamp))), /*#__PURE__*/React.createElement(LastMessage, {
     hasNewMessage: conversation.hasNewMessage
   }, conversation.lastMessage?.text)));
 };

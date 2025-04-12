@@ -9435,7 +9435,7 @@ const ConversationItem = ({
     alt: "Profile"
   }), /*#__PURE__*/React__default["default"].createElement(Column, null, /*#__PURE__*/React__default["default"].createElement(Header$6, null, /*#__PURE__*/React__default["default"].createElement(Name, {
     hasNewMessage: conversation.hasNewMessage
-  }, other.displayName || otherUID), /*#__PURE__*/React__default["default"].createElement(Timestamp, null, formatTimestamp(conversation.lastMessage?.timestamp))), /*#__PURE__*/React__default["default"].createElement(LastMessage, {
+  }, other.displayName || otherUID), /*#__PURE__*/React__default["default"].createElement(Timestamp, null, formatTimestamp(conversation.lastMessage?.localTimestamp))), /*#__PURE__*/React__default["default"].createElement(LastMessage, {
     hasNewMessage: conversation.hasNewMessage
   }, conversation.lastMessage?.text)));
 };
