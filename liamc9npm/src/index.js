@@ -23,9 +23,7 @@ export { default as CheckedItem } from './components/form/inputs/checkboxInputs/
 export { default as ColorPicker } from './components/form/inputs/colorPickers/ColorPicker';
 export { default as ContactUs } from './components/pages/account/ContactUs';
 export { default as ConversationItem } from './components/atoms/menuitem/ConversationItem';
-export { default as ConversationItem } from './components/projects/lettz/components/ConversationItem';
 export { default as ConversationList } from './components/molecules/ConversationList';
-export { default as ConversationList } from './components/projects/lettz/components/ConversationList';
 export { default as CookbookCard } from './components/projects/cookbook/components/CookbookCard';
 export { default as CookbookProfile } from './components/projects/cookbook/views/CookbookProfile';
 export { default as CopyButton } from './components/atoms/buttons/CopyButton';
