@@ -1,5 +1,5 @@
 // src/components/Chat.js
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
 const ChatContainer = styled.div`
@@ -119,33 +119,31 @@ const ProfilePic = styled.img`
 const Chat = ({
   initialConversation,
   currentUser,
-  userData,
-  onSendMessage,    // External callback to update the messages array in the DB.
-  newMessage,       // External newMessage state
-  setNewMessage,    // External setNewMessage function
-  messagesEndRef    // Ref for scrolling
+  participantsData,  // Object mapping user IDs to detailed user profiles.
+  onSendMessage,     // External callback to update messages in the database.
+  newMessage,        // External newMessage state.
+  setNewMessage,     // External setNewMessage function.
+  messagesEndRef     // Ref for scrolling.
 }) => {
-  // Maintain a local conversation state initialized with the data from Firestore.
+  // Local conversation state, initialized with data from Firestore.
   const [conversation, setConversation] = useState(
     initialConversation || { participants: [], messages: [] }
   );
 
-  // Update local conversation state when the initial conversation changes.
+  // Update local conversation state when initialConversation changes.
   useEffect(() => {
     if (initialConversation) {
       setConversation(initialConversation);
     }
   }, [initialConversation]);
 
-  // Create a map for quick lookup of participant data.
+  // Build a participant map from the provided participantsData.
+  // This map is used for a quick lookup of user details for any given userId.
   const participantMap = useMemo(() => {
-    return (conversation.participants || []).reduce((map, participant) => {
-      map[participant.uid] = participant;
-      return map;
-    }, {});
-  }, [conversation]);
+    return participantsData || {};
+  }, [participantsData]);
 
-  // Scroll to the bottom when messages change.
+  // Scroll to the bottom when new messages arrive.
   useEffect(() => {
     messagesEndRef?.current?.scrollIntoView({ behavior: 'smooth' });
   }, [conversation.messages?.length, messagesEndRef]);
@@ -154,14 +152,14 @@ const Chat = ({
   const handleSendMessageInternal = () => {
     if (!newMessage.trim()) return;
 
-    // Construct the message object, matching the structure stored in the db.
+    // Create a new message object.
     const message = {
       localTimestamp: Date.now().toString(),
       sender: currentUser.uid,
       text: newMessage,
     };
 
-    // If onSendMessage prop is provided, use it (i.e., update the Firestore document).
+    // If an external onSendMessage callback is provided, use it.
     if (typeof onSendMessage === 'function') {
       onSendMessage(message);
     } else {
@@ -178,8 +176,10 @@ const Chat = ({
     return <LoadingMessage>Loading conversation...</LoadingMessage>;
   }
 
+  // Render individual message.
   const renderMessage = (message) => {
     const isSent = message.sender === currentUser.uid;
+    // Look up sender details from the participantsData map.
     const sender = participantMap[message.sender];
     const formattedTime = new Date(parseInt(message.localTimestamp, 10)).toLocaleTimeString([], {
       hour: '2-digit',
@@ -187,9 +187,14 @@ const Chat = ({
     });
     return (
       <MessageContainer key={message.localTimestamp + message.sender} sent={isSent}>
+        {/* For received messages, use the sender info from participantsData */}
         {!isSent && sender && (
           <Avatar sent={isSent}>
-            <ProfilePic src={sender.avatarUrl || defaultAvatarURL} alt={sender.name || 'Sender'} size="30px" />
+            <ProfilePic
+              src={sender.photoURL || defaultAvatarURL}
+              alt={sender.displayName || 'Sender'}
+              size="30px"
+            />
           </Avatar>
         )}
         <MessageContent sent={isSent}>
@@ -198,9 +203,14 @@ const Chat = ({
           </MessageBubble>
           <MessageTimestamp sent={isSent}>{formattedTime}</MessageTimestamp>
         </MessageContent>
+        {/* For sent messages, also look up the sender info from participantsData */}
         {isSent && (
           <Avatar sent={isSent}>
-            <ProfilePic src={userData.photoURL || defaultAvatarURL} alt="You" size="30px" />
+            <ProfilePic
+              src={(participantMap[currentUser.uid] && participantMap[currentUser.uid].photoURL) || defaultAvatarURL}
+              alt={(participantMap[currentUser.uid] && participantMap[currentUser.uid].displayName) || 'You'}
+              size="30px"
+            />
           </Avatar>
         )}
       </MessageContainer>
