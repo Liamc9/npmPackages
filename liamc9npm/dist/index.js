@@ -1489,7 +1489,7 @@ const ProfileImage$2 = styled__default["default"].div`
   width: 80px; /* Increased size */
   height: 80px; /* Increased size */
   border-radius: 50%;
-  background-image: url(${props => props.image || "https://via.placeholder.com/80"});
+  background-image: url(${props => props.image || "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg"});
   background-size: cover;
   background-position: center;
   margin-right: 24px; /* Increased margin */
@@ -5920,7 +5920,6 @@ const EditStackedList = ({
 const Page$1 = styled__default["default"].div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   padding: 1rem;
 `;
 const Header$5 = styled__default["default"].div`
@@ -11417,57 +11416,6 @@ function SideBar({
     }
   }, /*#__PURE__*/React__default["default"].createElement("span", null, "Log out")))));
 }
-
-// Styled Components remain the same
-styled__default["default"].nav`
-  position: relative;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-`;
-styled__default["default"].div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem;
-  box-sizing: border-box;
-
-  @media (min-width: 768px) {
-    padding: 0.75rem 1.5rem;
-  }
-`;
-styled__default["default"].button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-right: 1rem;
-
-  .icon {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-styled__default["default"](reactRouterDom.Link)`
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1f2937;
-  text-decoration: none;
-  flex-grow: 1;
-`;
-styled__default["default"](reactRouterDom.Link)`
-  border-radius: 0.375rem;
-  background-color: ${props => props.signInColor};
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  color: white;
-  text-decoration: none;
-  transition: background-color 0.2s;
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.5);
-  }
-`;
 const Overlay$1 = styled__default["default"].div`
   position: fixed;
   inset: 0;
