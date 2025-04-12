@@ -59,7 +59,6 @@ const LastMessage = styled.span`
   max-width: 80%;
 `;
 
-
 // === Helper ===
 const formatTimestamp = (timestamp) => {
   if (!timestamp) return '';
@@ -69,23 +68,29 @@ const formatTimestamp = (timestamp) => {
     (now.setHours(0, 0, 0, 0) - messageDate.setHours(0, 0, 0, 0)) /
       (1000 * 60 * 60 * 24)
   );
-
   if (daysDiff === 0) return 'Today';
   if (daysDiff === 1) return 'Yesterday';
   return `${daysDiff} days ago`;
 };
 
 // === Main Component ===
-const ConversationItem = ({ conversation, currentUser }) => {
-  const other = conversation.participants.find(p => p.uid !== currentUser.uid);
-  if (!other) return null;
-
+const ConversationItem = ({ conversation, currentUser, participantsData }) => {
+  // Get the other participant's UID from the participantUIDs array.
+  const otherUID = conversation.participantUIDs.find(uid => uid !== currentUser.uid);
+  // Lookup the "other" participant's full details from participantsData.
+  const other = participantsData && participantsData[otherUID] ? participantsData[otherUID] : {};
+  
   return (
     <ItemWrapper to={`/conversation/${conversation.id}`}>
-      <ProfilePic src={other.avatarUrl || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'} alt="Profile" />
+      <ProfilePic
+        src={other.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'}
+        alt="Profile"
+      />
       <Column>
         <Header>
-          <Name hasNewMessage={conversation.hasNewMessage}>{other.name}</Name>
+          <Name hasNewMessage={conversation.hasNewMessage}>
+            {other.displayName || otherUID}
+          </Name>
           <Timestamp>{formatTimestamp(conversation.lastMessage?.timestamp)}</Timestamp>
         </Header>
         <LastMessage hasNewMessage={conversation.hasNewMessage}>

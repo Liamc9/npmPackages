@@ -8757,8 +8757,11 @@ const MessageContent = styled__default["default"].div`
   flex-direction: column;
   align-items: ${props => props.sent ? 'flex-end' : 'flex-start'};
 `;
+
+// Updated MessageBubble: for sent messages, the background uses sentBubbleColor (default '#A855F7'),
+// and for received messages a light gray (#f0f0f0) is used.
 const MessageBubble = styled__default["default"].div`
-  background-color: ${props => props.sent ? '#A855F7' : '#ffffff'};
+  background-color: ${props => props.sent ? props.sentBubbleColor || '#A855F7' : '#f0f0f0'};
   color: ${props => props.sent ? '#ffffff' : '#000000'};
   padding: 10px 16px;
   border-radius: 20px;
@@ -8834,7 +8837,9 @@ const Chat = ({
   // External newMessage state.
   setNewMessage,
   // External setNewMessage function.
-  messagesEndRef // Ref for scrolling.
+  messagesEndRef,
+  // Ref for scrolling.
+  sentBubbleColor // New prop to customize the sent bubble color.
 }) => {
   // Local conversation state, initialized with data from Firestore.
   const [conversation, setConversation] = React.useState(initialConversation || {
@@ -8849,7 +8854,7 @@ const Chat = ({
     }
   }, [initialConversation]);
 
-  // Build a participant map from the provided participantsData for a fast lookup.
+  // Build a participant map from the provided participantsData for fast lookups.
   const participantMap = React.useMemo(() => {
     return participantsData || {};
   }, [participantsData]);
@@ -8865,7 +8870,7 @@ const Chat = ({
   const handleSendMessageInternal = () => {
     if (!newMessage.trim()) return;
 
-    // Construct a new message using currentUser.uid
+    // Construct a new message using currentUser.uid.
     const message = {
       localTimestamp: Date.now().toString(),
       sender: currentUser.uid,
@@ -8906,7 +8911,8 @@ const Chat = ({
     })), /*#__PURE__*/React__default["default"].createElement(MessageContent, {
       sent: isSent
     }, /*#__PURE__*/React__default["default"].createElement(MessageBubble, {
-      sent: isSent
+      sent: isSent,
+      sentBubbleColor: sentBubbleColor
     }, /*#__PURE__*/React__default["default"].createElement(MessageText, null, message.text)), /*#__PURE__*/React__default["default"].createElement(MessageTimestamp, {
       sent: isSent
     }, formattedTime)), isSent && /*#__PURE__*/React__default["default"].createElement(Avatar, {
