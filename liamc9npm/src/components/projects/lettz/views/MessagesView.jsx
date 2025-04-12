@@ -1,7 +1,7 @@
 // src/pages/MessagesView.js
 import React from 'react';
 import MessagesPrompt from '../components/MessagesPrompt';
-import ConversationList from '../components/ConversationList'
+import ConversationList from '../../../molecules/ConversationList';
 
 export default function MessagesView({ currentUser, conversations, loading, error }) {
   return (
