@@ -9425,44 +9425,55 @@ const formatTimestamp = timestamp => {
 // === Main Component ===
 const ConversationItem = ({
   conversation,
-  currentUser
+  currentUser,
+  participantsData
 }) => {
-  const other = conversation.participants.find(p => p.uid !== currentUser.uid);
-  if (!other) return null;
+  // Get the other participant's UID from the participantUIDs array.
+  const otherUID = conversation.participantUIDs.find(uid => uid !== currentUser.uid);
+  // Lookup the "other" participant's full details from participantsData.
+  const other = participantsData && participantsData[otherUID] ? participantsData[otherUID] : {};
   return /*#__PURE__*/React__default["default"].createElement(ItemWrapper, {
     to: `/conversation/${conversation.id}`
   }, /*#__PURE__*/React__default["default"].createElement(ProfilePic$1, {
-    src: other.avatarUrl || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
+    src: other.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg',
     alt: "Profile"
   }), /*#__PURE__*/React__default["default"].createElement(Column, null, /*#__PURE__*/React__default["default"].createElement(Header$6, null, /*#__PURE__*/React__default["default"].createElement(Name, {
     hasNewMessage: conversation.hasNewMessage
-  }, other.name), /*#__PURE__*/React__default["default"].createElement(Timestamp, null, formatTimestamp(conversation.lastMessage?.timestamp))), /*#__PURE__*/React__default["default"].createElement(LastMessage, {
+  }, other.displayName || otherUID), /*#__PURE__*/React__default["default"].createElement(Timestamp, null, formatTimestamp(conversation.lastMessage?.timestamp))), /*#__PURE__*/React__default["default"].createElement(LastMessage, {
     hasNewMessage: conversation.hasNewMessage
   }, conversation.lastMessage?.text)));
 };
 
 // src/components/ConversationList.js
-
-// Styled Components
 const ListWrapper = styled__default["default"].div`
   width: 100%;
 `;
 const ConversationList = ({
   conversations,
-  currentUser
+  currentUser,
+  participantsData
 }) => {
-  // Clone and sort conversations by lastMessage.timestamp descending
-  const sortedConversations = conversations ? [...conversations].sort((a, b) => {
-    // Extract timestamps safely
-    const aTime = a.lastMessage?.timestamp?.toMillis ? a.lastMessage.timestamp.toMillis() : 0;
-    const bTime = b.lastMessage?.timestamp?.toMillis ? b.lastMessage.timestamp.toMillis() : 0;
-    // Sort in descending order (most recent first)
-    return bTime - aTime;
-  }) : [];
+  // Helper to extract time in milliseconds from a timestamp, handling Firestore or Date objects.
+  const getTime = timestamp => {
+    if (!timestamp) return 0;
+    if (timestamp.toMillis) return timestamp.toMillis();
+    if (timestamp.getTime) return timestamp.getTime();
+    return new Date(timestamp).getTime();
+  };
+
+  // Sort conversations by lastMessage.timestamp (most recent first)
+  const sortedConversations = React.useMemo(() => {
+    return conversations ? [...conversations].sort((a, b) => {
+      const aTime = getTime(a.lastMessage?.timestamp);
+      const bTime = getTime(b.lastMessage?.timestamp);
+      return bTime - aTime;
+    }) : [];
+  }, [conversations]);
   return /*#__PURE__*/React__default["default"].createElement(ListWrapper, null, sortedConversations.map(conversation => /*#__PURE__*/React__default["default"].createElement(ConversationItem, {
     key: conversation.id,
     conversation: conversation,
-    currentUser: currentUser
+    currentUser: currentUser,
+    participantsData: participantsData
   })));
 };
 

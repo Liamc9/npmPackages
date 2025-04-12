@@ -8,7 +8,7 @@ const ListWrapper = styled.div`
 `;
 
 const ConversationList = ({ conversations, currentUser, participantsData }) => {
-  // Helper to extract time in milliseconds from a timestamp, handling Firestore or Date objects.
+  // Helper to extract time in milliseconds from various timestamp types.
   const getTime = (timestamp) => {
     if (!timestamp) return 0;
     if (timestamp.toMillis) return timestamp.toMillis();
@@ -16,7 +16,7 @@ const ConversationList = ({ conversations, currentUser, participantsData }) => {
     return new Date(timestamp).getTime();
   };
 
-  // Sort conversations by lastMessage.timestamp (most recent first)
+  // Sort conversations by their lastMessage timestamp, descending.
   const sortedConversations = useMemo(() => {
     return conversations
       ? [...conversations].sort((a, b) => {
@@ -30,11 +30,11 @@ const ConversationList = ({ conversations, currentUser, participantsData }) => {
   return (
     <ListWrapper>
       {sortedConversations.map((conversation) => (
-        <ConversationItem 
-          key={conversation.id} 
-          conversation={conversation} 
+        <ConversationItem
+          key={conversation.id}
+          conversation={conversation}
           currentUser={currentUser}
-          participantsData={participantsData}
+          participantsData={participantsData}  // Pass participantsData
         />
       ))}
     </ListWrapper>

@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// === Styled Components ===
 const ItemWrapper = styled(Link)`
   display: flex;
   align-items: center;
@@ -59,27 +58,25 @@ const LastMessage = styled.span`
   max-width: 80%;
 `;
 
-// === Helper ===
+// Helper to display a "time ago" format
 const formatTimestamp = (timestamp) => {
   if (!timestamp) return '';
   const messageDate = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
   const now = new Date();
   const daysDiff = Math.floor(
-    (now.setHours(0, 0, 0, 0) - messageDate.setHours(0, 0, 0, 0)) /
-      (1000 * 60 * 60 * 24)
+    (now.setHours(0, 0, 0, 0) - messageDate.setHours(0, 0, 0, 0)) / (1000 * 60 * 60 * 24)
   );
   if (daysDiff === 0) return 'Today';
   if (daysDiff === 1) return 'Yesterday';
   return `${daysDiff} days ago`;
 };
 
-// === Main Component ===
 const ConversationItem = ({ conversation, currentUser, participantsData }) => {
-  // Get the other participant's UID from the participantUIDs array.
+  // Identify the other participant’s UID
   const otherUID = conversation.participantUIDs.find(uid => uid !== currentUser.uid);
-  // Lookup the "other" participant's full details from participantsData.
+  // Look up the other participant’s profile from participantsData
   const other = participantsData && participantsData[otherUID] ? participantsData[otherUID] : {};
-  
+
   return (
     <ItemWrapper to={`/conversation/${conversation.id}`}>
       <ProfilePic
