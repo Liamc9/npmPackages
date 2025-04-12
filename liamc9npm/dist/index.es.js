@@ -8814,37 +8814,36 @@ const ProfilePic$2 = styled.img`
 const Chat = ({
   initialConversation,
   currentUser,
-  userData,
+  participantsData,
+  // Object mapping user IDs to detailed user profiles.
   onSendMessage,
-  // External callback to update the messages array in the DB.
+  // External callback to update messages in the database.
   newMessage,
-  // External newMessage state
+  // External newMessage state.
   setNewMessage,
-  // External setNewMessage function
-  messagesEndRef // Ref for scrolling
+  // External setNewMessage function.
+  messagesEndRef // Ref for scrolling.
 }) => {
-  // Maintain a local conversation state initialized with the data from Firestore.
+  // Local conversation state, initialized with data from Firestore.
   const [conversation, setConversation] = useState(initialConversation || {
     participants: [],
     messages: []
   });
 
-  // Update local conversation state when the initial conversation changes.
+  // Update local conversation state when initialConversation changes.
   useEffect(() => {
     if (initialConversation) {
       setConversation(initialConversation);
     }
   }, [initialConversation]);
 
-  // Create a map for quick lookup of participant data.
+  // Build a participant map from the provided participantsData.
+  // This map is used for a quick lookup of user details for any given userId.
   const participantMap = useMemo(() => {
-    return (conversation.participants || []).reduce((map, participant) => {
-      map[participant.uid] = participant;
-      return map;
-    }, {});
-  }, [conversation]);
+    return participantsData || {};
+  }, [participantsData]);
 
-  // Scroll to the bottom when messages change.
+  // Scroll to the bottom when new messages arrive.
   useEffect(() => {
     messagesEndRef?.current?.scrollIntoView({
       behavior: 'smooth'
@@ -8855,14 +8854,14 @@ const Chat = ({
   const handleSendMessageInternal = () => {
     if (!newMessage.trim()) return;
 
-    // Construct the message object, matching the structure stored in the db.
+    // Create a new message object.
     const message = {
       localTimestamp: Date.now().toString(),
       sender: currentUser.uid,
       text: newMessage
     };
 
-    // If onSendMessage prop is provided, use it (i.e., update the Firestore document).
+    // If an external onSendMessage callback is provided, use it.
     if (typeof onSendMessage === 'function') {
       onSendMessage(message);
     } else {
@@ -8877,8 +8876,11 @@ const Chat = ({
   if (!conversation) {
     return /*#__PURE__*/React.createElement(LoadingMessage, null, "Loading conversation...");
   }
+
+  // Render individual message.
   const renderMessage = message => {
     const isSent = message.sender === currentUser.uid;
+    // Look up sender details from the participantsData map.
     const sender = participantMap[message.sender];
     const formattedTime = new Date(parseInt(message.localTimestamp, 10)).toLocaleTimeString([], {
       hour: '2-digit',
@@ -8890,8 +8892,8 @@ const Chat = ({
     }, !isSent && sender && /*#__PURE__*/React.createElement(Avatar, {
       sent: isSent
     }, /*#__PURE__*/React.createElement(ProfilePic$2, {
-      src: sender.avatarUrl || defaultAvatarURL,
-      alt: sender.name || 'Sender',
+      src: sender.photoURL || defaultAvatarURL,
+      alt: sender.displayName || 'Sender',
       size: "30px"
     })), /*#__PURE__*/React.createElement(MessageContent, {
       sent: isSent
@@ -8902,8 +8904,8 @@ const Chat = ({
     }, formattedTime)), isSent && /*#__PURE__*/React.createElement(Avatar, {
       sent: isSent
     }, /*#__PURE__*/React.createElement(ProfilePic$2, {
-      src: userData.photoURL || defaultAvatarURL,
-      alt: "You",
+      src: participantMap[currentUser.uid] && participantMap[currentUser.uid].photoURL || defaultAvatarURL,
+      alt: participantMap[currentUser.uid] && participantMap[currentUser.uid].displayName || 'You',
       size: "30px"
     })));
   };

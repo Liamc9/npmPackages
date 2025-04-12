@@ -119,8 +119,8 @@ const ProfilePic = styled.img`
 const Chat = ({
   initialConversation,
   currentUser,
-  participantsData,  // Object mapping user IDs to detailed user profiles.
-  onSendMessage,     // External callback to update messages in the database.
+  participantsData,  // Detailed mapping of user IDs to profiles.
+  onSendMessage,     // External callback to update messages in the DB.
   newMessage,        // External newMessage state.
   setNewMessage,     // External setNewMessage function.
   messagesEndRef     // Ref for scrolling.
@@ -137,8 +137,7 @@ const Chat = ({
     }
   }, [initialConversation]);
 
-  // Build a participant map from the provided participantsData.
-  // This map is used for a quick lookup of user details for any given userId.
+  // Build a participant map from the provided participantsData for a fast lookup.
   const participantMap = useMemo(() => {
     return participantsData || {};
   }, [participantsData]);
@@ -152,18 +151,16 @@ const Chat = ({
   const handleSendMessageInternal = () => {
     if (!newMessage.trim()) return;
 
-    // Create a new message object.
+    // Construct a new message using currentUser.uid
     const message = {
       localTimestamp: Date.now().toString(),
       sender: currentUser.uid,
       text: newMessage,
     };
 
-    // If an external onSendMessage callback is provided, use it.
     if (typeof onSendMessage === 'function') {
       onSendMessage(message);
     } else {
-      // Otherwise, update the local conversation state.
       setConversation(prev => ({
         ...prev,
         messages: [...(prev.messages || []), message],
@@ -176,10 +173,10 @@ const Chat = ({
     return <LoadingMessage>Loading conversation...</LoadingMessage>;
   }
 
-  // Render individual message.
+  // Render a single message.
   const renderMessage = (message) => {
     const isSent = message.sender === currentUser.uid;
-    // Look up sender details from the participantsData map.
+    // Use the participantMap to obtain the sender's profile data.
     const sender = participantMap[message.sender];
     const formattedTime = new Date(parseInt(message.localTimestamp, 10)).toLocaleTimeString([], {
       hour: '2-digit',
@@ -187,7 +184,7 @@ const Chat = ({
     });
     return (
       <MessageContainer key={message.localTimestamp + message.sender} sent={isSent}>
-        {/* For received messages, use the sender info from participantsData */}
+        {/* Display avatar for received messages */}
         {!isSent && sender && (
           <Avatar sent={isSent}>
             <ProfilePic
@@ -203,12 +200,14 @@ const Chat = ({
           </MessageBubble>
           <MessageTimestamp sent={isSent}>{formattedTime}</MessageTimestamp>
         </MessageContent>
-        {/* For sent messages, also look up the sender info from participantsData */}
+        {/* Display avatar for sent messages */}
         {isSent && (
           <Avatar sent={isSent}>
             <ProfilePic
-              src={(participantMap[currentUser.uid] && participantMap[currentUser.uid].photoURL) || defaultAvatarURL}
-              alt={(participantMap[currentUser.uid] && participantMap[currentUser.uid].displayName) || 'You'}
+              src={(participantMap[currentUser.uid] &&
+                      participantMap[currentUser.uid].photoURL) || defaultAvatarURL}
+              alt={(participantMap[currentUser.uid] &&
+                      participantMap[currentUser.uid].displayName) || 'You'}
               size="30px"
             />
           </Avatar>
