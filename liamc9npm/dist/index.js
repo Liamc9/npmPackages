@@ -8954,32 +8954,30 @@ const CheckboxWrapper$1 = styled__default["default"].div`
   align-items: center;
   margin-bottom: 1rem;
 `;
-const StyledInput$7 = styled__default["default"].input`
+const StyledInput$6 = styled__default["default"].input`
   margin-right: 0.5rem;
   width: 1rem;
   height: 1rem;
 `;
-const StyledLabel$9 = styled__default["default"].label`
+const StyledLabel$8 = styled__default["default"].label`
   font-size: 1rem;
   color: #333;
 `;
 
 // Checkbox Component
 const Checkbox$1 = ({
-  label,
   ...props
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(CheckboxWrapper$1, {
     gridSpan: props.gridSpan
-  }, /*#__PURE__*/React__default["default"].createElement(StyledInput$7, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(StyledInput$6, _extends({
     type: "checkbox"
-  }, props)), label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$9, {
+  }, props)), props.label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$8, {
     htmlFor: props.id
-  }, label));
+  }, props.label));
 };
 
 const Checkbox2 = ({
-  label,
   ...props
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(StyledWrapper$e, {
@@ -9110,7 +9108,6 @@ const StyledWrapper$e = styled__default["default"].div`
   }`;
 
 const Checkbox3 = ({
-  label,
   ...props
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(StyledWrapper$d, {
@@ -9268,26 +9265,18 @@ const StyledSpan = styled__default["default"].span`
   > span {
     transition: all 0.2s ease-in-out;
     text-align: center;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
   }
 `;
-
-// Component
 const CheckedItem = ({
   label,
   svg,
-  onChange,
-  checked,
   height = "7rem",
   width = "7rem",
   color = "#3b82f6",
-  required
+  ...props
 }) => {
-  return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(Label$4, null, /*#__PURE__*/React__default["default"].createElement(HiddenCheckbox, {
-    onChange: onChange,
-    checked: checked,
-    required: required
-  }), /*#__PURE__*/React__default["default"].createElement(StyledSpan, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(Label$4, null, /*#__PURE__*/React__default["default"].createElement(HiddenCheckbox, props), /*#__PURE__*/React__default["default"].createElement(StyledSpan, {
     height: height,
     width: width,
     color: color
@@ -9313,13 +9302,12 @@ const ColorInput = styled__default["default"].input`
   cursor: pointer;
 `;
 const ColorPicker = ({
-  label,
   ...props
 }) => /*#__PURE__*/React__default["default"].createElement(ColorPickerWrapper, {
   gridSpan: props.gridSpan
 }, /*#__PURE__*/React__default["default"].createElement(Label$3, {
   htmlFor: props.id
-}, label), /*#__PURE__*/React__default["default"].createElement(ColorInput, _extends({
+}, props.label), /*#__PURE__*/React__default["default"].createElement(ColorInput, _extends({
   type: "color"
 }, props)));
 
@@ -9851,12 +9839,12 @@ const DateInputWrapper = styled__default["default"].div`
   flex-direction: column;
   margin-bottom: 1rem;
 `;
-const StyledLabel$8 = styled__default["default"].label`
+const StyledLabel$7 = styled__default["default"].label`
   margin-bottom: 0.5rem;
   font-size: 1rem;
   color: #333;
 `;
-const StyledInput$6 = styled__default["default"].input`
+const StyledInput$5 = styled__default["default"].input`
   padding: 0.75rem 1rem;
   border: 2px solid #ddd;
   border-radius: 8px;
@@ -9881,14 +9869,13 @@ const DateInput = ({
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(DateInputWrapper, {
     gridSpan: props.gridSpan
-  }, label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$8, {
+  }, label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$7, {
     htmlFor: props.id
-  }, label), /*#__PURE__*/React__default["default"].createElement(StyledInput$6, _extends({
+  }, label), /*#__PURE__*/React__default["default"].createElement(StyledInput$5, _extends({
     type: "date"
   }, props)));
 };
 
-// DateTimeLocalInput.jsx
 const DateTimeWrapper = styled__default["default"].div`
       grid-column: ${props => props.gridSpan || 'auto'};
 
@@ -9917,51 +9904,15 @@ const DateTimeInput = styled__default["default"].input`
   }
 `;
 const DateTimeLocalInput = ({
-  label,
-  name,
-  value,
-  onChange,
-  min,
-  max,
-  required,
-  disabled,
-  className,
   ...props
 }) => /*#__PURE__*/React__default["default"].createElement(DateTimeWrapper, {
   gridSpan: props.gridSpan,
-  className: className
+  className: props.className
 }, /*#__PURE__*/React__default["default"].createElement(Label$2, {
-  htmlFor: name
-}, label), /*#__PURE__*/React__default["default"].createElement(DateTimeInput, {
-  type: "datetime-local",
-  id: name,
-  name: name,
-  value: value,
-  onChange: e => onChange(e),
-  min: min,
-  max: max,
-  required: required,
-  disabled: disabled
-}));
-DateTimeLocalInput.propTypes = {
-  label: PropTypes__default["default"].string.isRequired,
-  name: PropTypes__default["default"].string.isRequired,
-  value: PropTypes__default["default"].string.isRequired,
-  // Format: YYYY-MM-DDThh:mm
-  onChange: PropTypes__default["default"].func.isRequired,
-  min: PropTypes__default["default"].string,
-  max: PropTypes__default["default"].string,
-  required: PropTypes__default["default"].bool,
-  disabled: PropTypes__default["default"].bool,
-  className: PropTypes__default["default"].string
-};
-DateTimeLocalInput.defaultProps = {
-  min: undefined,
-  max: undefined,
-  required: false,
-  disabled: false,
-  className: ''
-};
+  htmlFor: props.name
+}, props.label), /*#__PURE__*/React__default["default"].createElement(DateTimeInput, _extends({
+  type: "datetime-local"
+}, props)));
 
 const fadeIn$1 = styled.keyframes`
   from {
@@ -11591,6 +11542,7 @@ const SelectField = ({
   })));
 };
 
+// ToggleSwitch.jsx
 const ToggleWrapper = styled__default["default"].div`
   display: flex;
   align-items: center;
@@ -11646,16 +11598,10 @@ const ToggleInput = styled__default["default"].input.attrs({
   }
 `;
 const ToggleSwitch = ({
-  label,
-  activeColor,
-  size,
   ...props
-}) => /*#__PURE__*/React__default["default"].createElement(ToggleWrapper, null, /*#__PURE__*/React__default["default"].createElement(ToggleInput, _extends({
-  activeColor: activeColor,
-  size: size
-}, props)), label && /*#__PURE__*/React__default["default"].createElement(ToggleLabel, {
+}) => /*#__PURE__*/React__default["default"].createElement(ToggleWrapper, null, /*#__PURE__*/React__default["default"].createElement(ToggleInput, props), props.label && /*#__PURE__*/React__default["default"].createElement(ToggleLabel, {
   htmlFor: props.id
-}, label));
+}, props.label));
 
 const FieldContainer$1 = styled__default["default"].div`
   display: flex;
@@ -12130,12 +12076,12 @@ const FileInputWrapper = styled__default["default"].div`
   flex-direction: column;
   margin-bottom: 1rem;
 `;
-const StyledLabel$7 = styled__default["default"].label`
+const StyledLabel$6 = styled__default["default"].label`
   margin-bottom: 0.5rem;
   font-size: 1rem;
   color: #333;
 `;
-const StyledInput$5 = styled__default["default"].input`
+const StyledInput$4 = styled__default["default"].input`
   padding: 0.5rem 1rem;
   border: 2px dashed #ddd;
   border-radius: 8px;
@@ -12156,14 +12102,13 @@ const StyledInput$5 = styled__default["default"].input`
 
 // FileInput Component
 const FileInput = ({
-  label,
   ...props
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(FileInputWrapper, {
     gridSpan: props.gridSpan
-  }, label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$7, {
+  }, props.label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$6, {
     htmlFor: props.id
-  }, label), /*#__PURE__*/React__default["default"].createElement(StyledInput$5, _extends({
+  }, props.label), /*#__PURE__*/React__default["default"].createElement(StyledInput$4, _extends({
     type: "file"
   }, props)));
 };
@@ -12248,14 +12193,6 @@ const StyledWrapper$b = styled__default["default"].div`
     display: none;
   }`;
 
-/**
- * FileUpload allows users to upload files.
- *
- * @component
- * @param {Object} props
- * @param {function} props.onFileUpload - Callback function when a file is selected.
- * @returns {JSX.Element}
- */
 const FileUpload = ({
   onFileUpload
 }) => {
@@ -12428,7 +12365,6 @@ const RangeSlider = ({
   valuePrefix = "",
   valueSuffix = "",
   value,
-  // receive value as prop
   onChange
 }) => {
   const [range, setRange] = React.useState(value || [min, max]);
@@ -12505,7 +12441,7 @@ const StyledSelect$2 = styled__default["default"].select`
   value
 }) => value ? '#000' : '#6B7280'}; /* Default placeholder style */
 `;
-const StyledLabel$6 = styled__default["default"].label`
+const StyledLabel$5 = styled__default["default"].label`
   position: absolute;
   left: 0;
   margin: 0.25rem;
@@ -12563,7 +12499,7 @@ const SelectInput = ({
   }), options.map(option => /*#__PURE__*/React__default["default"].createElement("option", {
     key: option.value,
     value: option.value
-  }, option.label))), /*#__PURE__*/React__default["default"].createElement(StyledLabel$6, {
+  }, option.label))), /*#__PURE__*/React__default["default"].createElement(StyledLabel$5, {
     htmlFor: name,
     isFocused: isFocused,
     color: color,
@@ -13603,7 +13539,7 @@ const sharedInputStyles = styled.css`
   outline: none;
   transition: border-color 0.3s ease-in-out;
 `;
-const StyledInput$4 = styled__default["default"].input`
+const StyledInput$3 = styled__default["default"].input`
   ${sharedInputStyles}
   border-color: ${({
   isFocused,
@@ -13620,7 +13556,7 @@ const StyledTextarea = styled__default["default"].textarea`
   minHeight
 }) => minHeight || 'auto'};  /* Use provided minHeight or default */
 `;
-const StyledLabel$5 = styled__default["default"].label`
+const StyledLabel$4 = styled__default["default"].label`
   position: absolute;
   left: 0;
   margin: 0.25rem;
@@ -13662,7 +13598,7 @@ const Input$1 = ({
     isFocused: isFocused,
     color: color,
     minHeight: minHeight // Pass the minHeight prop
-  }) : /*#__PURE__*/React__default["default"].createElement(StyledInput$4, {
+  }) : /*#__PURE__*/React__default["default"].createElement(StyledInput$3, {
     name: name,
     id: name,
     type: type,
@@ -13674,7 +13610,7 @@ const Input$1 = ({
     isFocused: isFocused,
     color: color
   });
-  return /*#__PURE__*/React__default["default"].createElement(InputContainer$1, null, inputElement, /*#__PURE__*/React__default["default"].createElement(StyledLabel$5, {
+  return /*#__PURE__*/React__default["default"].createElement(InputContainer$1, null, inputElement, /*#__PURE__*/React__default["default"].createElement(StyledLabel$4, {
     htmlFor: name,
     isFocused: isFocused,
     color: color,
@@ -16211,12 +16147,12 @@ const InputWrapper$2 = styled__default["default"].div`
   margin-bottom: 1rem;
     grid-column: ${props => props.gridSpan || 'auto'};
 `;
-const StyledLabel$4 = styled__default["default"].label`
+const StyledLabel$3 = styled__default["default"].label`
   margin-bottom: 0.5rem;
   font-size: 1rem;
   color: #333;
 `;
-const StyledInput$3 = styled__default["default"].input`
+const StyledInput$2 = styled__default["default"].input`
   padding: 0.75rem 1rem;
   border: 2px solid #ddd;
   border-radius: 8px;
@@ -16240,9 +16176,9 @@ const TextInput = ({
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(InputWrapper$2, {
     gridSpan: props.gridSpan
-  }, props.label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$4, {
+  }, props.label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$3, {
     htmlFor: props.id
-  }, props.label), /*#__PURE__*/React__default["default"].createElement(StyledInput$3, props));
+  }, props.label), /*#__PURE__*/React__default["default"].createElement(StyledInput$2, props));
 };
 
 // Styled Components
@@ -16253,12 +16189,12 @@ const RangeInputWrapper = styled__default["default"].div`
   flex-direction: column;
   margin-bottom: 1rem;
 `;
-const StyledLabel$3 = styled__default["default"].label`
+const StyledLabel$2 = styled__default["default"].label`
   margin-bottom: 0.5rem;
   font-size: 1rem;
   color: #333;
 `;
-const StyledInput$2 = styled__default["default"].input`
+const StyledInput$1 = styled__default["default"].input`
   width: 100%;
   -webkit-appearance: none;
   height: 8px;
@@ -16298,14 +16234,13 @@ const StyledInput$2 = styled__default["default"].input`
 
 // RangeInput Component
 const RangeInput = ({
-  label,
   ...props
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(RangeInputWrapper, {
     gridSpan: props.gridSpan
-  }, label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$3, {
+  }, props.label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$2, {
     htmlFor: props.id
-  }, label), /*#__PURE__*/React__default["default"].createElement(StyledInput$2, _extends({
+  }, props.label), /*#__PURE__*/React__default["default"].createElement(StyledInput$1, _extends({
     type: "range"
   }, props)));
 };
@@ -16558,7 +16493,6 @@ const StyledWrapper$8 = styled__default["default"].div`
   }`;
 
 const RadioButtons2 = ({
-  name,
   options = [],
   ...props
 }) => {
@@ -16576,7 +16510,6 @@ const RadioButtons2 = ({
   }, /*#__PURE__*/React__default["default"].createElement("input", _extends({
     type: "radio",
     id: id,
-    name: name,
     value: value
   }, props)), /*#__PURE__*/React__default["default"].createElement("p", {
     className: "text"
@@ -17857,40 +17790,6 @@ function ProjectCard({
     className: "text-xs md:text-sm text-gray-600 md:mt-2"
   }, description)));
 }
-
-// Styled Components
-const RadioWrapper = styled__default["default"].div`
-      grid-column: ${props => props.gridSpan || 'auto'};
-
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-`;
-const StyledInput$1 = styled__default["default"].input`
-  margin-right: 0.5rem;
-  width: 1rem;
-  height: 1rem;
-`;
-const StyledLabel$2 = styled__default["default"].label`
-  font-size: 1rem;
-  color: #333;
-`;
-
-// RadioButtons Component
-const RadioButtons = ({
-  label,
-  name,
-  ...props
-}) => {
-  return /*#__PURE__*/React__default["default"].createElement(RadioWrapper, {
-    gridSpan: props.gridSpan
-  }, /*#__PURE__*/React__default["default"].createElement(StyledInput$1, _extends({
-    type: "radio",
-    name: name
-  }, props)), label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$2, {
-    htmlFor: props.id
-  }, label));
-};
 
 const RangeInput2 = ({
   ...props
@@ -20937,8 +20836,8 @@ const SelectToTextInput = ({
     disabled: true
   }, "Select an option"), options.map((option, index) => /*#__PURE__*/React__default["default"].createElement("option", {
     key: index,
-    value: option
-  }, option))) : /*#__PURE__*/React__default["default"].createElement("input", {
+    value: option.value
+  }, option.label))) : /*#__PURE__*/React__default["default"].createElement("input", {
     type: "text",
     value: selectedValue,
     onChange: handleInputChange
@@ -22023,7 +21922,6 @@ const StyledWrapper$2 = styled__default["default"].div`
    color: #2196f3;
   }`;
 
-// TimeInput.jsx
 const InputWrapper = styled__default["default"].div`
       grid-column: ${props => props.gridSpan || 'auto'};
 
@@ -22047,67 +21945,15 @@ const Input = styled__default["default"].input`
   }
 `;
 const TimeInput = ({
-  label,
-  name,
-  value,
-  onChange,
-  placeholder,
-  required,
-  disabled,
-  min,
-  max,
-  step,
-  autoFocus,
-  readOnly,
-  className,
   ...props
 }) => /*#__PURE__*/React__default["default"].createElement(InputWrapper, {
-  className: className,
+  className: props.className,
   gridSpan: props.gridSpan
 }, /*#__PURE__*/React__default["default"].createElement(Label, {
-  htmlFor: name
-}, label), /*#__PURE__*/React__default["default"].createElement(Input, {
-  type: "time",
-  id: name,
-  name: name,
-  value: value,
-  onChange: e => onChange(e),
-  placeholder: placeholder,
-  required: required,
-  disabled: disabled,
-  min: min,
-  max: max,
-  step: step,
-  autoFocus: autoFocus,
-  readOnly: readOnly
-}));
-TimeInput.propTypes = {
-  label: PropTypes__default["default"].string.isRequired,
-  name: PropTypes__default["default"].string.isRequired,
-  value: PropTypes__default["default"].string.isRequired,
-  // Format: HH:MM or HH:MM:SS
-  onChange: PropTypes__default["default"].func.isRequired,
-  placeholder: PropTypes__default["default"].string,
-  required: PropTypes__default["default"].bool,
-  disabled: PropTypes__default["default"].bool,
-  min: PropTypes__default["default"].string,
-  max: PropTypes__default["default"].string,
-  step: PropTypes__default["default"].number,
-  autoFocus: PropTypes__default["default"].bool,
-  readOnly: PropTypes__default["default"].bool,
-  className: PropTypes__default["default"].string
-};
-TimeInput.defaultProps = {
-  placeholder: '',
-  required: false,
-  disabled: false,
-  min: undefined,
-  max: undefined,
-  step: undefined,
-  autoFocus: false,
-  readOnly: false,
-  className: ''
-};
+  htmlFor: props.name
+}, props.label), /*#__PURE__*/React__default["default"].createElement(Input, _extends({
+  type: "time"
+}, props)));
 
 // ToastMessage Component
 const ToastMessage = () => {
@@ -22936,7 +22782,6 @@ exports.PortfolioMainSlider = PortfolioMainSlider;
 exports.PrivacyAndSecurity = PrivacyAndSecurity;
 exports.ProgressBar = ProgressBar;
 exports.ProjectCard = ProjectCard;
-exports.RadioButtons = RadioButtons;
 exports.RadioButtons2 = RadioButtons2;
 exports.RangeInput = RangeInput;
 exports.RangeInput2 = RangeInput2;
