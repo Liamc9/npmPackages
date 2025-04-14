@@ -92,7 +92,7 @@ const RangeSlider = ({
   label = "Range",
   valuePrefix = "",
   valueSuffix = "",
-  value,   // receive value as prop
+  value,
   onChange,
 }) => {
   const [range, setRange] = useState(value || [min, max]);

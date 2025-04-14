@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import PropTypes from "prop-types";
 
 // Styled Components
 
@@ -92,25 +91,22 @@ const StyledSpan = styled.span`
   > span {
     transition: all 0.2s ease-in-out;
     text-align: center;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
   }
 `;
 
-// Component
 const CheckedItem = ({
   label,
   svg,
-  onChange,
-  checked,
   height = "7rem",
   width = "7rem",
   color = "#3b82f6",
-  required,
+  ...props
 }) => {
   return (
     <Container>
       <Label>
-        <HiddenCheckbox onChange={onChange} checked={checked} required={required} />
+        <HiddenCheckbox {...props} />
         <StyledSpan height={height} width={width} color={color}>
           <span>{svg}</span>
           <span>{label}</span>
@@ -119,6 +115,5 @@ const CheckedItem = ({
     </Container>
   );
 };
-
 
 export default CheckedItem;

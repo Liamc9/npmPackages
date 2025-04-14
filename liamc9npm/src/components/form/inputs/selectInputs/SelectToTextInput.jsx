@@ -21,8 +21,8 @@ const SelectToTextInput = ({ options }) => {
             Select an option
           </option>
           {options.map((option, index) => (
-            <option key={index} value={option}>
-              {option}
+            <option key={index} value={option.value}>
+              {option.label}
             </option>
           ))}
         </select>

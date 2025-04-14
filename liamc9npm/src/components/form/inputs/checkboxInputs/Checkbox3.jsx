@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Checkbox3 = ({ label, ...props }) => {
+const Checkbox3 = ({ ...props }) => {
   return (
     <StyledWrapper gridSpan={props.gridSpan}>
       <label className="container">

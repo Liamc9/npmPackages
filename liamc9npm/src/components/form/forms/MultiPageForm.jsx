@@ -2,16 +2,12 @@
 import React from "react";
 import styled from "styled-components";
 import FormLogic from "./FormLogic";
-
-// Import input components
 import TextInput from "../inputs/textInputs/TextInput";
 import ColorPicker from "../inputs/colorPickers/ColorPicker";
 import RangeInput from "../inputs/rangeInputs/RangeInput";
 import Checkbox3 from "../inputs/checkboxInputs/Checkbox3";
 import ToggleSwitch2 from "../inputs/toggleSwitches/ToggleSwitch2";
 import RadioButtons2 from "../inputs/radioInputs/RadioButtons2";
-
-// Import button components
 import SubmitButton from "../inputs/formButtons/SubmitButton";
 import ResetButton from "../inputs/formButtons/ResetButton";
 

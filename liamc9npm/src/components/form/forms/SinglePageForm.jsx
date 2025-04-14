@@ -114,7 +114,7 @@ export default function SinglePageForm({
             max={5}
             required
           />
-          <TextInput4 gridSpan='span 2'/>
+          <TextInput4 gridSpan="span 2" />
           <ButtonContainer>
             <ResetButton>Reset</ResetButton>
             <SubmitButton>Submit</SubmitButton>

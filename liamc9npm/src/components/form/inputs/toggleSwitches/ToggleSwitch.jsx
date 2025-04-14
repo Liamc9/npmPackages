@@ -58,10 +58,10 @@ const ToggleInput = styled.input.attrs({ type: 'checkbox' })`
   }
 `;
 
-const ToggleSwitch = ({ label, activeColor, size, ...props }) => (
+const ToggleSwitch = ({ ...props }) => (
   <ToggleWrapper>
-    <ToggleInput activeColor={activeColor} size={size} {...props} />
-    {label && <ToggleLabel htmlFor={props.id}>{label}</ToggleLabel>}
+    <ToggleInput {...props} />
+    {props.label && <ToggleLabel htmlFor={props.id}>{props.label}</ToggleLabel>}
   </ToggleWrapper>
 );
 

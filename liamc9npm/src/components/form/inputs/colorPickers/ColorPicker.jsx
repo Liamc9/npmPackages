@@ -1,6 +1,5 @@
 // ColorPicker.jsx
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ColorPickerWrapper = styled.div`
@@ -24,9 +23,9 @@ const ColorInput = styled.input`
   cursor: pointer;
 `;
 
-const ColorPicker = ({ label, ...props }) => (
+const ColorPicker = ({ ...props }) => (
   <ColorPickerWrapper gridSpan={props.gridSpan}>
-    <Label htmlFor={props.id}>{label}</Label>
+    <Label htmlFor={props.id}>{props.label}</Label>
     <ColorInput type="color" {...props}     />
   </ColorPickerWrapper>
 );

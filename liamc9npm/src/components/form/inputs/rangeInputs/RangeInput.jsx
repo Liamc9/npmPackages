@@ -56,10 +56,10 @@ const StyledInput = styled.input`
 `;
 
 // RangeInput Component
-const RangeInput = ({ label, ...props }) => {
+const RangeInput = ({ ...props }) => {
   return (
     <RangeInputWrapper gridSpan={props.gridSpan}>
-      {label && <StyledLabel htmlFor={props.id}>{label}</StyledLabel>}
+      {props.label && <StyledLabel htmlFor={props.id}>{props.label}</StyledLabel>}
       <StyledInput type="range" {...props} />
     </RangeInputWrapper>
   );

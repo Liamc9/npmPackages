@@ -23,11 +23,11 @@ const StyledLabel = styled.label`
 `;
 
 // Checkbox Component
-const Checkbox = ({ label, ...props }) => {
+const Checkbox = ({ ...props }) => {
   return (
     <CheckboxWrapper gridSpan={props.gridSpan}>
       <StyledInput type="checkbox" {...props} />
-      {label && <StyledLabel htmlFor={props.id}>{label}</StyledLabel>}
+      {props.label && <StyledLabel htmlFor={props.id}>{props.label}</StyledLabel>}
     </CheckboxWrapper>
   );
 };

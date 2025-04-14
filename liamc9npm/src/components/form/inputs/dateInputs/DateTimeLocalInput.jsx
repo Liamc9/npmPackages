@@ -1,6 +1,5 @@
 // DateTimeLocalInput.jsx
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const DateTimeWrapper = styled.div`
@@ -34,51 +33,15 @@ const DateTimeInput = styled.input`
 `;
 
 const DateTimeLocalInput = ({
-  label,
-  name,
-  value,
-  onChange,
-  min,
-  max,
-  required,
-  disabled,
-  className,
   ...props
 }) => (
-  <DateTimeWrapper gridSpan={props.gridSpan} className={className}>
-    <Label htmlFor={name}>{label}</Label>
+  <DateTimeWrapper gridSpan={props.gridSpan} className={props.className}>
+    <Label htmlFor={props.name}>{props.label}</Label>
     <DateTimeInput
       type="datetime-local"
-      id={name}
-      name={name}
-      value={value}
-      onChange={(e) => onChange(e)}
-      min={min}
-      max={max}
-      required={required}
-      disabled={disabled}
+      {...props}
     />
   </DateTimeWrapper>
 );
-
-DateTimeLocalInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired, // Format: YYYY-MM-DDThh:mm
-  onChange: PropTypes.func.isRequired,
-  min: PropTypes.string,
-  max: PropTypes.string,
-  required: PropTypes.bool,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-};
-
-DateTimeLocalInput.defaultProps = {
-  min: undefined,
-  max: undefined,
-  required: false,
-  disabled: false,
-  className: '',
-};
 
 export default DateTimeLocalInput;

@@ -84,7 +84,6 @@ export { default as PortfolioMainSlider } from './components/projects/portfolio/
 export { default as PrivacyAndSecurity } from './components/pages/account/PrivacyAndSecurity';
 export { default as ProgressBar } from './components/atoms/other/ProgressBar';
 export { default as ProjectCard } from './components/atoms/cards/ProjectCard';
-export { default as RadioButtons } from './components/form/inputs/radioInputs/RadioButtons';
 export { default as RadioButtons2 } from './components/form/inputs/radioInputs/RadioButtons2';
 export { default as RangeInput } from './components/form/inputs/rangeInputs/RangeInput';
 export { default as RangeInput2 } from './components/form/inputs/rangeInputs/RangeInput2';

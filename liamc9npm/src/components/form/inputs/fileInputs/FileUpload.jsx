@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
 
-/**
- * FileUpload allows users to upload files.
- *
- * @component
- * @param {Object} props
- * @param {function} props.onFileUpload - Callback function when a file is selected.
- * @returns {JSX.Element}
- */
 const FileUpload = ({ onFileUpload }) => {
   const [selectedFile, setSelectedFile] = useState(null);
 

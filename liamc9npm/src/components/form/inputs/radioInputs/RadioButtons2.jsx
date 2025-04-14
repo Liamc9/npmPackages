@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const RadioButtons2 = ({ name, options = [], ...props }) => {
+const RadioButtons2 = ({ options = [], ...props }) => {
   return (
     <StyledWrapper gridSpan={props.gridSpan}>
       <div className="radio-input">
@@ -11,9 +11,8 @@ const RadioButtons2 = ({ name, options = [], ...props }) => {
             <input
               type="radio"
               id={id}
-              name={name}
               value={value} 
-              {...props} // FormLogic will inject "checked" + "onChange"
+              {...props} 
             />
             <p className="text">{label}</p>
           </label>

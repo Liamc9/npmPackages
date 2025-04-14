@@ -37,10 +37,10 @@ const StyledInput = styled.input`
 `;
 
 // FileInput Component
-const FileInput = ({ label, ...props }) => {
+const FileInput = ({ ...props }) => {
   return (
     <FileInputWrapper gridSpan={props.gridSpan}>
-      {label && <StyledLabel htmlFor={props.id}>{label}</StyledLabel>}
+      {props.label && <StyledLabel htmlFor={props.id}>{props.label}</StyledLabel>}
       <StyledInput type="file" {...props} />
     </FileInputWrapper>
   );
