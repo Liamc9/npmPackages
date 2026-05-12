@@ -1,5 +1,5 @@
 {
-  "name": "liamc9npm",
+  "name": "@liamc9/liamc9npm",
   "version": "2.0.93",
   "description": "A simple React component packaged as an npm module",
   "main": "dist/index.js",
@@ -15,6 +15,13 @@
   ],
   "author": "Your Name",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Liamc9/npmPackages.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
